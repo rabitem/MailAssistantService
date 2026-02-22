@@ -370,15 +370,15 @@ enum AIProvider: String, CaseIterable, Identifiable {
     var apiKeyURL: URL {
         switch self {
         case .kimi:
-            return URL(string: "https://platform.moonshot.cn/console/api-keys")!
+            return URL(string: "https://platform.moonshot.cn/console/api-keys") ?? URL(fileURLWithPath: "")
         case .openai:
-            return URL(string: "https://platform.openai.com/api-keys")!
+            return URL(string: "https://platform.openai.com/api-keys") ?? URL(fileURLWithPath: "")
         case .anthropic:
-            return URL(string: "https://console.anthropic.com/settings/keys")!
+            return URL(string: "https://console.anthropic.com/settings/keys") ?? URL(fileURLWithPath: "")
         case .ollama:
-            return URL(string: "https://ollama.com")!
+            return URL(string: "https://ollama.com") ?? URL(fileURLWithPath: "")
         case .custom:
-            return URL(string: "about:blank")!
+            return URL(string: "about:blank") ?? URL(fileURLWithPath: "")
         }
     }
     
@@ -410,11 +410,13 @@ class KeychainManager {
     private init() {}
     
     func setAPIKey(_ key: String, for provider: AIProvider) {
+        guard let keyData = key.data(using: .utf8) else { return }
+        
         let query: [String: Any] = [
             kSecClass as String: kSecClassGenericPassword,
             kSecAttrAccount as String: "api_key_\(provider.rawValue)",
             kSecAttrService as String: "com.mailassistant.apikeys",
-            kSecValueData as String: key.data(using: .utf8)!
+            kSecValueData as String: keyData
         ]
         
         SecItemDelete(query as CFDictionary)

@@ -586,30 +586,17 @@ public actor FeatureExtractor {
     }
 }
 
-// MARK: - UnicodeScalar Properties Extension
+// MARK: - UnicodeScalar Emoji Detection
 
 private extension UnicodeScalar {
-    var properties: UnicodeScalar.Properties {
-        return UnicodeScalar.Properties(scalar: self)
-    }
-}
-
-private extension UnicodeScalar.Properties {
+    /// Check if this scalar is an emoji
     var isEmoji: Bool {
         // Check if scalar is in emoji ranges
-        let scalar = self.scalar
-        return scalar.value >= 0x1F600 && scalar.value <= 0x1F64F  // Emoticons
-            || scalar.value >= 0x1F300 && scalar.value <= 0x1F5FF  // Misc Symbols and Pictographs
-            || scalar.value >= 0x1F680 && scalar.value <= 0x1F6FF  // Transport and Map
-            || scalar.value >= 0x2600 && scalar.value <= 0x26FF    // Misc symbols
-            || scalar.value >= 0x2700 && scalar.value <= 0x27BF    // Dingbats
-            || scalar.value >= 0x1F900 && scalar.value <= 0x1F9FF  // Supplemental Symbols
-    }
-    
-    var scalar: UnicodeScalar {
-        // Access the underlying scalar value
-        // This is a workaround since we can't directly access the scalar
-        // In practice, we'd need to store the scalar reference
-        return UnicodeScalar(0x00) // Placeholder - proper implementation would store reference
+        return self.value >= 0x1F600 && self.value <= 0x1F64F  // Emoticons
+            || self.value >= 0x1F300 && self.value <= 0x1F5FF  // Misc Symbols and Pictographs
+            || self.value >= 0x1F680 && self.value <= 0x1F6FF  // Transport and Map
+            || self.value >= 0x2600 && self.value <= 0x26FF    // Misc symbols
+            || self.value >= 0x2700 && self.value <= 0x27BF    // Dingbats
+            || self.value >= 0x1F900 && self.value <= 0x1F9FF  // Supplemental Symbols
     }
 }

@@ -17,7 +17,7 @@ class ServiceDelegate: NSObject, NSXPCListenerDelegate {
     
     private let logger = Logger(subsystem: "com.kimimail.assistant.service", category: "ServiceDelegate")
     private let lifecycleManager = LifecycleManager.shared
-n    private var activeConnections: Set<NSXPCConnection> = []
+    private var activeConnections: Set<NSXPCConnection> = []
     private let connectionLock = NSLock()
     
     // MARK: - Initialization

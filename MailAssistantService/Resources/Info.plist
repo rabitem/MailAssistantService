@@ -25,7 +25,7 @@
         <key>ServiceType</key>
         <string>Application</string>
         <key>RunLoopType</key>
-        <string>_NSApplicationMain</string>
+        <string>NSRunLoop</string>
     </dict>
     <key>NSSupportsSuddenTermination</key>
     <false/>

@@ -19,12 +19,22 @@ class ComposeSessionHandler: NSObject, MEComposeSessionHandler {
     
     // MARK: - Initialization
     
+    private var notificationObservers: [NSObjectProtocol] = []
+    
     override init() {
         self.xpcService = XPCServiceConnection.shared.getService() ?? MockXPCService.shared
         self.suggestionViewModel = SuggestionViewModel(xpcService: xpcService)
         self.quickActionsViewModel = QuickActionsViewModel(xpcService: xpcService)
         super.init()
         setupNotificationObservers()
+    }
+    
+    deinit {
+        // Remove all notification observers to prevent memory leaks
+        for observer in notificationObservers {
+            NotificationCenter.default.removeObserver(observer)
+        }
+        notificationObservers.removeAll()
     }
     
     // MARK: - MEComposeSessionHandler
@@ -193,26 +203,32 @@ class ComposeSessionHandler: NSObject, MEComposeSessionHandler {
     // MARK: - Notification Handlers
     
     private func setupNotificationObservers() {
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(handleKeyboardShortcut(_:)),
-            name: .keyboardShortcutGenerate,
-            object: nil
-        )
+        let observer1 = NotificationCenter.default.addObserver(
+            forName: .keyboardShortcutGenerate,
+            object: nil,
+            queue: .main
+        ) { [weak self] notification in
+            self?.handleKeyboardShortcut(notification)
+        }
+        notificationObservers.append(observer1)
         
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(handleShowPanel(_:)),
-            name: .showSuggestionPanel,
-            object: nil
-        )
+        let observer2 = NotificationCenter.default.addObserver(
+            forName: .showSuggestionPanel,
+            object: nil,
+            queue: .main
+        ) { [weak self] notification in
+            self?.handleShowPanel(notification)
+        }
+        notificationObservers.append(observer2)
         
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(handleInsertSuggestion(_:)),
-            name: .insertSuggestion,
-            object: nil
-        )
+        let observer3 = NotificationCenter.default.addObserver(
+            forName: .insertSuggestion,
+            object: nil,
+            queue: .main
+        ) { [weak self] notification in
+            self?.handleInsertSuggestion(notification)
+        }
+        notificationObservers.append(observer3)
     }
     
     @objc private func handleKeyboardShortcut(_ notification: Notification) {

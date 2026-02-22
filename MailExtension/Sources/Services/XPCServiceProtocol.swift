@@ -6,7 +6,7 @@
 import Foundation
 
 /// Protocol for communication with the Mail Assistant XPC Service
-protocol XPCServiceProtocol {
+@objc protocol XPCServiceProtocol {
     /// Generate response suggestions for an email
     func generateResponses(
         request: GenerationRequest,

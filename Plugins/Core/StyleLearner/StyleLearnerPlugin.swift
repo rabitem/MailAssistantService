@@ -261,7 +261,7 @@ public final actor StyleLearnerPlugin: AnalysisPlugin, EventSubscriber {
         isProcessing = false
     }
     
-    private func determineProfileType(for features: [ExtractedFeatures]) -> ProfileType {
+    private func determineProfileType(for features: [ExtractedFeatures]) async -> ProfileType {
         // Analyze aggregated features to determine if this is work or personal
         let aggregated = await styleAnalyzer.getAggregatedFeatures()
         

@@ -13,7 +13,7 @@ struct ImportView: View {
     let onSkip: () -> Void
     
     @State private var importStatus: ImportStatus = .notStarted
-    @State private importProgress: Double = 0
+    @State private var importProgress: Double = 0
     @State private var processedEmails = 0
     @State private var totalEmails = 0
     @State private var importScope: ImportScope = .recent
@@ -128,12 +128,14 @@ struct ImportView: View {
     
     private func simulateImport() {
         Timer.scheduledTimer(withTimeInterval: 0.05, repeats: true) { timer in
-            processedEmails += Int.random(in: 5...20)
-            importProgress = min(Double(processedEmails) / Double(totalEmails), 1.0)
-            
-            if processedEmails >= totalEmails {
-                timer.invalidate()
-                importStatus = .complete
+            Task { @MainActor in
+                processedEmails += Int.random(in: 5...20)
+                importProgress = min(Double(processedEmails) / Double(totalEmails), 1.0)
+                
+                if processedEmails >= totalEmails {
+                    timer.invalidate()
+                    importStatus = .complete
+                }
             }
         }
     }

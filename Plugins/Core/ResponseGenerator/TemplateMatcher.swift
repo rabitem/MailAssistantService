@@ -463,7 +463,7 @@ public struct LearnedPattern: Identifiable, Sendable {
     
     var reliabilityScore: Double {
         let usageWeight = min(Double(usageCount) / 10.0, 1.0)
-        return (successRate ?? 0.5) * usageWeight
+        return successRate * usageWeight
     }
 }
 

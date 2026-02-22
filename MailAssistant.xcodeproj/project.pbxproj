@@ -1,822 +1,1141 @@
 // !$*UTF8*$!
 {
-    archiveVersion = 1;
-    classes = {
-    };
-    objectVersion = 77;
-    objects = {
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
 
 /* Begin PBXAggregateTarget section */
-        A000000000000000000000FF /* MailAssistant-All */ = {
-            isa = PBXAggregateTarget;
-            buildConfigurationList = A00000000000000000000100 /* Build configuration list for PBXAggregateTarget "MailAssistant-All" */;
-            buildPhases = (
-            );
-            dependencies = (
-                A00000000000000000000101 /* PBXTargetDependency */,
-                A00000000000000000000102 /* PBXTargetDependency */,
-                A00000000000000000000103 /* PBXTargetDependency */,
-            );
-            name = "MailAssistant-All";
-            productName = "MailAssistant-All";
-        };
+		A000000000000000000000FF /* MailAssistant-All */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = A00000000000000000000100 /* Build configuration list for PBXAggregateTarget "MailAssistant-All" */;
+			buildPhases = (
+			);
+			dependencies = (
+				A99F1D24F7411131B0FA3FF8 /* PBXTargetDependency */,
+				AABBFCCA87AD03C2B1C0B564 /* PBXTargetDependency */,
+				AE931C40A571CB50FDDF5600 /* PBXTargetDependency */,
+			);
+			name = "MailAssistant-All";
+			productName = "MailAssistant-All";
+		};
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-        A00000000000000000000004 /* MailAssistantApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000005 /* MailAssistantApp.swift */; };
-        A00000000000000000000006 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000007 /* ContentView.swift */; };
-        A00000000000000000000008 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000009 /* DashboardView.swift */; };
-        A0000000000000000000000A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000000000000000000000B /* SettingsView.swift */; };
-        A0000000000000000000000C /* XPCServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000000000000000000000D /* XPCServiceManager.swift */; };
-        A0000000000000000000000E /* SharedTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000000000000000000000F /* SharedTypes.swift */; };
-        A00000000000000000000010 /* MailExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000011 /* MailExtension.swift */; };
-        A00000000000000000000012 /* ComposeSessionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000013 /* ComposeSessionHandler.swift */; };
-        A00000000000000000000014 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000015 /* MessageViewController.swift */; };
-        A00000000000000000000016 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000017 /* main.swift */; };
-        A00000000000000000000018 /* MailAssistantService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000019 /* MailAssistantService.swift */; };
-        A0000000000000000000001A /* AIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000000000000000000001B /* AIProvider.swift */; };
-        A0000000000000000000001C /* PluginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000000000000000000001D /* PluginAPI.swift */; };
+		AEDCDD44C92497C95E510C39 /* MailAssistantApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C24256C2BE7100CA42801D /* MailAssistantApp.swift */; };
+		A20665D75E7D76D00306B485 /* AppStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92C71D96DF6073CB32C9477 /* AppStateManager.swift */; };
+		A5A90E05A3EE4C4353EA0816 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75DFCE38B661C2A639AC74E /* DashboardView.swift */; };
+		A744AB7059339650562672E0 /* AISetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42C16194ECB527D981FBE24 /* AISetupView.swift */; };
+		AEA1B640EE357CDBE2644F2C /* ImportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5EA5F65234106267CE75A8 /* ImportView.swift */; };
+		AA801060A396A0E15DAF19B6 /* MailAccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05307B6C52FE86E301FDDCD /* MailAccessView.swift */; };
+		AD236E0F97979277456F2F6F /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23B90A203562BA8BA6F572C /* WelcomeView.swift */; };
+		AAD63C7C60F0D6EF6F6DE570 /* AIProviderSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB58F0205D928C1C43CF8F5F /* AIProviderSettings.swift */; };
+		AF50662A9BA1933099E47557 /* GeneralSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3E52657F031389B781FC50 /* GeneralSettings.swift */; };
+		ADCF7D3BDE7FF87182197152 /* PluginSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD000ABD1FD2C0400527867C /* PluginSettings.swift */; };
+		A92771F6F67CA23950225260 /* PrivacySettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A056DEAD36C100CC9EDF7721 /* PrivacySettings.swift */; };
+		ADF838F5E0B81D8E28396AD5 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A798C249A51B6619881CC144 /* SettingsView.swift */; };
+		A2AF1F3828848A43B1BAFC48 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB18DE346CE2BA5DE796202 /* ContentView.swift */; };
+		A367883BE3CB6F05DE5D9C94 /* MainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0ACA9613548685EF829DCD9 /* MainWindow.swift */; };
+		A2E3F8D263939B3C3595D2EA /* OnboardingWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45672D710BE1BC92908C1C9 /* OnboardingWindow.swift */; };
+		AB516924A9AEDE7702A3F595 /* XPCServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF683A28709BC00797B9F8F7 /* XPCServiceManager.swift */; };
+		AEAED53B34638560A944EB30 /* AIProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD5EDA62CBD172C3F79054B /* AIProviderProtocol.swift */; };
+		A0D6D2EEF4503ACDD7AD1ABD /* ActionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37F719666E9FD62FAF8A417 /* ActionProtocol.swift */; };
+		AA25609D9B34EE2BBBF76242 /* AnalysisProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF71C8ED389EA793CE275D3E /* AnalysisProtocol.swift */; };
+		A78D9B326FCFD63F752DAAE6 /* MailEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE07EB291B1B9B3588EE9140 /* MailEvent.swift */; };
+		A57D878BC11175E5E4C763AA /* PluginEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E60BBBE6716F62A45B1EDE /* PluginEvent.swift */; };
+		AFA1C6BE362BEBEA6431BAC1 /* IntegrationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A804F1E2234F1434E23EA74C /* IntegrationProtocol.swift */; };
+		A9B52B453FFB11D636F7DE59 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FA9F43C7E39654A8ED210D /* Contact.swift */; };
+		A3B0109664D3F59C42C0D140 /* Email.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69B3A72DC5DF8DDC92CE2BA /* Email.swift */; };
+		A5033FAEF8150D95699E2628 /* PluginContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F8F9FC388BFB3C5D7D6B28 /* PluginContext.swift */; };
+		A5D1B5388A6CAEAC5BB5322B /* PluginID.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71222B3A03FE3A9691DC36C /* PluginID.swift */; };
+		AA7EF8A486C26F626E80681F /* PluginManifest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1E6D6A672028E77EC31D43 /* PluginManifest.swift */; };
+		A5AB84089F06649894F63915 /* ResponseSuggestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2DDD3E3D0CE4CF5D36BA8D0 /* ResponseSuggestion.swift */; };
+		AF410AA38CB344A0649DC738 /* WritingStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8C327D2DCD4E1EF14F6075 /* WritingStyle.swift */; };
+		A4B2E90A2DDE038EBD0B9372 /* PluginPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D2AD029DF6415575216226 /* PluginPermission.swift */; };
+		AC0EE6A1775FE680326EFBD0 /* PluginProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0CA8C282052EBC61AEBFDF /* PluginProtocol.swift */; };
+		A4F6A3FC5BD60D2AC2BE2FC9 /* UIProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25822126171BA141AC2AF01 /* UIProtocol.swift */; };
+		A9C32FE575AEE22D546F68EF /* SharedTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86C05DB1C70976CDAE81999 /* SharedTypes.swift */; };
+		A837917C9ADBF3343A7F15C3 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A223507D3B901BE97D7AE0A5 /* Logger.swift */; };
+		A49F75DF2D285A040F421347 /* XPCProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6BACAB7663414D9B14E455 /* XPCProtocol.swift */; };
+		A1F45E28DE584ED123708AED /* ComposeSessionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71933471C18BC58051E9934 /* ComposeSessionHandler.swift */; };
+		A7AF689777969E72B234C7DB /* ComposeInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = A904497053A69CE1C4D28976 /* ComposeInjector.swift */; };
+		A4EA1AD267E9687D27365610 /* ToolbarInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF157C4BAB37ED012CA7A096 /* ToolbarInjector.swift */; };
+		AFE59C8C5E952CCE7D6C9D52 /* MailExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B5BFA81D6BC02CF901FE6C /* MailExtension.swift */; };
+		A65B8591C2F585ECCDB3C145 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52077022AB8C4C859738251 /* MessageViewController.swift */; };
+		A0D55CE16F5BA8CAC31825B5 /* ResponseGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9458E9FAC002599DDFD9C7E /* ResponseGenerator.swift */; };
+		A5D8D0470B26EAD696D257CF /* XPCServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A9A6EA6AE9620343E5BF58 /* XPCServiceProtocol.swift */; };
+		A35C80E60B66D7E55CB08CA1 /* EditPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D2D97C016D30B362086C5C /* EditPanel.swift */; };
+		ACCA0728B09A846EC4B872E2 /* QuickActionsBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65CC5FA118F521CF943ED8C /* QuickActionsBar.swift */; };
+		A48D1F763DE40FB65252CBE5 /* SuggestionPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8FF65C6855A136E866A15D /* SuggestionPanel.swift */; };
+		A4358289A032642C7FF118AF /* ToneSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3AF14734B77C52D534C69E /* ToneSelector.swift */; };
+		AC1408A7F086DC61DBBB8647 /* VariantCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7469365CC899981CD74425F /* VariantCards.swift */; };
+		AB118E12CE17518AEF2FDE06 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC5DD34757775CF2F609F50 /* Theme.swift */; };
+		A8BB8A2F2141FCEF56E828AB /* AIProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD5EDA62CBD172C3F79054B /* AIProviderProtocol.swift */; };
+		ADD281CD7ABDF8C3134F5CEF /* ActionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37F719666E9FD62FAF8A417 /* ActionProtocol.swift */; };
+		A780B52055EF65B7CC17130D /* AnalysisProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF71C8ED389EA793CE275D3E /* AnalysisProtocol.swift */; };
+		AE1627CFC78A906055021B0A /* MailEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE07EB291B1B9B3588EE9140 /* MailEvent.swift */; };
+		A3E7FE3191C9D9D0B808F0E6 /* PluginEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E60BBBE6716F62A45B1EDE /* PluginEvent.swift */; };
+		A87772922DC350D9F0790EDF /* IntegrationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A804F1E2234F1434E23EA74C /* IntegrationProtocol.swift */; };
+		AAA93BE300D9C68052479323 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FA9F43C7E39654A8ED210D /* Contact.swift */; };
+		A679B2E3B25A05B0E4BB70D3 /* Email.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69B3A72DC5DF8DDC92CE2BA /* Email.swift */; };
+		A49C3D1AB931E22389B71974 /* PluginContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F8F9FC388BFB3C5D7D6B28 /* PluginContext.swift */; };
+		A82DE9C940BCCAC457F59159 /* PluginID.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71222B3A03FE3A9691DC36C /* PluginID.swift */; };
+		A1CC59210EE84185A25B544C /* PluginManifest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1E6D6A672028E77EC31D43 /* PluginManifest.swift */; };
+		AD0B26BE0826B9E465883166 /* ResponseSuggestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2DDD3E3D0CE4CF5D36BA8D0 /* ResponseSuggestion.swift */; };
+		A0B4EEAADB06DB03D7B225C2 /* WritingStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8C327D2DCD4E1EF14F6075 /* WritingStyle.swift */; };
+		A192AB82598F9D8665F626E2 /* PluginPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D2AD029DF6415575216226 /* PluginPermission.swift */; };
+		A2B891BEA540E51C00F039E8 /* PluginProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0CA8C282052EBC61AEBFDF /* PluginProtocol.swift */; };
+		AD0BB720F432D546BAC61197 /* UIProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25822126171BA141AC2AF01 /* UIProtocol.swift */; };
+		A345B66C40815AC8ED03CC0E /* SharedTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86C05DB1C70976CDAE81999 /* SharedTypes.swift */; };
+		A633591525039C5A559BFFC9 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A223507D3B901BE97D7AE0A5 /* Logger.swift */; };
+		A4D774ED9AB8BCC61F5755BA /* XPCProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6BACAB7663414D9B14E455 /* XPCProtocol.swift */; };
+		AD9F54C5A9C5B10D216803BF /* AIProviderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B51AE836754747AF102F03 /* AIProviderManager.swift */; };
+		A6BBE747F477A3BE765A2E7A /* PromptEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03F680079651417DA86CE76 /* PromptEngine.swift */; };
+		AFA1215D9BD0BFA2824DA44E /* RAGEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AE133FFC4C78190C000C4B /* RAGEngine.swift */; };
+		A3EA099ACA29BB4E6359ADAB /* AIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F544724F1571181A9D9C0B /* AIProvider.swift */; };
+		A180B3AA5FEE08B64E9D4BE0 /* BackgroundTaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36C9669CBBC6E57C1501387 /* BackgroundTaskManager.swift */; };
+		A708D507AEA55BDC89E4C427 /* ScheduledJobs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4547B23154A9D6F7ADED629 /* ScheduledJobs.swift */; };
+		A4DE4B8F4EFD070F9D9EBF44 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2033983EE03456626B52816 /* DatabaseManager.swift */; };
+		A20DF2B13FF15C000A1AF9EB /* 001_initial.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E7E35B8819F1ABF2D0A582 /* 001_initial.swift */; };
+		A52328A78E3B60F20CE0888B /* MigrationRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7240723E9943E7274CC433 /* MigrationRunner.swift */; };
+		A3B66D90F1009A46CD95F34F /* ActionLogRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3AB5D1CEED1ECB035E5BE1 /* ActionLogRecord.swift */; };
+		ABA1C8E15D21F4B17C2CF575 /* ContactRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77F89E0C493F088D00254F4 /* ContactRecord.swift */; };
+		ADCF4DB7A2253CA4ECB838D3 /* EmailRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = A994886C0EF16B410FA1F222 /* EmailRecord.swift */; };
+		A3B94543700110EC75771AB5 /* EmbeddingRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = A950ACC5B72A5C7E087FBA3B /* EmbeddingRecord.swift */; };
+		AFC9B6CEF18069E98B8D28B2 /* PluginRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE01451CF4F073C25DD18486 /* PluginRecord.swift */; };
+		A78A3832DF3D955A5796225F /* ResponseTemplateRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B42D1F8DB506174B2A02A9 /* ResponseTemplateRecord.swift */; };
+		A942F270F5B5E43C9EFB275E /* WritingProfileRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF05BD9F7E26C1A7636BA02 /* WritingProfileRecord.swift */; };
+		A267220CBDACE03661990ABF /* VectorStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2DA83AEDA494493CAB12C33 /* VectorStore.swift */; };
+		AA4CA929DDF3BC92170C33FB /* MailAssistantService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FBA4AC701698217434A40A /* MailAssistantService.swift */; };
+		A72338397A0D735EC71603C0 /* MailImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB22FB308724773842526540 /* MailImporter.swift */; };
+		ACB180EEEA430C7B973B9B70 /* ThreadTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD038BAD46CA7157FCCBD330 /* ThreadTracker.swift */; };
+		A9F668A54D4A87C0700FEC11 /* EventBus.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB264D9F459B6602BE78763C /* EventBus.swift */; };
+		A4C94442672D69A78DB5FA2A /* PermissionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81F64490C2CB71F6D1A92D9 /* PermissionManager.swift */; };
+		A294DFBC8854AF491E551291 /* PluginContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7EB1A8BD784C70DF42D85BD /* PluginContext.swift */; };
+		ABBE537F2BA947CBD6E92B24 /* PluginLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67E8A278EBF1EFE35A18373 /* PluginLoader.swift */; };
+		A10BAFF5A7EF621C97CE2D5F /* PluginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2DC42F179672191C9E92EBE /* PluginManager.swift */; };
+		A3C42E4F017C6C32E25A91FC /* PluginSandbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21383294E3BE93B491774FC /* PluginSandbox.swift */; };
+		AB6D2B8134E513274A25F338 /* LifecycleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A084B2E8C7E9B01A0226EF26 /* LifecycleManager.swift */; };
+		AFE55DFAEA46A0692B342EB1 /* ServiceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD791FFB841AEA0E77FF34FB /* ServiceDelegate.swift */; };
+		A2C03590F3978F5AD27ABABD /* XPCInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE18C402111A93D2552D6C10 /* XPCInterface.swift */; };
+		A3DF3EC77E00A34B360FE759 /* XPCService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A673508600938496464FA5B8 /* XPCService.swift */; };
+		A9C0F512BD0AAD7D7C99FF36 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = A107CEFC7C2DA0C3293CF18A /* main.swift */; };
+		A408F4FDCE4AB5A87F7CC3AE /* AIProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD5EDA62CBD172C3F79054B /* AIProviderProtocol.swift */; };
+		ADBD06113D551625C24159C8 /* ActionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37F719666E9FD62FAF8A417 /* ActionProtocol.swift */; };
+		AB4D4884AD178A6DA03D2B5A /* AnalysisProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF71C8ED389EA793CE275D3E /* AnalysisProtocol.swift */; };
+		A2912B5658220A9801BEB55F /* MailEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE07EB291B1B9B3588EE9140 /* MailEvent.swift */; };
+		AC1BC3C397FE6FFE2E614489 /* PluginEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E60BBBE6716F62A45B1EDE /* PluginEvent.swift */; };
+		A5A137C24C129D8AB1A54BA5 /* IntegrationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A804F1E2234F1434E23EA74C /* IntegrationProtocol.swift */; };
+		AAB106068D753AFE9B0863A3 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FA9F43C7E39654A8ED210D /* Contact.swift */; };
+		A95436BEB941B27C600D740C /* Email.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69B3A72DC5DF8DDC92CE2BA /* Email.swift */; };
+		A8D52BEA8C3937AF401B91AC /* PluginContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F8F9FC388BFB3C5D7D6B28 /* PluginContext.swift */; };
+		A2B06F64238DF7EAD884F1FB /* PluginID.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71222B3A03FE3A9691DC36C /* PluginID.swift */; };
+		AB35940D1F3BCBA218D3D680 /* PluginManifest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1E6D6A672028E77EC31D43 /* PluginManifest.swift */; };
+		AE844AAF4E33EB5006C2EDB6 /* ResponseSuggestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2DDD3E3D0CE4CF5D36BA8D0 /* ResponseSuggestion.swift */; };
+		AE0B5E98318E64083F3B72BC /* WritingStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8C327D2DCD4E1EF14F6075 /* WritingStyle.swift */; };
+		A6454C837C51E780E361078D /* PluginPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D2AD029DF6415575216226 /* PluginPermission.swift */; };
+		AA18079E2B13E40305D942A9 /* PluginProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0CA8C282052EBC61AEBFDF /* PluginProtocol.swift */; };
+		AD98534F365322EE6DEC6C19 /* UIProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25822126171BA141AC2AF01 /* UIProtocol.swift */; };
+		A3042287693930795062AC16 /* KimiAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42A49A2C3EF0DEA1C980827 /* KimiAPI.swift */; };
+		A54FD41A590AFE4F100819F8 /* KimiProviderPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BC9006BE9B3D378D5A1970 /* KimiProviderPlugin.swift */; };
+		A0BF00311C3199032B113DC4 /* ContextBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AC8294C70545215DC7CE61 /* ContextBuilder.swift */; };
+		ACDE2253D0B21854F8F0ADF8 /* ResponseGeneratorPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4948A06C76B82EA87B9055A /* ResponseGeneratorPlugin.swift */; };
+		A2812F53F52A15BDB4584231 /* SuggestionEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99AD5F8718163617AAD07E0 /* SuggestionEngine.swift */; };
+		AA14695B0E385EE3E14CF82E /* TemplateMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42F73979B4B6A0EF3FB96F2 /* TemplateMatcher.swift */; };
+		A82CA3DCE806DEC436946D0F /* FeatureExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DDF26593BAFFB8125894D4 /* FeatureExtractor.swift */; };
+		AFB3E5234833516F2EDA6187 /* StyleAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A702B1449E84722E45306241 /* StyleAnalyzer.swift */; };
+		A8122E4F04FC7C67F1034707 /* StyleLearnerPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40D8CB274FF30D5AD125075 /* StyleLearnerPlugin.swift */; };
+		AF707E836C2E97B0C682A7E4 /* SharedTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86C05DB1C70976CDAE81999 /* SharedTypes.swift */; };
+		ACA8C9C05D09B26C28CA9D03 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A223507D3B901BE97D7AE0A5 /* Logger.swift */; };
+		AB3F2736EBC7851A16EF4F45 /* XPCProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6BACAB7663414D9B14E455 /* XPCProtocol.swift */; };
+		A2FEB2FDB6FC127344264D3F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A426913E1416D0E64CC5BBC1 /* Foundation.framework */; };
+		AC8740871BC065ACC8A2FAC0 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE3E8F07C7F522A13882DB13 /* AppKit.framework */; };
+		A1CC4F2DC7A3FC5B97224ACA /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAB3B8BA66B3CE62338B68DD /* SwiftUI.framework */; };
+		AAB1B3AC7EDE01E0DC946918 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A426913E1416D0E64CC5BBC1 /* Foundation.framework */; };
+		AA664AF87A49DFF279A81779 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE3E8F07C7F522A13882DB13 /* AppKit.framework */; };
+		A430F5E7B233359ED6C31425 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAB3B8BA66B3CE62338B68DD /* SwiftUI.framework */; };
+		A5454799EF724E1E55EBFFEF /* MailKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A50D89E7F0E8093C7711A393 /* MailKit.framework */; };
+		A6D42550890A36DDE450908C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A426913E1416D0E64CC5BBC1 /* Foundation.framework */; };
+		AE24C7C1920CFFD8DC214527 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE3E8F07C7F522A13882DB13 /* AppKit.framework */; };
+		AE61D40024405370A318E88A /* MailExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A00000000000000000000002 /* MailExtension.appex */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AE9BD00D15FE07DDF43F91B4 /* MailAssistantService.xpc in Embed XPC Services */ = {isa = PBXBuildFile; fileRef = A00000000000000000000003 /* MailAssistantService.xpc */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-        A0000000000000000000001E /* PBXContainerItemProxy */ = {
-            isa = PBXContainerItemProxy;
-            containerPortal = A0000000000000000000001F /* Project object */;
-            proxyType = 1;
-            remoteGlobalIDString = A00000000000000000000020;
-            remoteInfo = MailExtension;
-        };
-        A00000000000000000000021 /* PBXContainerItemProxy */ = {
-            isa = PBXContainerItemProxy;
-            containerPortal = A0000000000000000000001F /* Project object */;
-            proxyType = 1;
-            remoteGlobalIDString = A00000000000000000000022;
-            remoteInfo = MailAssistantService;
-        };
+		A0000000000000000000001E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A0000000000000000000001F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A00000000000000000000020;
+			remoteInfo = MailExtension;
+		};
+		A00000000000000000000021 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A0000000000000000000001F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A00000000000000000000022;
+			remoteInfo = MailAssistantService;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-        A00000000000000000000023 /* Embed Foundation Extensions */ = {
-            isa = PBXCopyFilesBuildPhase;
-            buildActionMask = 2147483647;
-            dstPath = "";
-            dstSubfolderSpec = 13;
-            files = (
-            );
-            name = "Embed Foundation Extensions";
-            runOnlyForDeploymentPostprocessing = 0;
-        };
-        A00000000000000000000024 /* Embed XPC Services */ = {
-            isa = PBXCopyFilesBuildPhase;
-            buildActionMask = 2147483647;
-            dstPath = "";
-            dstSubfolderSpec = 16;
-            files = (
-            );
-            name = "Embed XPC Services";
-            runOnlyForDeploymentPostprocessing = 0;
-        };
+		A00000000000000000000023 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				AE61D40024405370A318E88A /* MailExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A00000000000000000000024 /* Embed XPC Services */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				AE9BD00D15FE07DDF43F91B4 /* MailAssistantService.xpc in Embed XPC Services */,
+			);
+			name = "Embed XPC Services";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-        /* Products */
-        A00000000000000000000001 /* MailAssistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MailAssistant.app; sourceTree = BUILT_PRODUCTS_DIR; };
-        A00000000000000000000002 /* MailExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MailExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-        A00000000000000000000003 /* MailAssistantService.xpc */ = {isa = PBXFileReference; explicitFileType = "wrapper.xpc-service"; includeInIndex = 0; path = MailAssistantService.xpc; sourceTree = BUILT_PRODUCTS_DIR; };
-        
-        /* Main App Sources */
-        A00000000000000000000005 /* MailAssistantApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailAssistantApp.swift; sourceTree = "<group>"; };
-        A00000000000000000000007 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-        A00000000000000000000009 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
-        A0000000000000000000000B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-        A0000000000000000000000D /* XPCServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XPCServiceManager.swift; sourceTree = "<group>"; };
-        
-        /* Shared Sources */
-        A0000000000000000000000F /* SharedTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedTypes.swift; sourceTree = "<group>"; };
-        
-        /* Mail Extension Sources */
-        A00000000000000000000011 /* MailExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailExtension.swift; sourceTree = "<group>"; };
-        A00000000000000000000013 /* ComposeSessionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeSessionHandler.swift; sourceTree = "<group>"; };
-        A00000000000000000000015 /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
-        
-        /* Service Sources */
-        A00000000000000000000017 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-        A00000000000000000000019 /* MailAssistantService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailAssistantService.swift; sourceTree = "<group>"; };
-        A0000000000000000000001B /* AIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIProvider.swift; sourceTree = "<group>"; };
-        
-        /* PluginAPI Sources */
-        A0000000000000000000001D /* PluginAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PluginAPI.swift; sourceTree = "<group>"; };
-        
-        /* Resources */
-        A00000000000000000000025 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-        A00000000000000000000026 /* MailAssistant.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MailAssistant.entitlements; sourceTree = "<group>"; };
-        A00000000000000000000027 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-        A00000000000000000000028 /* MailExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MailExtension.entitlements; sourceTree = "<group>"; };
-        A00000000000000000000029 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-        A0000000000000000000002A /* MailAssistantService.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MailAssistantService.entitlements; sourceTree = "<group>"; };
+		A00000000000000000000001 /* MailAssistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MailAssistant.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A00000000000000000000002 /* MailExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MailExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		A00000000000000000000003 /* MailAssistantService.xpc */ = {isa = PBXFileReference; explicitFileType = "wrapper.xpc-service"; includeInIndex = 0; path = MailAssistantService.xpc; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3C24256C2BE7100CA42801D /* MailAssistantApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "MailAssistantApp.swift"; path = "MailAssistant/Sources/MailAssistantApp.swift"; sourceTree = SOURCE_ROOT; };
+		A92C71D96DF6073CB32C9477 /* AppStateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "AppStateManager.swift"; path = "MailAssistant/Sources/Managers/AppStateManager.swift"; sourceTree = SOURCE_ROOT; };
+		A75DFCE38B661C2A639AC74E /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "DashboardView.swift"; path = "MailAssistant/Sources/Views/Dashboard/DashboardView.swift"; sourceTree = SOURCE_ROOT; };
+		A42C16194ECB527D981FBE24 /* AISetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "AISetupView.swift"; path = "MailAssistant/Sources/Views/Onboarding/AISetupView.swift"; sourceTree = SOURCE_ROOT; };
+		AC5EA5F65234106267CE75A8 /* ImportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ImportView.swift"; path = "MailAssistant/Sources/Views/Onboarding/ImportView.swift"; sourceTree = SOURCE_ROOT; };
+		A05307B6C52FE86E301FDDCD /* MailAccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "MailAccessView.swift"; path = "MailAssistant/Sources/Views/Onboarding/MailAccessView.swift"; sourceTree = SOURCE_ROOT; };
+		A23B90A203562BA8BA6F572C /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "WelcomeView.swift"; path = "MailAssistant/Sources/Views/Onboarding/WelcomeView.swift"; sourceTree = SOURCE_ROOT; };
+		AB58F0205D928C1C43CF8F5F /* AIProviderSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "AIProviderSettings.swift"; path = "MailAssistant/Sources/Views/Settings/AIProviderSettings.swift"; sourceTree = SOURCE_ROOT; };
+		AE3E52657F031389B781FC50 /* GeneralSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "GeneralSettings.swift"; path = "MailAssistant/Sources/Views/Settings/GeneralSettings.swift"; sourceTree = SOURCE_ROOT; };
+		AD000ABD1FD2C0400527867C /* PluginSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "PluginSettings.swift"; path = "MailAssistant/Sources/Views/Settings/PluginSettings.swift"; sourceTree = SOURCE_ROOT; };
+		A056DEAD36C100CC9EDF7721 /* PrivacySettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "PrivacySettings.swift"; path = "MailAssistant/Sources/Views/Settings/PrivacySettings.swift"; sourceTree = SOURCE_ROOT; };
+		A798C249A51B6619881CC144 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "SettingsView.swift"; path = "MailAssistant/Sources/Views/SettingsView.swift"; sourceTree = SOURCE_ROOT; };
+		ADB18DE346CE2BA5DE796202 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ContentView.swift"; path = "MailAssistant/Sources/Windows/ContentView.swift"; sourceTree = SOURCE_ROOT; };
+		A0ACA9613548685EF829DCD9 /* MainWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "MainWindow.swift"; path = "MailAssistant/Sources/Windows/MainWindow.swift"; sourceTree = SOURCE_ROOT; };
+		A45672D710BE1BC92908C1C9 /* OnboardingWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "OnboardingWindow.swift"; path = "MailAssistant/Sources/Windows/OnboardingWindow.swift"; sourceTree = SOURCE_ROOT; };
+		AF683A28709BC00797B9F8F7 /* XPCServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "XPCServiceManager.swift"; path = "MailAssistant/Sources/XPCServiceManager.swift"; sourceTree = SOURCE_ROOT; };
+		A1B51AE836754747AF102F03 /* AIProviderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "AIProviderManager.swift"; path = "MailAssistantService/Sources/AI/AIProviderManager.swift"; sourceTree = SOURCE_ROOT; };
+		A03F680079651417DA86CE76 /* PromptEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "PromptEngine.swift"; path = "MailAssistantService/Sources/AI/PromptEngine.swift"; sourceTree = SOURCE_ROOT; };
+		A3AE133FFC4C78190C000C4B /* RAGEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "RAGEngine.swift"; path = "MailAssistantService/Sources/AI/RAGEngine.swift"; sourceTree = SOURCE_ROOT; };
+		A1F544724F1571181A9D9C0B /* AIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "AIProvider.swift"; path = "MailAssistantService/Sources/AIProvider.swift"; sourceTree = SOURCE_ROOT; };
+		A36C9669CBBC6E57C1501387 /* BackgroundTaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "BackgroundTaskManager.swift"; path = "MailAssistantService/Sources/Background/BackgroundTaskManager.swift"; sourceTree = SOURCE_ROOT; };
+		A4547B23154A9D6F7ADED629 /* ScheduledJobs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ScheduledJobs.swift"; path = "MailAssistantService/Sources/Background/ScheduledJobs.swift"; sourceTree = SOURCE_ROOT; };
+		A2033983EE03456626B52816 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "DatabaseManager.swift"; path = "MailAssistantService/Sources/Database/DatabaseManager.swift"; sourceTree = SOURCE_ROOT; };
+		A4E7E35B8819F1ABF2D0A582 /* 001_initial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "001_initial.swift"; path = "MailAssistantService/Sources/Database/Migrations/001_initial.swift"; sourceTree = SOURCE_ROOT; };
+		AE7240723E9943E7274CC433 /* MigrationRunner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "MigrationRunner.swift"; path = "MailAssistantService/Sources/Database/Migrations/MigrationRunner.swift"; sourceTree = SOURCE_ROOT; };
+		AF3AB5D1CEED1ECB035E5BE1 /* ActionLogRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ActionLogRecord.swift"; path = "MailAssistantService/Sources/Database/Models/ActionLogRecord.swift"; sourceTree = SOURCE_ROOT; };
+		A77F89E0C493F088D00254F4 /* ContactRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ContactRecord.swift"; path = "MailAssistantService/Sources/Database/Models/ContactRecord.swift"; sourceTree = SOURCE_ROOT; };
+		A994886C0EF16B410FA1F222 /* EmailRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "EmailRecord.swift"; path = "MailAssistantService/Sources/Database/Models/EmailRecord.swift"; sourceTree = SOURCE_ROOT; };
+		A950ACC5B72A5C7E087FBA3B /* EmbeddingRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "EmbeddingRecord.swift"; path = "MailAssistantService/Sources/Database/Models/EmbeddingRecord.swift"; sourceTree = SOURCE_ROOT; };
+		AE01451CF4F073C25DD18486 /* PluginRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "PluginRecord.swift"; path = "MailAssistantService/Sources/Database/Models/PluginRecord.swift"; sourceTree = SOURCE_ROOT; };
+		A5B42D1F8DB506174B2A02A9 /* ResponseTemplateRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ResponseTemplateRecord.swift"; path = "MailAssistantService/Sources/Database/Models/ResponseTemplateRecord.swift"; sourceTree = SOURCE_ROOT; };
+		ACF05BD9F7E26C1A7636BA02 /* WritingProfileRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "WritingProfileRecord.swift"; path = "MailAssistantService/Sources/Database/Models/WritingProfileRecord.swift"; sourceTree = SOURCE_ROOT; };
+		A2DA83AEDA494493CAB12C33 /* VectorStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "VectorStore.swift"; path = "MailAssistantService/Sources/Database/VectorStore.swift"; sourceTree = SOURCE_ROOT; };
+		A0FBA4AC701698217434A40A /* MailAssistantService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "MailAssistantService.swift"; path = "MailAssistantService/Sources/MailAssistantService.swift"; sourceTree = SOURCE_ROOT; };
+		AB22FB308724773842526540 /* MailImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "MailImporter.swift"; path = "MailAssistantService/Sources/MailProcessing/MailImporter.swift"; sourceTree = SOURCE_ROOT; };
+		AD038BAD46CA7157FCCBD330 /* ThreadTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ThreadTracker.swift"; path = "MailAssistantService/Sources/MailProcessing/ThreadTracker.swift"; sourceTree = SOURCE_ROOT; };
+		AB264D9F459B6602BE78763C /* EventBus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "EventBus.swift"; path = "MailAssistantService/Sources/PluginSystem/EventBus.swift"; sourceTree = SOURCE_ROOT; };
+		A81F64490C2CB71F6D1A92D9 /* PermissionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "PermissionManager.swift"; path = "MailAssistantService/Sources/PluginSystem/PermissionManager.swift"; sourceTree = SOURCE_ROOT; };
+		A7EB1A8BD784C70DF42D85BD /* PluginContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "PluginContext.swift"; path = "MailAssistantService/Sources/PluginSystem/PluginContext.swift"; sourceTree = SOURCE_ROOT; };
+		A67E8A278EBF1EFE35A18373 /* PluginLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "PluginLoader.swift"; path = "MailAssistantService/Sources/PluginSystem/PluginLoader.swift"; sourceTree = SOURCE_ROOT; };
+		A2DC42F179672191C9E92EBE /* PluginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "PluginManager.swift"; path = "MailAssistantService/Sources/PluginSystem/PluginManager.swift"; sourceTree = SOURCE_ROOT; };
+		A21383294E3BE93B491774FC /* PluginSandbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "PluginSandbox.swift"; path = "MailAssistantService/Sources/PluginSystem/PluginSandbox.swift"; sourceTree = SOURCE_ROOT; };
+		A084B2E8C7E9B01A0226EF26 /* LifecycleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "LifecycleManager.swift"; path = "MailAssistantService/Sources/Service/LifecycleManager.swift"; sourceTree = SOURCE_ROOT; };
+		AD791FFB841AEA0E77FF34FB /* ServiceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ServiceDelegate.swift"; path = "MailAssistantService/Sources/Service/ServiceDelegate.swift"; sourceTree = SOURCE_ROOT; };
+		AE18C402111A93D2552D6C10 /* XPCInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "XPCInterface.swift"; path = "MailAssistantService/Sources/Service/XPCInterface.swift"; sourceTree = SOURCE_ROOT; };
+		A673508600938496464FA5B8 /* XPCService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "XPCService.swift"; path = "MailAssistantService/Sources/Service/XPCService.swift"; sourceTree = SOURCE_ROOT; };
+		A107CEFC7C2DA0C3293CF18A /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "main.swift"; path = "MailAssistantService/Sources/main.swift"; sourceTree = SOURCE_ROOT; };
+		A71933471C18BC58051E9934 /* ComposeSessionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ComposeSessionHandler.swift"; path = "MailExtension/Sources/ComposeSessionHandler.swift"; sourceTree = SOURCE_ROOT; };
+		A904497053A69CE1C4D28976 /* ComposeInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ComposeInjector.swift"; path = "MailExtension/Sources/Injectors/ComposeInjector.swift"; sourceTree = SOURCE_ROOT; };
+		AF157C4BAB37ED012CA7A096 /* ToolbarInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ToolbarInjector.swift"; path = "MailExtension/Sources/Injectors/ToolbarInjector.swift"; sourceTree = SOURCE_ROOT; };
+		A8B5BFA81D6BC02CF901FE6C /* MailExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "MailExtension.swift"; path = "MailExtension/Sources/MailExtension.swift"; sourceTree = SOURCE_ROOT; };
+		A52077022AB8C4C859738251 /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "MessageViewController.swift"; path = "MailExtension/Sources/MessageViewController.swift"; sourceTree = SOURCE_ROOT; };
+		A9458E9FAC002599DDFD9C7E /* ResponseGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ResponseGenerator.swift"; path = "MailExtension/Sources/Models/ResponseGenerator.swift"; sourceTree = SOURCE_ROOT; };
+		A5A9A6EA6AE9620343E5BF58 /* XPCServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "XPCServiceProtocol.swift"; path = "MailExtension/Sources/Services/XPCServiceProtocol.swift"; sourceTree = SOURCE_ROOT; };
+		A0D2D97C016D30B362086C5C /* EditPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "EditPanel.swift"; path = "MailExtension/Sources/UI/EditPanel.swift"; sourceTree = SOURCE_ROOT; };
+		A65CC5FA118F521CF943ED8C /* QuickActionsBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "QuickActionsBar.swift"; path = "MailExtension/Sources/UI/QuickActionsBar.swift"; sourceTree = SOURCE_ROOT; };
+		AC8FF65C6855A136E866A15D /* SuggestionPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "SuggestionPanel.swift"; path = "MailExtension/Sources/UI/SuggestionPanel.swift"; sourceTree = SOURCE_ROOT; };
+		AA3AF14734B77C52D534C69E /* ToneSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ToneSelector.swift"; path = "MailExtension/Sources/UI/ToneSelector.swift"; sourceTree = SOURCE_ROOT; };
+		A7469365CC899981CD74425F /* VariantCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "VariantCards.swift"; path = "MailExtension/Sources/UI/VariantCards.swift"; sourceTree = SOURCE_ROOT; };
+		ABC5DD34757775CF2F609F50 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Theme.swift"; path = "MailExtension/Sources/Utilities/Theme.swift"; sourceTree = SOURCE_ROOT; };
+		AAD5EDA62CBD172C3F79054B /* AIProviderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "AIProviderProtocol.swift"; path = "PluginAPI/Sources/AIProviderProtocol.swift"; sourceTree = SOURCE_ROOT; };
+		A37F719666E9FD62FAF8A417 /* ActionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ActionProtocol.swift"; path = "PluginAPI/Sources/ActionProtocol.swift"; sourceTree = SOURCE_ROOT; };
+		AF71C8ED389EA793CE275D3E /* AnalysisProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "AnalysisProtocol.swift"; path = "PluginAPI/Sources/AnalysisProtocol.swift"; sourceTree = SOURCE_ROOT; };
+		AE07EB291B1B9B3588EE9140 /* MailEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "MailEvent.swift"; path = "PluginAPI/Sources/Events/MailEvent.swift"; sourceTree = SOURCE_ROOT; };
+		A2E60BBBE6716F62A45B1EDE /* PluginEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "PluginEvent.swift"; path = "PluginAPI/Sources/Events/PluginEvent.swift"; sourceTree = SOURCE_ROOT; };
+		A804F1E2234F1434E23EA74C /* IntegrationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "IntegrationProtocol.swift"; path = "PluginAPI/Sources/IntegrationProtocol.swift"; sourceTree = SOURCE_ROOT; };
+		A9FA9F43C7E39654A8ED210D /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Contact.swift"; path = "PluginAPI/Sources/Models/Contact.swift"; sourceTree = SOURCE_ROOT; };
+		A69B3A72DC5DF8DDC92CE2BA /* Email.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Email.swift"; path = "PluginAPI/Sources/Models/Email.swift"; sourceTree = SOURCE_ROOT; };
+		A8F8F9FC388BFB3C5D7D6B28 /* PluginContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "PluginContext.swift"; path = "PluginAPI/Sources/Models/PluginContext.swift"; sourceTree = SOURCE_ROOT; };
+		A71222B3A03FE3A9691DC36C /* PluginID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "PluginID.swift"; path = "PluginAPI/Sources/Models/PluginID.swift"; sourceTree = SOURCE_ROOT; };
+		AA1E6D6A672028E77EC31D43 /* PluginManifest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "PluginManifest.swift"; path = "PluginAPI/Sources/Models/PluginManifest.swift"; sourceTree = SOURCE_ROOT; };
+		A2DDD3E3D0CE4CF5D36BA8D0 /* ResponseSuggestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ResponseSuggestion.swift"; path = "PluginAPI/Sources/Models/ResponseSuggestion.swift"; sourceTree = SOURCE_ROOT; };
+		AB8C327D2DCD4E1EF14F6075 /* WritingStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "WritingStyle.swift"; path = "PluginAPI/Sources/Models/WritingStyle.swift"; sourceTree = SOURCE_ROOT; };
+		A1D2AD029DF6415575216226 /* PluginPermission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "PluginPermission.swift"; path = "PluginAPI/Sources/Permissions/PluginPermission.swift"; sourceTree = SOURCE_ROOT; };
+		AB0CA8C282052EBC61AEBFDF /* PluginProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "PluginProtocol.swift"; path = "PluginAPI/Sources/PluginProtocol.swift"; sourceTree = SOURCE_ROOT; };
+		A25822126171BA141AC2AF01 /* UIProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIProtocol.swift"; path = "PluginAPI/Sources/UIProtocol.swift"; sourceTree = SOURCE_ROOT; };
+		A42A49A2C3EF0DEA1C980827 /* KimiAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "KimiAPI.swift"; path = "Plugins/AIProviders/KimiProvider/KimiAPI.swift"; sourceTree = SOURCE_ROOT; };
+		A6BC9006BE9B3D378D5A1970 /* KimiProviderPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "KimiProviderPlugin.swift"; path = "Plugins/AIProviders/KimiProvider/KimiProviderPlugin.swift"; sourceTree = SOURCE_ROOT; };
+		A7AC8294C70545215DC7CE61 /* ContextBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ContextBuilder.swift"; path = "Plugins/Core/ResponseGenerator/ContextBuilder.swift"; sourceTree = SOURCE_ROOT; };
+		A4948A06C76B82EA87B9055A /* ResponseGeneratorPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ResponseGeneratorPlugin.swift"; path = "Plugins/Core/ResponseGenerator/ResponseGeneratorPlugin.swift"; sourceTree = SOURCE_ROOT; };
+		A99AD5F8718163617AAD07E0 /* SuggestionEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "SuggestionEngine.swift"; path = "Plugins/Core/ResponseGenerator/SuggestionEngine.swift"; sourceTree = SOURCE_ROOT; };
+		A42F73979B4B6A0EF3FB96F2 /* TemplateMatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "TemplateMatcher.swift"; path = "Plugins/Core/ResponseGenerator/TemplateMatcher.swift"; sourceTree = SOURCE_ROOT; };
+		A0DDF26593BAFFB8125894D4 /* FeatureExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "FeatureExtractor.swift"; path = "Plugins/Core/StyleLearner/FeatureExtractor.swift"; sourceTree = SOURCE_ROOT; };
+		A702B1449E84722E45306241 /* StyleAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "StyleAnalyzer.swift"; path = "Plugins/Core/StyleLearner/StyleAnalyzer.swift"; sourceTree = SOURCE_ROOT; };
+		A40D8CB274FF30D5AD125075 /* StyleLearnerPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "StyleLearnerPlugin.swift"; path = "Plugins/Core/StyleLearner/StyleLearnerPlugin.swift"; sourceTree = SOURCE_ROOT; };
+		A86C05DB1C70976CDAE81999 /* SharedTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "SharedTypes.swift"; path = "Shared/Sources/SharedTypes.swift"; sourceTree = SOURCE_ROOT; };
+		A223507D3B901BE97D7AE0A5 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Logger.swift"; path = "Shared/Sources/Utilities/Logger.swift"; sourceTree = SOURCE_ROOT; };
+		AD6BACAB7663414D9B14E455 /* XPCProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "XPCProtocol.swift"; path = "Shared/Sources/XPCProtocol.swift"; sourceTree = SOURCE_ROOT; };
+		AE3E8F07C7F522A13882DB13 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		A426913E1416D0E64CC5BBC1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A50D89E7F0E8093C7711A393 /* MailKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MailKit.framework; path = System/Library/Frameworks/MailKit.framework; sourceTree = SDKROOT; };
+		AAB3B8BA66B3CE62338B68DD /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		A00000000000000000000025 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Info.plist"; path = "MailAssistant/Resources/Info.plist"; sourceTree = SOURCE_ROOT; };
+		A00000000000000000000026 /* MailAssistant.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = "MailAssistant.entitlements"; path = "MailAssistant/Resources/MailAssistant.entitlements"; sourceTree = SOURCE_ROOT; };
+		A00000000000000000000027 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Info.plist"; path = "MailExtension/Resources/Info.plist"; sourceTree = SOURCE_ROOT; };
+		A00000000000000000000028 /* MailExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = "MailExtension.entitlements"; path = "MailExtension/Resources/MailExtension.entitlements"; sourceTree = SOURCE_ROOT; };
+		A00000000000000000000029 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Info.plist"; path = "MailAssistantService/Resources/Info.plist"; sourceTree = SOURCE_ROOT; };
+		A0000000000000000000002A /* MailAssistantService.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = "MailAssistantService.entitlements"; path = "MailAssistantService/Resources/MailAssistantService.entitlements"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-        A0000000000000000000002B /* Frameworks */ = {
-            isa = PBXFrameworksBuildPhase;
-            buildActionMask = 2147483647;
-            files = (
-            );
-            runOnlyForDeploymentPostprocessing = 0;
-        };
-        A0000000000000000000002C /* Frameworks */ = {
-            isa = PBXFrameworksBuildPhase;
-            buildActionMask = 2147483647;
-            files = (
-            );
-            runOnlyForDeploymentPostprocessing = 0;
-        };
-        A0000000000000000000002D /* Frameworks */ = {
-            isa = PBXFrameworksBuildPhase;
-            buildActionMask = 2147483647;
-            files = (
-            );
-            runOnlyForDeploymentPostprocessing = 0;
-        };
+		A0000000000000000000002B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A2FEB2FDB6FC127344264D3F /* Foundation.framework in Frameworks */,
+				AC8740871BC065ACC8A2FAC0 /* AppKit.framework in Frameworks */,
+				A1CC4F2DC7A3FC5B97224ACA /* SwiftUI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A0000000000000000000002C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAB1B3AC7EDE01E0DC946918 /* Foundation.framework in Frameworks */,
+				AA664AF87A49DFF279A81779 /* AppKit.framework in Frameworks */,
+				A430F5E7B233359ED6C31425 /* SwiftUI.framework in Frameworks */,
+				A5454799EF724E1E55EBFFEF /* MailKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A0000000000000000000002D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A6D42550890A36DDE450908C /* Foundation.framework in Frameworks */,
+				AE24C7C1920CFFD8DC214527 /* AppKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-        A0000000000000000000002E = {
-            isa = PBXGroup;
-            children = (
-                A0000000000000000000002F /* MailAssistant */,
-                A00000000000000000000030 /* MailExtension */,
-                A00000000000000000000031 /* MailAssistantService */,
-                A00000000000000000000032 /* PluginAPI */,
-                A00000000000000000000033 /* Shared */,
-                A00000000000000000000034 /* Products */,
-            );
-            sourceTree = "<group>";
-        };
-        A00000000000000000000034 /* Products */ = {
-            isa = PBXGroup;
-            children = (
-                A00000000000000000000001 /* MailAssistant.app */,
-                A00000000000000000000002 /* MailExtension.appex */,
-                A00000000000000000000003 /* MailAssistantService.xpc */,
-            );
-            name = Products;
-            sourceTree = "<group>";
-        };
-        A0000000000000000000002F /* MailAssistant */ = {
-            isa = PBXGroup;
-            children = (
-                A00000000000000000000035 /* Sources */,
-                A00000000000000000000036 /* Resources */,
-            );
-            path = MailAssistant;
-            sourceTree = "<group>";
-        };
-        A00000000000000000000035 /* Sources */ = {
-            isa = PBXGroup;
-            children = (
-                A00000000000000000000005 /* MailAssistantApp.swift */,
-                A0000000000000000000000D /* XPCServiceManager.swift */,
-                A00000000000000000000037 /* Views */,
-                A00000000000000000000038 /* Windows */,
-            );
-            path = Sources;
-            sourceTree = "<group>";
-        };
-        A00000000000000000000037 /* Views */ = {
-            isa = PBXGroup;
-            children = (
-                A00000000000000000000009 /* DashboardView.swift */,
-                A0000000000000000000000B /* SettingsView.swift */,
-            );
-            path = Views;
-            sourceTree = "<group>";
-        };
-        A00000000000000000000038 /* Windows */ = {
-            isa = PBXGroup;
-            children = (
-                A00000000000000000000007 /* ContentView.swift */,
-            );
-            path = Windows;
-            sourceTree = "<group>";
-        };
-        A00000000000000000000036 /* Resources */ = {
-            isa = PBXGroup;
-            children = (
-                A00000000000000000000025 /* Info.plist */,
-                A00000000000000000000026 /* MailAssistant.entitlements */,
-            );
-            path = Resources;
-            sourceTree = "<group>";
-        };
-        A00000000000000000000030 /* MailExtension */ = {
-            isa = PBXGroup;
-            children = (
-                A00000000000000000000039 /* Sources */,
-                A0000000000000000000003A /* Resources */,
-            );
-            path = MailExtension;
-            sourceTree = "<group>";
-        };
-        A00000000000000000000039 /* Sources */ = {
-            isa = PBXGroup;
-            children = (
-                A00000000000000000000011 /* MailExtension.swift */,
-                A00000000000000000000013 /* ComposeSessionHandler.swift */,
-                A00000000000000000000015 /* MessageViewController.swift */,
-            );
-            path = Sources;
-            sourceTree = "<group>";
-        };
-        A0000000000000000000003A /* Resources */ = {
-            isa = PBXGroup;
-            children = (
-                A00000000000000000000027 /* Info.plist */,
-                A00000000000000000000028 /* MailExtension.entitlements */,
-            );
-            path = Resources;
-            sourceTree = "<group>";
-        };
-        A00000000000000000000031 /* MailAssistantService */ = {
-            isa = PBXGroup;
-            children = (
-                A0000000000000000000003B /* Sources */,
-                A0000000000000000000003C /* Resources */,
-            );
-            path = MailAssistantService;
-            sourceTree = "<group>";
-        };
-        A0000000000000000000003B /* Sources */ = {
-            isa = PBXGroup;
-            children = (
-                A00000000000000000000017 /* main.swift */,
-                A00000000000000000000019 /* MailAssistantService.swift */,
-                A0000000000000000000001B /* AIProvider.swift */,
-            );
-            path = Sources;
-            sourceTree = "<group>";
-        };
-        A0000000000000000000003C /* Resources */ = {
-            isa = PBXGroup;
-            children = (
-                A00000000000000000000029 /* Info.plist */,
-                A0000000000000000000002A /* MailAssistantService.entitlements */,
-            );
-            path = Resources;
-            sourceTree = "<group>";
-        };
-        A00000000000000000000032 /* PluginAPI */ = {
-            isa = PBXGroup;
-            children = (
-                A0000000000000000000003D /* Sources */,
-            );
-            path = PluginAPI;
-            sourceTree = "<group>";
-        };
-        A0000000000000000000003D /* Sources */ = {
-            isa = PBXGroup;
-            children = (
-                A0000000000000000000001D /* PluginAPI.swift */,
-            );
-            path = Sources;
-            sourceTree = "<group>";
-        };
-        A00000000000000000000033 /* Shared */ = {
-            isa = PBXGroup;
-            children = (
-                A0000000000000000000003E /* Sources */,
-            );
-            path = Shared;
-            sourceTree = "<group>";
-        };
-        A0000000000000000000003E /* Sources */ = {
-            isa = PBXGroup;
-            children = (
-                A0000000000000000000000F /* SharedTypes.swift */,
-            );
-            path = Sources;
-            sourceTree = "<group>";
-        };
+		A0000000000000000000002E = {
+			isa = PBXGroup;
+			children = (
+				A0000000000000000000002F /* MailAssistant */,
+				A00000000000000000000030 /* MailExtension */,
+				A00000000000000000000031 /* MailAssistantService */,
+				A00000000000000000000032 /* PluginAPI */,
+				A00000000000000000000033 /* Plugins */,
+				A0000000000000000000003F /* Shared */,
+				A00000000000000000000034 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A00000000000000000000034 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A00000000000000000000001 /* MailAssistant.app */,
+				A00000000000000000000002 /* MailExtension.appex */,
+				A00000000000000000000003 /* MailAssistantService.xpc */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A0000000000000000000002F /* MailAssistant */ = {
+			isa = PBXGroup;
+			children = (
+				A3C24256C2BE7100CA42801D /* MailAssistantApp.swift */,
+				A92C71D96DF6073CB32C9477 /* AppStateManager.swift */,
+				A75DFCE38B661C2A639AC74E /* DashboardView.swift */,
+				A42C16194ECB527D981FBE24 /* AISetupView.swift */,
+				AC5EA5F65234106267CE75A8 /* ImportView.swift */,
+				A05307B6C52FE86E301FDDCD /* MailAccessView.swift */,
+				A23B90A203562BA8BA6F572C /* WelcomeView.swift */,
+				AB58F0205D928C1C43CF8F5F /* AIProviderSettings.swift */,
+				AE3E52657F031389B781FC50 /* GeneralSettings.swift */,
+				AD000ABD1FD2C0400527867C /* PluginSettings.swift */,
+				A056DEAD36C100CC9EDF7721 /* PrivacySettings.swift */,
+				A798C249A51B6619881CC144 /* SettingsView.swift */,
+				ADB18DE346CE2BA5DE796202 /* ContentView.swift */,
+				A0ACA9613548685EF829DCD9 /* MainWindow.swift */,
+				A45672D710BE1BC92908C1C9 /* OnboardingWindow.swift */,
+				AF683A28709BC00797B9F8F7 /* XPCServiceManager.swift */,
+				A00000000000000000000025 /* Info.plist */,
+				A00000000000000000000026 /* MailAssistant.entitlements */,
+			);
+			path = MailAssistant;
+			sourceTree = "<group>";
+		};
+		A00000000000000000000030 /* MailExtension */ = {
+			isa = PBXGroup;
+			children = (
+				A71933471C18BC58051E9934 /* ComposeSessionHandler.swift */,
+				A904497053A69CE1C4D28976 /* ComposeInjector.swift */,
+				AF157C4BAB37ED012CA7A096 /* ToolbarInjector.swift */,
+				A8B5BFA81D6BC02CF901FE6C /* MailExtension.swift */,
+				A52077022AB8C4C859738251 /* MessageViewController.swift */,
+				A9458E9FAC002599DDFD9C7E /* ResponseGenerator.swift */,
+				A5A9A6EA6AE9620343E5BF58 /* XPCServiceProtocol.swift */,
+				A0D2D97C016D30B362086C5C /* EditPanel.swift */,
+				A65CC5FA118F521CF943ED8C /* QuickActionsBar.swift */,
+				AC8FF65C6855A136E866A15D /* SuggestionPanel.swift */,
+				AA3AF14734B77C52D534C69E /* ToneSelector.swift */,
+				A7469365CC899981CD74425F /* VariantCards.swift */,
+				ABC5DD34757775CF2F609F50 /* Theme.swift */,
+				A00000000000000000000027 /* Info.plist */,
+				A00000000000000000000028 /* MailExtension.entitlements */,
+			);
+			path = MailExtension;
+			sourceTree = "<group>";
+		};
+		A00000000000000000000031 /* MailAssistantService */ = {
+			isa = PBXGroup;
+			children = (
+				A1B51AE836754747AF102F03 /* AIProviderManager.swift */,
+				A03F680079651417DA86CE76 /* PromptEngine.swift */,
+				A3AE133FFC4C78190C000C4B /* RAGEngine.swift */,
+				A1F544724F1571181A9D9C0B /* AIProvider.swift */,
+				A36C9669CBBC6E57C1501387 /* BackgroundTaskManager.swift */,
+				A4547B23154A9D6F7ADED629 /* ScheduledJobs.swift */,
+				A2033983EE03456626B52816 /* DatabaseManager.swift */,
+				A4E7E35B8819F1ABF2D0A582 /* 001_initial.swift */,
+				AE7240723E9943E7274CC433 /* MigrationRunner.swift */,
+				AF3AB5D1CEED1ECB035E5BE1 /* ActionLogRecord.swift */,
+				A77F89E0C493F088D00254F4 /* ContactRecord.swift */,
+				A994886C0EF16B410FA1F222 /* EmailRecord.swift */,
+				A950ACC5B72A5C7E087FBA3B /* EmbeddingRecord.swift */,
+				AE01451CF4F073C25DD18486 /* PluginRecord.swift */,
+				A5B42D1F8DB506174B2A02A9 /* ResponseTemplateRecord.swift */,
+				ACF05BD9F7E26C1A7636BA02 /* WritingProfileRecord.swift */,
+				A2DA83AEDA494493CAB12C33 /* VectorStore.swift */,
+				A0FBA4AC701698217434A40A /* MailAssistantService.swift */,
+				AB22FB308724773842526540 /* MailImporter.swift */,
+				AD038BAD46CA7157FCCBD330 /* ThreadTracker.swift */,
+				AB264D9F459B6602BE78763C /* EventBus.swift */,
+				A81F64490C2CB71F6D1A92D9 /* PermissionManager.swift */,
+				A7EB1A8BD784C70DF42D85BD /* PluginContext.swift */,
+				A67E8A278EBF1EFE35A18373 /* PluginLoader.swift */,
+				A2DC42F179672191C9E92EBE /* PluginManager.swift */,
+				A21383294E3BE93B491774FC /* PluginSandbox.swift */,
+				A084B2E8C7E9B01A0226EF26 /* LifecycleManager.swift */,
+				AD791FFB841AEA0E77FF34FB /* ServiceDelegate.swift */,
+				AE18C402111A93D2552D6C10 /* XPCInterface.swift */,
+				A673508600938496464FA5B8 /* XPCService.swift */,
+				A107CEFC7C2DA0C3293CF18A /* main.swift */,
+				A00000000000000000000029 /* Info.plist */,
+				A0000000000000000000002A /* MailAssistantService.entitlements */,
+			);
+			path = MailAssistantService;
+			sourceTree = "<group>";
+		};
+		A00000000000000000000032 /* PluginAPI */ = {
+			isa = PBXGroup;
+			children = (
+				AAD5EDA62CBD172C3F79054B /* AIProviderProtocol.swift */,
+				A37F719666E9FD62FAF8A417 /* ActionProtocol.swift */,
+				AF71C8ED389EA793CE275D3E /* AnalysisProtocol.swift */,
+				AE07EB291B1B9B3588EE9140 /* MailEvent.swift */,
+				A2E60BBBE6716F62A45B1EDE /* PluginEvent.swift */,
+				A804F1E2234F1434E23EA74C /* IntegrationProtocol.swift */,
+				A9FA9F43C7E39654A8ED210D /* Contact.swift */,
+				A69B3A72DC5DF8DDC92CE2BA /* Email.swift */,
+				A8F8F9FC388BFB3C5D7D6B28 /* PluginContext.swift */,
+				A71222B3A03FE3A9691DC36C /* PluginID.swift */,
+				AA1E6D6A672028E77EC31D43 /* PluginManifest.swift */,
+				A2DDD3E3D0CE4CF5D36BA8D0 /* ResponseSuggestion.swift */,
+				AB8C327D2DCD4E1EF14F6075 /* WritingStyle.swift */,
+				A1D2AD029DF6415575216226 /* PluginPermission.swift */,
+				AB0CA8C282052EBC61AEBFDF /* PluginProtocol.swift */,
+				A25822126171BA141AC2AF01 /* UIProtocol.swift */,
+			);
+			path = PluginAPI;
+			sourceTree = "<group>";
+		};
+		A00000000000000000000033 /* Plugins */ = {
+			isa = PBXGroup;
+			children = (
+				A42A49A2C3EF0DEA1C980827 /* KimiAPI.swift */,
+				A6BC9006BE9B3D378D5A1970 /* KimiProviderPlugin.swift */,
+				A7AC8294C70545215DC7CE61 /* ContextBuilder.swift */,
+				A4948A06C76B82EA87B9055A /* ResponseGeneratorPlugin.swift */,
+				A99AD5F8718163617AAD07E0 /* SuggestionEngine.swift */,
+				A42F73979B4B6A0EF3FB96F2 /* TemplateMatcher.swift */,
+				A0DDF26593BAFFB8125894D4 /* FeatureExtractor.swift */,
+				A702B1449E84722E45306241 /* StyleAnalyzer.swift */,
+				A40D8CB274FF30D5AD125075 /* StyleLearnerPlugin.swift */,
+			);
+			path = Plugins;
+			sourceTree = "<group>";
+		};
+		A0000000000000000000003F /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				A86C05DB1C70976CDAE81999 /* SharedTypes.swift */,
+				A223507D3B901BE97D7AE0A5 /* Logger.swift */,
+				AD6BACAB7663414D9B14E455 /* XPCProtocol.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-        A0000000000000000000003F /* MailAssistant */ = {
-            isa = PBXNativeTarget;
-            buildConfigurationList = A00000000000000000000040 /* Build configuration list for PBXNativeTarget "MailAssistant" */;
-            buildPhases = (
-                A00000000000000000000041 /* Sources */,
-                A0000000000000000000002B /* Frameworks */,
-                A00000000000000000000023 /* Embed Foundation Extensions */,
-                A00000000000000000000024 /* Embed XPC Services */,
-                A00000000000000000000042 /* Resources */,
-            );
-            buildRules = (
-            );
-            dependencies = (
-                A00000000000000000000043 /* PBXTargetDependency */,
-                A00000000000000000000044 /* PBXTargetDependency */,
-            );
-            name = MailAssistant;
-            packageProductDependencies = (
-            );
-            productName = MailAssistant;
-            productReference = A00000000000000000000001 /* MailAssistant.app */;
-            productType = "com.apple.product-type.application";
-        };
-        A00000000000000000000020 /* MailExtension */ = {
-            isa = PBXNativeTarget;
-            buildConfigurationList = A00000000000000000000045 /* Build configuration list for PBXNativeTarget "MailExtension" */;
-            buildPhases = (
-                A00000000000000000000046 /* Sources */,
-                A0000000000000000000002C /* Frameworks */,
-                A00000000000000000000047 /* Resources */,
-            );
-            buildRules = (
-            );
-            dependencies = (
-            );
-            name = MailExtension;
-            packageProductDependencies = (
-            );
-            productName = MailExtension;
-            productReference = A00000000000000000000002 /* MailExtension.appex */;
-            productType = "com.apple.product-type.app-extension";
-        };
-        A00000000000000000000022 /* MailAssistantService */ = {
-            isa = PBXNativeTarget;
-            buildConfigurationList = A00000000000000000000048 /* Build configuration list for PBXNativeTarget "MailAssistantService" */;
-            buildPhases = (
-                A00000000000000000000049 /* Sources */,
-                A0000000000000000000002D /* Frameworks */,
-                A0000000000000000000004A /* Resources */,
-            );
-            buildRules = (
-            );
-            dependencies = (
-            );
-            name = MailAssistantService;
-            packageProductDependencies = (
-            );
-            productName = MailAssistantService;
-            productReference = A00000000000000000000003 /* MailAssistantService.xpc */;
-            productType = "com.apple.product-type.xpc-service";
-        };
+		A0000000000000000000003F /* MailAssistant */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A00000000000000000000040 /* Build configuration list for PBXNativeTarget "MailAssistant" */;
+			buildPhases = (
+				A00000000000000000000041 /* Sources */,
+				A0000000000000000000002B /* Frameworks */,
+				A00000000000000000000023 /* Embed Foundation Extensions */,
+				A00000000000000000000024 /* Embed XPC Services */,
+				A00000000000000000000042 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A00000000000000000000043 /* PBXTargetDependency */,
+				A00000000000000000000044 /* PBXTargetDependency */,
+			);
+			name = MailAssistant;
+			packageProductDependencies = (
+			);
+			productName = MailAssistant;
+			productReference = A00000000000000000000001 /* MailAssistant.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A00000000000000000000020 /* MailExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A00000000000000000000045 /* Build configuration list for PBXNativeTarget "MailExtension" */;
+			buildPhases = (
+				A00000000000000000000046 /* Sources */,
+				A0000000000000000000002C /* Frameworks */,
+				A00000000000000000000047 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MailExtension;
+			packageProductDependencies = (
+			);
+			productName = MailExtension;
+			productReference = A00000000000000000000002 /* MailExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		A00000000000000000000022 /* MailAssistantService */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A00000000000000000000048 /* Build configuration list for PBXNativeTarget "MailAssistantService" */;
+			buildPhases = (
+				A00000000000000000000049 /* Sources */,
+				A0000000000000000000002D /* Frameworks */,
+				A0000000000000000000004A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MailAssistantService;
+			packageProductDependencies = (
+			);
+			productName = MailAssistantService;
+			productReference = A00000000000000000000003 /* MailAssistantService.xpc */;
+			productType = "com.apple.product-type.xpc-service";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-        A0000000000000000000001F /* Project object */ = {
-            isa = PBXProject;
-            attributes = {
-                BuildIndependentTargetsInParallel = 1;
-                LastSwiftUpdateCheck = 1600;
-                LastUpgradeCheck = 1600;
-                TargetAttributes = {
-                    A00000000000000000000020 = {
-                        CreatedOnToolsVersion = 16.0;
-                    };
-                    A00000000000000000000022 = {
-                        CreatedOnToolsVersion = 16.0;
-                    };
-                    A0000000000000000000003F = {
-                        CreatedOnToolsVersion = 16.0;
-                    };
-                };
-            };
-            buildConfigurationList = A0000000000000000000004B /* Build configuration list for PBXProject "MailAssistant" */;
-            compatibilityVersion = "Xcode 15.0";
-            developmentRegion = en;
-            hasScannedForEncodings = 0;
-            knownRegions = (
-                en,
-                Base,
-            );
-            mainGroup = A0000000000000000000002E;
-            productRefGroup = A00000000000000000000034 /* Products */;
-            projectDirPath = "";
-            projectRoot = "";
-            targets = (
-                A0000000000000000000003F /* MailAssistant */,
-                A00000000000000000000020 /* MailExtension */,
-                A00000000000000000000022 /* MailAssistantService */,
-                A000000000000000000000FF /* MailAssistant-All */,
-            );
-        };
+		A0000000000000000000001F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					A0000000000000000000003F = {
+						CreatedOnToolsVersion = 16.0;
+					};
+					A00000000000000000000020 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+					A00000000000000000000022 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+				};
+			};
+			buildConfigurationList = A0000000000000000000004B /* Build configuration list for PBXProject "MailAssistant" */;
+			compatibilityVersion = "Xcode 15.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A0000000000000000000002E;
+			productRefGroup = A00000000000000000000034 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A0000000000000000000003F /* MailAssistant */,
+				A00000000000000000000020 /* MailExtension */,
+				A00000000000000000000022 /* MailAssistantService */,
+				A000000000000000000000FF /* MailAssistant-All */,
+			);
+		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-        A00000000000000000000042 /* Resources */ = {
-            isa = PBXResourcesBuildPhase;
-            buildActionMask = 2147483647;
-            files = (
-            );
-            runOnlyForDeploymentPostprocessing = 0;
-        };
-        A00000000000000000000047 /* Resources */ = {
-            isa = PBXResourcesBuildPhase;
-            buildActionMask = 2147483647;
-            files = (
-            );
-            runOnlyForDeploymentPostprocessing = 0;
-        };
-        A0000000000000000000004A /* Resources */ = {
-            isa = PBXResourcesBuildPhase;
-            buildActionMask = 2147483647;
-            files = (
-            );
-            runOnlyForDeploymentPostprocessing = 0;
-        };
+		A00000000000000000000042 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A00000000000000000000047 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A0000000000000000000004A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-        A00000000000000000000041 /* Sources */ = {
-            isa = PBXSourcesBuildPhase;
-            buildActionMask = 2147483647;
-            files = (
-                A00000000000000000000004 /* MailAssistantApp.swift in Sources */,
-                A00000000000000000000006 /* ContentView.swift in Sources */,
-                A00000000000000000000008 /* DashboardView.swift in Sources */,
-                A0000000000000000000000A /* SettingsView.swift in Sources */,
-                A0000000000000000000000C /* XPCServiceManager.swift in Sources */,
-                A0000000000000000000000E /* SharedTypes.swift in Sources */,
-            );
-            runOnlyForDeploymentPostprocessing = 0;
-        };
-        A00000000000000000000046 /* Sources */ = {
-            isa = PBXSourcesBuildPhase;
-            buildActionMask = 2147483647;
-            files = (
-                A00000000000000000000010 /* MailExtension.swift in Sources */,
-                A00000000000000000000012 /* ComposeSessionHandler.swift in Sources */,
-                A00000000000000000000014 /* MessageViewController.swift in Sources */,
-            );
-            runOnlyForDeploymentPostprocessing = 0;
-        };
-        A00000000000000000000049 /* Sources */ = {
-            isa = PBXSourcesBuildPhase;
-            buildActionMask = 2147483647;
-            files = (
-                A00000000000000000000016 /* main.swift in Sources */,
-                A00000000000000000000018 /* MailAssistantService.swift in Sources */,
-                A0000000000000000000001A /* AIProvider.swift in Sources */,
-            );
-            runOnlyForDeploymentPostprocessing = 0;
-        };
+		A00000000000000000000041 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AEDCDD44C92497C95E510C39 /* MailAssistantApp.swift in Sources */,
+				A20665D75E7D76D00306B485 /* AppStateManager.swift in Sources */,
+				A5A90E05A3EE4C4353EA0816 /* DashboardView.swift in Sources */,
+				A744AB7059339650562672E0 /* AISetupView.swift in Sources */,
+				AEA1B640EE357CDBE2644F2C /* ImportView.swift in Sources */,
+				AA801060A396A0E15DAF19B6 /* MailAccessView.swift in Sources */,
+				AD236E0F97979277456F2F6F /* WelcomeView.swift in Sources */,
+				AAD63C7C60F0D6EF6F6DE570 /* AIProviderSettings.swift in Sources */,
+				AF50662A9BA1933099E47557 /* GeneralSettings.swift in Sources */,
+				ADCF7D3BDE7FF87182197152 /* PluginSettings.swift in Sources */,
+				A92771F6F67CA23950225260 /* PrivacySettings.swift in Sources */,
+				ADF838F5E0B81D8E28396AD5 /* SettingsView.swift in Sources */,
+				A2AF1F3828848A43B1BAFC48 /* ContentView.swift in Sources */,
+				A367883BE3CB6F05DE5D9C94 /* MainWindow.swift in Sources */,
+				A2E3F8D263939B3C3595D2EA /* OnboardingWindow.swift in Sources */,
+				AB516924A9AEDE7702A3F595 /* XPCServiceManager.swift in Sources */,
+				AEAED53B34638560A944EB30 /* AIProviderProtocol.swift in Sources */,
+				A0D6D2EEF4503ACDD7AD1ABD /* ActionProtocol.swift in Sources */,
+				AA25609D9B34EE2BBBF76242 /* AnalysisProtocol.swift in Sources */,
+				A78D9B326FCFD63F752DAAE6 /* MailEvent.swift in Sources */,
+				A57D878BC11175E5E4C763AA /* PluginEvent.swift in Sources */,
+				AFA1C6BE362BEBEA6431BAC1 /* IntegrationProtocol.swift in Sources */,
+				A9B52B453FFB11D636F7DE59 /* Contact.swift in Sources */,
+				A3B0109664D3F59C42C0D140 /* Email.swift in Sources */,
+				A5033FAEF8150D95699E2628 /* PluginContext.swift in Sources */,
+				A5D1B5388A6CAEAC5BB5322B /* PluginID.swift in Sources */,
+				AA7EF8A486C26F626E80681F /* PluginManifest.swift in Sources */,
+				A5AB84089F06649894F63915 /* ResponseSuggestion.swift in Sources */,
+				AF410AA38CB344A0649DC738 /* WritingStyle.swift in Sources */,
+				A4B2E90A2DDE038EBD0B9372 /* PluginPermission.swift in Sources */,
+				AC0EE6A1775FE680326EFBD0 /* PluginProtocol.swift in Sources */,
+				A4F6A3FC5BD60D2AC2BE2FC9 /* UIProtocol.swift in Sources */,
+				A9C32FE575AEE22D546F68EF /* SharedTypes.swift in Sources */,
+				A837917C9ADBF3343A7F15C3 /* Logger.swift in Sources */,
+				A49F75DF2D285A040F421347 /* XPCProtocol.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A00000000000000000000046 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1F45E28DE584ED123708AED /* ComposeSessionHandler.swift in Sources */,
+				A7AF689777969E72B234C7DB /* ComposeInjector.swift in Sources */,
+				A4EA1AD267E9687D27365610 /* ToolbarInjector.swift in Sources */,
+				AFE59C8C5E952CCE7D6C9D52 /* MailExtension.swift in Sources */,
+				A65B8591C2F585ECCDB3C145 /* MessageViewController.swift in Sources */,
+				A0D55CE16F5BA8CAC31825B5 /* ResponseGenerator.swift in Sources */,
+				A5D8D0470B26EAD696D257CF /* XPCServiceProtocol.swift in Sources */,
+				A35C80E60B66D7E55CB08CA1 /* EditPanel.swift in Sources */,
+				ACCA0728B09A846EC4B872E2 /* QuickActionsBar.swift in Sources */,
+				A48D1F763DE40FB65252CBE5 /* SuggestionPanel.swift in Sources */,
+				A4358289A032642C7FF118AF /* ToneSelector.swift in Sources */,
+				AC1408A7F086DC61DBBB8647 /* VariantCards.swift in Sources */,
+				AB118E12CE17518AEF2FDE06 /* Theme.swift in Sources */,
+				A8BB8A2F2141FCEF56E828AB /* AIProviderProtocol.swift in Sources */,
+				ADD281CD7ABDF8C3134F5CEF /* ActionProtocol.swift in Sources */,
+				A780B52055EF65B7CC17130D /* AnalysisProtocol.swift in Sources */,
+				AE1627CFC78A906055021B0A /* MailEvent.swift in Sources */,
+				A3E7FE3191C9D9D0B808F0E6 /* PluginEvent.swift in Sources */,
+				A87772922DC350D9F0790EDF /* IntegrationProtocol.swift in Sources */,
+				AAA93BE300D9C68052479323 /* Contact.swift in Sources */,
+				A679B2E3B25A05B0E4BB70D3 /* Email.swift in Sources */,
+				A49C3D1AB931E22389B71974 /* PluginContext.swift in Sources */,
+				A82DE9C940BCCAC457F59159 /* PluginID.swift in Sources */,
+				A1CC59210EE84185A25B544C /* PluginManifest.swift in Sources */,
+				AD0B26BE0826B9E465883166 /* ResponseSuggestion.swift in Sources */,
+				A0B4EEAADB06DB03D7B225C2 /* WritingStyle.swift in Sources */,
+				A192AB82598F9D8665F626E2 /* PluginPermission.swift in Sources */,
+				A2B891BEA540E51C00F039E8 /* PluginProtocol.swift in Sources */,
+				AD0BB720F432D546BAC61197 /* UIProtocol.swift in Sources */,
+				A345B66C40815AC8ED03CC0E /* SharedTypes.swift in Sources */,
+				A633591525039C5A559BFFC9 /* Logger.swift in Sources */,
+				A4D774ED9AB8BCC61F5755BA /* XPCProtocol.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A00000000000000000000049 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD9F54C5A9C5B10D216803BF /* AIProviderManager.swift in Sources */,
+				A6BBE747F477A3BE765A2E7A /* PromptEngine.swift in Sources */,
+				AFA1215D9BD0BFA2824DA44E /* RAGEngine.swift in Sources */,
+				A3EA099ACA29BB4E6359ADAB /* AIProvider.swift in Sources */,
+				A180B3AA5FEE08B64E9D4BE0 /* BackgroundTaskManager.swift in Sources */,
+				A708D507AEA55BDC89E4C427 /* ScheduledJobs.swift in Sources */,
+				A4DE4B8F4EFD070F9D9EBF44 /* DatabaseManager.swift in Sources */,
+				A20DF2B13FF15C000A1AF9EB /* 001_initial.swift in Sources */,
+				A52328A78E3B60F20CE0888B /* MigrationRunner.swift in Sources */,
+				A3B66D90F1009A46CD95F34F /* ActionLogRecord.swift in Sources */,
+				ABA1C8E15D21F4B17C2CF575 /* ContactRecord.swift in Sources */,
+				ADCF4DB7A2253CA4ECB838D3 /* EmailRecord.swift in Sources */,
+				A3B94543700110EC75771AB5 /* EmbeddingRecord.swift in Sources */,
+				AFC9B6CEF18069E98B8D28B2 /* PluginRecord.swift in Sources */,
+				A78A3832DF3D955A5796225F /* ResponseTemplateRecord.swift in Sources */,
+				A942F270F5B5E43C9EFB275E /* WritingProfileRecord.swift in Sources */,
+				A267220CBDACE03661990ABF /* VectorStore.swift in Sources */,
+				AA4CA929DDF3BC92170C33FB /* MailAssistantService.swift in Sources */,
+				A72338397A0D735EC71603C0 /* MailImporter.swift in Sources */,
+				ACB180EEEA430C7B973B9B70 /* ThreadTracker.swift in Sources */,
+				A9F668A54D4A87C0700FEC11 /* EventBus.swift in Sources */,
+				A4C94442672D69A78DB5FA2A /* PermissionManager.swift in Sources */,
+				A294DFBC8854AF491E551291 /* PluginContext.swift in Sources */,
+				ABBE537F2BA947CBD6E92B24 /* PluginLoader.swift in Sources */,
+				A10BAFF5A7EF621C97CE2D5F /* PluginManager.swift in Sources */,
+				A3C42E4F017C6C32E25A91FC /* PluginSandbox.swift in Sources */,
+				AB6D2B8134E513274A25F338 /* LifecycleManager.swift in Sources */,
+				AFE55DFAEA46A0692B342EB1 /* ServiceDelegate.swift in Sources */,
+				A2C03590F3978F5AD27ABABD /* XPCInterface.swift in Sources */,
+				A3DF3EC77E00A34B360FE759 /* XPCService.swift in Sources */,
+				A9C0F512BD0AAD7D7C99FF36 /* main.swift in Sources */,
+				A408F4FDCE4AB5A87F7CC3AE /* AIProviderProtocol.swift in Sources */,
+				ADBD06113D551625C24159C8 /* ActionProtocol.swift in Sources */,
+				AB4D4884AD178A6DA03D2B5A /* AnalysisProtocol.swift in Sources */,
+				A2912B5658220A9801BEB55F /* MailEvent.swift in Sources */,
+				AC1BC3C397FE6FFE2E614489 /* PluginEvent.swift in Sources */,
+				A5A137C24C129D8AB1A54BA5 /* IntegrationProtocol.swift in Sources */,
+				AAB106068D753AFE9B0863A3 /* Contact.swift in Sources */,
+				A95436BEB941B27C600D740C /* Email.swift in Sources */,
+				A8D52BEA8C3937AF401B91AC /* PluginContext.swift in Sources */,
+				A2B06F64238DF7EAD884F1FB /* PluginID.swift in Sources */,
+				AB35940D1F3BCBA218D3D680 /* PluginManifest.swift in Sources */,
+				AE844AAF4E33EB5006C2EDB6 /* ResponseSuggestion.swift in Sources */,
+				AE0B5E98318E64083F3B72BC /* WritingStyle.swift in Sources */,
+				A6454C837C51E780E361078D /* PluginPermission.swift in Sources */,
+				AA18079E2B13E40305D942A9 /* PluginProtocol.swift in Sources */,
+				AD98534F365322EE6DEC6C19 /* UIProtocol.swift in Sources */,
+				A3042287693930795062AC16 /* KimiAPI.swift in Sources */,
+				A54FD41A590AFE4F100819F8 /* KimiProviderPlugin.swift in Sources */,
+				A0BF00311C3199032B113DC4 /* ContextBuilder.swift in Sources */,
+				ACDE2253D0B21854F8F0ADF8 /* ResponseGeneratorPlugin.swift in Sources */,
+				A2812F53F52A15BDB4584231 /* SuggestionEngine.swift in Sources */,
+				AA14695B0E385EE3E14CF82E /* TemplateMatcher.swift in Sources */,
+				A82CA3DCE806DEC436946D0F /* FeatureExtractor.swift in Sources */,
+				AFB3E5234833516F2EDA6187 /* StyleAnalyzer.swift in Sources */,
+				A8122E4F04FC7C67F1034707 /* StyleLearnerPlugin.swift in Sources */,
+				AF707E836C2E97B0C682A7E4 /* SharedTypes.swift in Sources */,
+				ACA8C9C05D09B26C28CA9D03 /* Logger.swift in Sources */,
+				AB3F2736EBC7851A16EF4F45 /* XPCProtocol.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-        A00000000000000000000043 /* PBXTargetDependency */ = {
-            isa = PBXTargetDependency;
-            target = A00000000000000000000020 /* MailExtension */;
-            targetProxy = A0000000000000000000001E /* PBXContainerItemProxy */;
-        };
-        A00000000000000000000044 /* PBXTargetDependency */ = {
-            isa = PBXTargetDependency;
-            target = A00000000000000000000022 /* MailAssistantService */;
-            targetProxy = A00000000000000000000021 /* PBXContainerItemProxy */;
-        };
-        A00000000000000000000101 /* PBXTargetDependency */ = {
-            isa = PBXTargetDependency;
-            target = A0000000000000000000003F /* MailAssistant */;
-        };
-        A00000000000000000000102 /* PBXTargetDependency */ = {
-            isa = PBXTargetDependency;
-            target = A00000000000000000000020 /* MailExtension */;
-        };
-        A00000000000000000000103 /* PBXTargetDependency */ = {
-            isa = PBXTargetDependency;
-            target = A00000000000000000000022 /* MailAssistantService */;
-        };
+		A00000000000000000000043 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A00000000000000000000020 /* MailExtension */;
+			targetProxy = A0000000000000000000001E /* PBXContainerItemProxy */;
+		};
+		A00000000000000000000044 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A00000000000000000000022 /* MailAssistantService */;
+			targetProxy = A00000000000000000000021 /* PBXContainerItemProxy */;
+		};
+		A99F1D24F7411131B0FA3FF8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A0000000000000000000003F /* MailAssistant */;
+		};
+		AABBFCCA87AD03C2B1C0B564 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A00000000000000000000020 /* MailExtension */;
+		};
+		AE931C40A571CB50FDDF5600 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A00000000000000000000022 /* MailAssistantService */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-        A0000000000000000000004C /* Debug */ = {
-            isa = XCBuildConfiguration;
-            buildSettings = {
-                ALWAYS_SEARCH_USER_PATHS = NO;
-                ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
-                CLANG_ANALYZER_NONNULL = YES;
-                CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-                CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-                CLANG_ENABLE_MODULES = YES;
-                CLANG_ENABLE_OBJC_ARC = YES;
-                CLANG_ENABLE_OBJC_WEAK = YES;
-                CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-                CLANG_WARN_BOOL_CONVERSION = YES;
-                CLANG_WARN_COMMA = YES;
-                CLANG_WARN_CONSTANT_CONVERSION = YES;
-                CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-                CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-                CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-                CLANG_WARN_EMPTY_BODY = YES;
-                CLANG_WARN_ENUM_CONVERSION = YES;
-                CLANG_WARN_INFINITE_RECURSION = YES;
-                CLANG_WARN_INT_CONVERSION = YES;
-                CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-                CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-                CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-                CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-                CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-                CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-                CLANG_WARN_STRICT_PROTOTYPES = YES;
-                CLANG_WARN_SUSPICIOUS_MOVE = YES;
-                CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-                CLANG_WARN_UNREACHABLE_CODE = YES;
-                CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-                COPY_PHASE_STRIP = NO;
-                DEBUG_INFORMATION_FORMAT = dwarf;
-                ENABLE_STRICT_OBJC_MSGSEND = YES;
-                ENABLE_TESTABILITY = YES;
-                ENABLE_USER_SCRIPT_SANDBOXING = YES;
-                GCC_C_LANGUAGE_STANDARD = gnu17;
-                GCC_DYNAMIC_NO_PIC = NO;
-                GCC_NO_COMMON_BLOCKS = YES;
-                GCC_OPTIMIZATION_LEVEL = 0;
-                GCC_PREPROCESSOR_DEFINITIONS = (
-                    "DEBUG=1",
-                    "$(inherited)",
-                );
-                GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-                GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-                GCC_WARN_UNDECLARED_SELECTOR = YES;
-                GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-                GCC_WARN_UNUSED_FUNCTION = YES;
-                GCC_WARN_UNUSED_VARIABLE = YES;
-                LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-                MACOSX_DEPLOYMENT_TARGET = 14.0;
-                MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-                MTL_FAST_MATH = YES;
-                ONLY_ACTIVE_ARCH = YES;
-                SDKROOT = macosx;
-                SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
-                SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-            };
-            name = Debug;
-        };
-        A0000000000000000000004D /* Release */ = {
-            isa = XCBuildConfiguration;
-            buildSettings = {
-                ALWAYS_SEARCH_USER_PATHS = NO;
-                ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
-                CLANG_ANALYZER_NONNULL = YES;
-                CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-                CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-                CLANG_ENABLE_MODULES = YES;
-                CLANG_ENABLE_OBJC_ARC = YES;
-                CLANG_ENABLE_OBJC_WEAK = YES;
-                CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-                CLANG_WARN_BOOL_CONVERSION = YES;
-                CLANG_WARN_COMMA = YES;
-                CLANG_WARN_CONSTANT_CONVERSION = YES;
-                CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-                CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-                CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-                CLANG_WARN_EMPTY_BODY = YES;
-                CLANG_WARN_ENUM_CONVERSION = YES;
-                CLANG_WARN_INFINITE_RECURSION = YES;
-                CLANG_WARN_INT_CONVERSION = YES;
-                CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-                CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-                CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-                CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-                CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-                CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-                CLANG_WARN_STRICT_PROTOTYPES = YES;
-                CLANG_WARN_SUSPICIOUS_MOVE = YES;
-                CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-                CLANG_WARN_UNREACHABLE_CODE = YES;
-                CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-                COPY_PHASE_STRIP = NO;
-                DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-                ENABLE_NS_ASSERTIONS = NO;
-                ENABLE_STRICT_OBJC_MSGSEND = YES;
-                ENABLE_USER_SCRIPT_SANDBOXING = YES;
-                GCC_C_LANGUAGE_STANDARD = gnu17;
-                GCC_NO_COMMON_BLOCKS = YES;
-                GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-                GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-                GCC_WARN_UNDECLARED_SELECTOR = YES;
-                GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-                GCC_WARN_UNUSED_FUNCTION = YES;
-                GCC_WARN_UNUSED_VARIABLE = YES;
-                LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-                MACOSX_DEPLOYMENT_TARGET = 14.0;
-                MTL_ENABLE_DEBUG_INFO = NO;
-                MTL_FAST_MATH = YES;
-                SDKROOT = macosx;
-                SWIFT_COMPILATION_MODE = wholemodule;
-            };
-            name = Release;
-        };
-        A0000000000000000000004E /* Debug */ = {
-            isa = XCBuildConfiguration;
-            buildSettings = {
-                ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-                ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-                CODE_SIGN_ENTITLEMENTS = MailAssistant/Resources/MailAssistant.entitlements;
-                CODE_SIGN_STYLE = Automatic;
-                COMBINE_HIDPI_IMAGES = YES;
-                CURRENT_PROJECT_VERSION = 1;
-                DEVELOPMENT_TEAM = "";
-                ENABLE_HARDENED_RUNTIME = YES;
-                GENERATE_INFOPLIST_FILE = NO;
-                INFOPLIST_FILE = MailAssistant/Resources/Info.plist;
-                INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
-                INFOPLIST_KEY_NSHumanReadableCopyright = "";
-                LD_RUNPATH_SEARCH_PATHS = (
-                    "$(inherited)",
-                    "@executable_path/../Frameworks",
-                );
-                MARKETING_VERSION = 1.0;
-                PRODUCT_BUNDLE_IDENTIFIER = com.rabitem.MailAssistant;
-                PRODUCT_NAME = "$(TARGET_NAME)";
-                SWIFT_EMIT_LOC_STRINGS = YES;
-                SWIFT_VERSION = 6.0;
-            };
-            name = Debug;
-        };
-        A0000000000000000000004F /* Release */ = {
-            isa = XCBuildConfiguration;
-            buildSettings = {
-                ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-                ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-                CODE_SIGN_ENTITLEMENTS = MailAssistant/Resources/MailAssistant.entitlements;
-                CODE_SIGN_STYLE = Automatic;
-                COMBINE_HIDPI_IMAGES = YES;
-                CURRENT_PROJECT_VERSION = 1;
-                DEVELOPMENT_TEAM = "";
-                ENABLE_HARDENED_RUNTIME = YES;
-                GENERATE_INFOPLIST_FILE = NO;
-                INFOPLIST_FILE = MailAssistant/Resources/Info.plist;
-                INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
-                INFOPLIST_KEY_NSHumanReadableCopyright = "";
-                LD_RUNPATH_SEARCH_PATHS = (
-                    "$(inherited)",
-                    "@executable_path/../Frameworks",
-                );
-                MARKETING_VERSION = 1.0;
-                PRODUCT_BUNDLE_IDENTIFIER = com.rabitem.MailAssistant;
-                PRODUCT_NAME = "$(TARGET_NAME)";
-                SWIFT_EMIT_LOC_STRINGS = YES;
-                SWIFT_VERSION = 6.0;
-            };
-            name = Release;
-        };
-        A00000000000000000000050 /* Debug */ = {
-            isa = XCBuildConfiguration;
-            buildSettings = {
-                CODE_SIGN_ENTITLEMENTS = MailExtension/Resources/MailExtension.entitlements;
-                CODE_SIGN_STYLE = Automatic;
-                COMBINE_HIDPI_IMAGES = YES;
-                CURRENT_PROJECT_VERSION = 1;
-                DEVELOPMENT_TEAM = "";
-                ENABLE_HARDENED_RUNTIME = YES;
-                GENERATE_INFOPLIST_FILE = NO;
-                INFOPLIST_FILE = MailExtension/Resources/Info.plist;
-                INFOPLIST_KEY_CFBundleDisplayName = "Kimi Mail Assistant";
-                INFOPLIST_KEY_NSHumanReadableCopyright = "";
-                LD_RUNPATH_SEARCH_PATHS = (
-                    "$(inherited)",
-                    "@executable_path/../Frameworks",
-                    "@executable_path/../../../../Frameworks",
-                );
-                MARKETING_VERSION = 1.0;
-                PRODUCT_BUNDLE_IDENTIFIER = com.rabitem.MailAssistant.MailExtension;
-                PRODUCT_NAME = "$(TARGET_NAME)";
-                SKIP_INSTALL = YES;
-                SWIFT_EMIT_LOC_STRINGS = YES;
-                SWIFT_VERSION = 6.0;
-                WRAPPER_EXTENSION = appex;
-            };
-            name = Debug;
-        };
-        A00000000000000000000051 /* Release */ = {
-            isa = XCBuildConfiguration;
-            buildSettings = {
-                CODE_SIGN_ENTITLEMENTS = MailExtension/Resources/MailExtension.entitlements;
-                CODE_SIGN_STYLE = Automatic;
-                COMBINE_HIDPI_IMAGES = YES;
-                CURRENT_PROJECT_VERSION = 1;
-                DEVELOPMENT_TEAM = "";
-                ENABLE_HARDENED_RUNTIME = YES;
-                GENERATE_INFOPLIST_FILE = NO;
-                INFOPLIST_FILE = MailExtension/Resources/Info.plist;
-                INFOPLIST_KEY_CFBundleDisplayName = "Kimi Mail Assistant";
-                INFOPLIST_KEY_NSHumanReadableCopyright = "";
-                LD_RUNPATH_SEARCH_PATHS = (
-                    "$(inherited)",
-                    "@executable_path/../Frameworks",
-                    "@executable_path/../../../../Frameworks",
-                );
-                MARKETING_VERSION = 1.0;
-                PRODUCT_BUNDLE_IDENTIFIER = com.rabitem.MailAssistant.MailExtension;
-                PRODUCT_NAME = "$(TARGET_NAME)";
-                SKIP_INSTALL = YES;
-                SWIFT_EMIT_LOC_STRINGS = YES;
-                SWIFT_VERSION = 6.0;
-                WRAPPER_EXTENSION = appex;
-            };
-            name = Release;
-        };
-        A00000000000000000000052 /* Debug */ = {
-            isa = XCBuildConfiguration;
-            buildSettings = {
-                CODE_SIGN_ENTITLEMENTS = MailAssistantService/Resources/MailAssistantService.entitlements;
-                CODE_SIGN_STYLE = Automatic;
-                COMBINE_HIDPI_IMAGES = YES;
-                CURRENT_PROJECT_VERSION = 1;
-                DEVELOPMENT_TEAM = "";
-                ENABLE_HARDENED_RUNTIME = YES;
-                GENERATE_INFOPLIST_FILE = NO;
-                INFOPLIST_FILE = MailAssistantService/Resources/Info.plist;
-                INFOPLIST_KEY_NSHumanReadableCopyright = "";
-                LD_RUNPATH_SEARCH_PATHS = (
-                    "$(inherited)",
-                    "@executable_path/../Frameworks",
-                    "@executable_path/../../../../Frameworks",
-                );
-                MARKETING_VERSION = 1.0;
-                PRODUCT_BUNDLE_IDENTIFIER = com.rabitem.MailAssistant.MailAssistantService;
-                PRODUCT_NAME = "$(TARGET_NAME)";
-                SKIP_INSTALL = YES;
-                SWIFT_EMIT_LOC_STRINGS = YES;
-                SWIFT_VERSION = 6.0;
-                WRAPPER_EXTENSION = xpc;
-            };
-            name = Debug;
-        };
-        A00000000000000000000053 /* Release */ = {
-            isa = XCBuildConfiguration;
-            buildSettings = {
-                CODE_SIGN_ENTITLEMENTS = MailAssistantService/Resources/MailAssistantService.entitlements;
-                CODE_SIGN_STYLE = Automatic;
-                COMBINE_HIDPI_IMAGES = YES;
-                CURRENT_PROJECT_VERSION = 1;
-                DEVELOPMENT_TEAM = "";
-                ENABLE_HARDENED_RUNTIME = YES;
-                GENERATE_INFOPLIST_FILE = NO;
-                INFOPLIST_FILE = MailAssistantService/Resources/Info.plist;
-                INFOPLIST_KEY_NSHumanReadableCopyright = "";
-                LD_RUNPATH_SEARCH_PATHS = (
-                    "$(inherited)",
-                    "@executable_path/../Frameworks",
-                    "@executable_path/../../../../Frameworks",
-                );
-                MARKETING_VERSION = 1.0;
-                PRODUCT_BUNDLE_IDENTIFIER = com.rabitem.MailAssistant.MailAssistantService;
-                PRODUCT_NAME = "$(TARGET_NAME)";
-                SKIP_INSTALL = YES;
-                SWIFT_EMIT_LOC_STRINGS = YES;
-                SWIFT_VERSION = 6.0;
-                WRAPPER_EXTENSION = xpc;
-            };
-            name = Release;
-        };
+		A0000000000000000000004C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A0000000000000000000004D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		A0000000000000000000004E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MailAssistant/Resources/MailAssistant.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = MailAssistant/Resources/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategory_TYPE = "public.app-category.productivity";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rabitem.MailAssistant;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
+		};
+		A0000000000000000000004F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MailAssistant/Resources/MailAssistant.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = MailAssistant/Resources/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategory_TYPE = "public.app-category.productivity";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rabitem.MailAssistant;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Release;
+		};
+		A00000000000000000000050 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = MailExtension/Resources/MailExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = MailExtension/Resources/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Kimi Mail Assistant";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rabitem.MailAssistant.MailExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 6.0;
+				WRAPPER_EXTENSION = appex;
+			};
+			name = Debug;
+		};
+		A00000000000000000000051 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = MailExtension/Resources/MailExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = MailExtension/Resources/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Kimi Mail Assistant";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rabitem.MailAssistant.MailExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 6.0;
+				WRAPPER_EXTENSION = appex;
+			};
+			name = Release;
+		};
+		A00000000000000000000052 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = MailAssistantService/Resources/MailAssistantService.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = MailAssistantService/Resources/Info.plist;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rabitem.MailAssistant.MailAssistantService;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 6.0;
+				WRAPPER_EXTENSION = xpc;
+			};
+			name = Debug;
+		};
+		A00000000000000000000053 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = MailAssistantService/Resources/MailAssistantService.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = MailAssistantService/Resources/Info.plist;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rabitem.MailAssistant.MailAssistantService;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 6.0;
+				WRAPPER_EXTENSION = xpc;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-        A00000000000000000000040 /* Build configuration list for PBXNativeTarget "MailAssistant" */ = {
-            isa = XCConfigurationList;
-            buildConfigurations = (
-                A0000000000000000000004E /* Debug */,
-                A0000000000000000000004F /* Release */,
-            );
-            defaultConfigurationIsVisible = 0;
-            defaultConfigurationName = Release;
-        };
-        A00000000000000000000045 /* Build configuration list for PBXNativeTarget "MailExtension" */ = {
-            isa = XCConfigurationList;
-            buildConfigurations = (
-                A00000000000000000000050 /* Debug */,
-                A00000000000000000000051 /* Release */,
-            );
-            defaultConfigurationIsVisible = 0;
-            defaultConfigurationName = Release;
-        };
-        A00000000000000000000048 /* Build configuration list for PBXNativeTarget "MailAssistantService" */ = {
-            isa = XCConfigurationList;
-            buildConfigurations = (
-                A00000000000000000000052 /* Debug */,
-                A00000000000000000000053 /* Release */,
-            );
-            defaultConfigurationIsVisible = 0;
-            defaultConfigurationName = Release;
-        };
-        A0000000000000000000004B /* Build configuration list for PBXProject "MailAssistant" */ = {
-            isa = XCConfigurationList;
-            buildConfigurations = (
-                A0000000000000000000004C /* Debug */,
-                A0000000000000000000004D /* Release */,
-            );
-            defaultConfigurationIsVisible = 0;
-            defaultConfigurationName = Release;
-        };
-        A00000000000000000000100 /* Build configuration list for PBXAggregateTarget "MailAssistant-All" */ = {
-            isa = XCConfigurationList;
-            buildConfigurations = (
-            );
-            defaultConfigurationIsVisible = 0;
-        };
+		A00000000000000000000040 /* Build configuration list for PBXNativeTarget "MailAssistant" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A0000000000000000000004E /* Debug */,
+				A0000000000000000000004F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A00000000000000000000045 /* Build configuration list for PBXNativeTarget "MailExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A00000000000000000000050 /* Debug */,
+				A00000000000000000000051 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A00000000000000000000048 /* Build configuration list for PBXNativeTarget "MailAssistantService" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A00000000000000000000052 /* Debug */,
+				A00000000000000000000053 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A0000000000000000000004B /* Build configuration list for PBXProject "MailAssistant" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A0000000000000000000004C /* Debug */,
+				A0000000000000000000004D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A00000000000000000000100 /* Build configuration list for PBXAggregateTarget "MailAssistant-All" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 /* End XCConfigurationList section */
-    };
-    rootObject = A0000000000000000000001F /* Project object */;
+
+	};
+	rootObject = A0000000000000000000001F /* Project object */;
 }

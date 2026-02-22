@@ -255,13 +255,12 @@ class SuggestionViewModel: ObservableObject {
         state = .generating(progress: 0.3)
         
         xpcService.generateResponses(request: request) { [weak self] result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let responses):
-                    self?.state = .completed(responses)
-                case .failure(let error):
-                    self?.state = .error(error.localizedDescription)
-                }
+            // @MainActor class - no need for DispatchQueue.main.async
+            switch result {
+            case .success(let responses):
+                self?.state = .completed(responses)
+            case .failure(let error):
+                self?.state = .error(error.localizedDescription)
             }
         }
     }

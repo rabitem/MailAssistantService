@@ -266,7 +266,7 @@ public final class DatabaseManager: Sendable {
             let pageCount = try Int.fetchOne(db, sql: "PRAGMA page_count") ?? 0
             let freelistCount = try Int.fetchOne(db, sql: "PRAGMA freelist_count") ?? 0
             
-            let walSize = (try? Int.fetchOne(db, sql: "SELECT page_count * page_size FROM pragma_wal_checkpoint")) ?? 0
+            let walSize = (try? Int.fetchOne(db, sql: "SELECT page_count * page_size FROM pragma_wal_checkpoint()")) ?? 0
             
             let tableCount = try Int.fetchOne(db, sql: """
                 SELECT COUNT(*) FROM sqlite_master WHERE type='table'

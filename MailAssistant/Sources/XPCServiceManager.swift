@@ -4,6 +4,7 @@
 //
 
 import Foundation
+import Shared
 
 /// Manages the connection to the MailAssistant XPC Service
 class XPCServiceManager: ObservableObject {
@@ -20,7 +21,7 @@ class XPCServiceManager: ObservableObject {
     func connect() {
         guard connection == nil else { return }
         
-        let newConnection = NSXPCConnection(serviceName: "com.rabitem.MailAssistant.MailAssistantService")
+        let newConnection = NSXPCConnection(serviceName: AppConstants.XPC.serviceName)
         newConnection.remoteObjectInterface = NSXPCInterface(with: MailAssistantServiceProtocol.self)
         
         newConnection.invalidationHandler = { [weak self] in
@@ -40,10 +41,16 @@ class XPCServiceManager: ObservableObject {
         connection = newConnection
         
         // Test the connection
-        serviceProxy = newConnection.remoteObjectProxy as? MailAssistantServiceProtocol
-        serviceProxy?.ping { [weak self] in
+        serviceProxy = newConnection.remoteObjectProxyWithErrorHandler { [weak self] error in
             DispatchQueue.main.async {
-                self?.isConnected = true
+                print("XPC Connection error: \(error)")
+                self?.isConnected = false
+            }
+        } as? MailAssistantServiceProtocol
+        
+        serviceProxy?.ping { [weak self] success in
+            DispatchQueue.main.async {
+                self?.isConnected = success
             }
         }
     }
@@ -63,54 +70,56 @@ class XPCServiceManager: ObservableObject {
     
     /// Requests email suggestions from the service
     func requestSuggestions(for email: EmailContent, completion: @escaping ([Suggestion]) -> Void) {
-        serviceProxy?.generateSuggestions(for: email) { suggestions, error in
+        // Convert EmailContent to XPCSafeEmailContent for transmission
+        let safeEmail = XPCSafeEmailContent(emailContent: email)
+        
+        serviceProxy?.generateSuggestions(for: safeEmail) { safeSuggestions, error in
             DispatchQueue.main.async {
                 if let error = error {
                     print("Error generating suggestions: \(error)")
                     completion([])
+                } else if let safeSuggestions = safeSuggestions {
+                    // Convert XPCSafeSuggestion back to Suggestion
+                    let suggestions = safeSuggestions.map { safe in
+                        Suggestion(
+                            id: safe.id,
+                            text: safe.text,
+                            confidence: safe.confidence,
+                            type: SuggestionType(rawValue: safe.type) ?? .reply,
+                            metadata: safe.metadata
+                        )
+                    }
+                    completion(suggestions)
                 } else {
-                    completion(suggestions ?? [])
+                    completion([])
                 }
             }
         }
     }
-}
-
-// MARK: - Protocol (defined in Shared)
-
-@objc(MailAssistantServiceProtocol)
-protocol MailAssistantServiceProtocol {
-    func ping(reply: @escaping () -> Void)
-    func generateSuggestions(for email: EmailContent, reply: @escaping ([Suggestion]?, Error?) -> Void)
-    func processEmail(_ email: EmailContent, with pluginID: String, reply: @escaping (ProcessResult?, Error?) -> Void)
-}
-
-// MARK: - Data Models
-
-struct EmailContent: Codable {
-    let subject: String
-    let body: String
-    let sender: String
-    let recipients: [String]
-    let threadMessages: [String]?
-}
-
-struct Suggestion: Codable, Identifiable {
-    let id = UUID()
-    let text: String
-    let confidence: Double
-    let type: SuggestionType
-}
-
-enum SuggestionType: String, Codable {
-    case reply
-    case rewrite
-    case summary
-    case action
-}
-
-struct ProcessResult: Codable {
-    let success: Bool
-    let output: String?
-    let errorMessage: String?
+    
+    /// Process an email with a specific plugin
+    func processEmail(_ email: EmailContent, with pluginID: String, completion: @escaping (ProcessResult?) -> Void) {
+        // Convert EmailContent to XPCSafeEmailContent for transmission
+        let safeEmail = XPCSafeEmailContent(emailContent: email)
+        
+        serviceProxy?.processEmail(safeEmail, with: pluginID) { safeResult, error in
+            DispatchQueue.main.async {
+                if let error = error {
+                    print("Error processing email: \(error)")
+                    completion(nil)
+                } else if let safeResult = safeResult {
+                    // Convert XPCSafeProcessResult back to ProcessResult
+                    let result = ProcessResult(
+                        success: safeResult.success,
+                        output: safeResult.output,
+                        errorMessage: safeResult.errorMessage,
+                        metadata: safeResult.metadata
+                    )
+                    completion(result)
+                } else {
+                    completion(nil)
+                }
+            }
+        }
+    }
 }

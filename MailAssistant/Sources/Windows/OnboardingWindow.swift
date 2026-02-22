@@ -98,15 +98,17 @@ struct OnboardingWindow: View {
     
     private func advanceStep() {
         guard currentStep.rawValue < OnboardingStep.allCases.count - 1 else { return }
+        guard let nextStep = OnboardingStep(rawValue: currentStep.rawValue + 1) else { return }
         withAnimation {
-            currentStep = OnboardingStep(rawValue: currentStep.rawValue + 1)!
+            currentStep = nextStep
         }
     }
     
     private func goBack() {
         guard currentStep.rawValue > 0 else { return }
+        guard let prevStep = OnboardingStep(rawValue: currentStep.rawValue - 1) else { return }
         withAnimation {
-            currentStep = OnboardingStep(rawValue: currentStep.rawValue - 1)!
+            currentStep = prevStep
         }
     }
     

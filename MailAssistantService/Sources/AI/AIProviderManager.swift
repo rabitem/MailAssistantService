@@ -401,7 +401,7 @@ public actor AIProviderManager {
         
         // Any other healthy providers sorted by priority
         let remaining = registrations.values
-            .filter { !providers.contains(where: { $0.id == $0.id }) }
+            .filter { registration in !providers.contains(where: { $0.id == registration.provider.id }) }
             .filter { providerHealth[$0.provider.id]?.isHealthy ?? true }
             .sorted { $0.priority > $1.priority }
         

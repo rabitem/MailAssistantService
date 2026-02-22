@@ -4,6 +4,7 @@
 //
 
 import Foundation
+import Shared
 
 /// XPC Service that provides AI-powered email assistance
 class MailAssistantService: NSObject, NSXPCListenerDelegate {
@@ -44,10 +45,14 @@ class MailAssistantService: NSObject, NSXPCListenerDelegate {
     // MARK: - NSXPCListenerDelegate
     
     func listener(_ listener: NSXPCListener, shouldAcceptNewConnection newConnection: NSXPCConnection) -> Bool {
-        // Configure the connection
+        // Configure the connection with the shared protocol
         newConnection.exportedInterface = NSXPCInterface(with: MailAssistantServiceProtocol.self)
         newConnection.exportedObject = self
         
+        // Configure the remote interface for callbacks
+        newConnection.remoteObjectInterface = NSXPCInterface(with: MailAssistantClientProtocol.self)
+        
+        // Set up handlers
         newConnection.invalidationHandler = {
             NSLog("MailAssistantService: Connection invalidated")
         }
@@ -61,73 +66,75 @@ class MailAssistantService: NSObject, NSXPCListenerDelegate {
     }
 }
 
-// MARK: - MailAssistantServiceProtocol
+// MARK: - MailAssistantServiceProtocol Implementation
 
 extension MailAssistantService: MailAssistantServiceProtocol {
     
-    func ping(reply: @escaping () -> Void) {
-        reply()
+    func ping(reply: @escaping (Bool) -> Void) {
+        reply(true)
     }
     
-    func generateSuggestions(for email: EmailContent, reply: @escaping ([Suggestion]?, Error?) -> Void) {
+    func generateSuggestions(for email: XPCSafeEmailContent, reply: @escaping ([XPCSafeSuggestion]?, Error?) -> Void) {
         Task {
             do {
-                let suggestions = try await aiProvider.generateSuggestions(for: email)
-                reply(suggestions, nil)
+                // Convert XPCSafeEmailContent to EmailContent for internal processing
+                let emailContent = EmailContent(
+                    subject: email.subject,
+                    body: email.body,
+                    sender: email.sender,
+                    recipients: email.recipients,
+                    threadMessages: email.threadMessages,
+                    metadata: EmailMetadata(
+                        messageID: email.messageID,
+                        date: email.date,
+                        importance: nil,
+                        attachments: nil
+                    )
+                )
+                
+                let suggestions = try await aiProvider.generateSuggestions(for: emailContent)
+                
+                // Convert suggestions to XPCSafeSuggestion
+                let safeSuggestions = suggestions.map { suggestion in
+                    XPCSafeSuggestion(suggestion: suggestion)
+                }
+                
+                reply(safeSuggestions, nil)
             } catch {
                 reply(nil, error)
             }
         }
     }
     
-    func processEmail(_ email: EmailContent, with pluginID: String, reply: @escaping (ProcessResult?, Error?) -> Void) {
+    func processEmail(_ email: XPCSafeEmailContent, with pluginID: String, reply: @escaping (XPCSafeProcessResult?, Error?) -> Void) {
         Task {
             do {
-                let result = try await pluginManager.processEmail(email, withPlugin: pluginID)
-                reply(result, nil)
+                // Convert XPCSafeEmailContent to EmailContent for internal processing
+                let emailContent = EmailContent(
+                    subject: email.subject,
+                    body: email.body,
+                    sender: email.sender,
+                    recipients: email.recipients,
+                    threadMessages: email.threadMessages,
+                    metadata: EmailMetadata(
+                        messageID: email.messageID,
+                        date: email.date,
+                        importance: nil,
+                        attachments: nil
+                    )
+                )
+                
+                let result = try await pluginManager.processEmail(emailContent, withPlugin: pluginID)
+                
+                // Convert result to XPCSafeProcessResult
+                let safeResult = XPCSafeProcessResult(result: result)
+                
+                reply(safeResult, nil)
             } catch {
                 reply(nil, error)
             }
         }
     }
-}
-
-// MARK: - Protocol Definition
-
-@objc(MailAssistantServiceProtocol)
-protocol MailAssistantServiceProtocol {
-    func ping(reply: @escaping () -> Void)
-    func generateSuggestions(for email: EmailContent, reply: @escaping ([Suggestion]?, Error?) -> Void)
-    func processEmail(_ email: EmailContent, with pluginID: String, reply: @escaping (ProcessResult?, Error?) -> Void)
-}
-
-// MARK: - Supporting Types
-
-struct EmailContent: Codable {
-    let subject: String
-    let body: String
-    let sender: String
-    let recipients: [String]
-    let threadMessages: [String]?
-}
-
-struct Suggestion: Codable {
-    let text: String
-    let confidence: Double
-    let type: SuggestionType
-}
-
-enum SuggestionType: String, Codable {
-    case reply
-    case rewrite
-    case summary
-    case action
-}
-
-struct ProcessResult: Codable {
-    let success: Bool
-    let output: String?
-    let errorMessage: String?
 }
 
 // MARK: - Plugin Manager

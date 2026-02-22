@@ -119,7 +119,7 @@ public actor PluginSandbox {
     
     /// Deallocate memory from the sandbox
     public func deallocateMemory(_ bytes: UInt64) {
-        currentMemoryUsage = min(currentMemoryUsage, bytes)
+        currentMemoryUsage -= min(bytes, currentMemoryUsage)
     }
     
     /// Get current memory usage
@@ -258,13 +258,35 @@ public actor PluginSandbox {
             .first?
             .appendingPathComponent("KimiMail/PluginStorage/\(pluginId.rawValue)", isDirectory: true)
         
-        // Sanitize the path to prevent directory traversal
-        let sanitizedPath = relativePath
-            .replacingOccurrences(of: "..", with: "")
-            .replacingOccurrences(of: "//", with: "/")
-            .trimmingCharacters(in: CharacterSet(charactersIn: "/"))
+        guard let baseDirectory = baseDir else {
+            return URL(fileURLWithPath: "")
+        }
         
-        return baseDir?.appendingPathComponent(sanitizedPath) ?? URL(fileURLWithPath: sanitizedPath)
+        // Properly sanitize the path to prevent directory traversal attacks
+        // Resolve the path against the base directory and ensure it stays within bounds
+        let normalizedPath = (relativePath as NSString).standardizingPath
+        
+        // Remove any leading path components that could traverse upward
+        var safeComponents = normalizedPath
+            .split(separator: "/")
+            .filter { $0 != ".." && !$0.isEmpty }
+        
+        // Reconstruct the sanitized path
+        let sanitizedPath = safeComponents.joined(separator: "/")
+        
+        let finalURL = baseDirectory.appendingPathComponent(sanitizedPath)
+        
+        // Security check: ensure the resolved path is within the base directory
+        let basePath = baseDirectory.resolvingSymlinksInPath().path
+        let finalPath = finalURL.resolvingSymlinksInPath().path
+        
+        guard finalPath.hasPrefix(basePath) else {
+            // Path traversal detected - return base directory as fallback
+            reportViolation(.fileSystemAccessDenied(path: relativePath))
+            return baseDirectory
+        }
+        
+        return finalURL
     }
     
     // MARK: - Background Task Control
@@ -320,7 +342,7 @@ public actor PluginSandbox {
 public enum SandboxViolation: Sendable {
     case memoryLimitExceeded(requested: UInt64, current: UInt64, limit: UInt64)
     case storageLimitExceeded(requested: UInt64, current: UInt64, limit: UInt64)
-    case permissionDenied(Permission)
+    case permissionDenied(PluginPermission)
     case blockedHost(String)
     case hostNotAllowed(String)
     case tooManyConcurrentRequests(current: Int, limit: Int)

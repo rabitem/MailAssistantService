@@ -168,10 +168,12 @@ public actor RAGEngine {
         let embedding = try await embeddingProvider.embed(text: content)
         
         // Store metadata
+        let content = email.bodyPlain ?? email.bodyHtml?.stripHTML() ?? ""
         var metadata: [String: String] = [
             "subject": email.subject ?? "",
             "sender": email.senderEmail,
-            "date": ISO8601DateFormatter().string(from: email.sentDate ?? Date())
+            "date": ISO8601DateFormatter().string(from: email.sentDate ?? Date()),
+            "content": content
         ]
         
         // Store in vector database
@@ -214,10 +216,12 @@ public actor RAGEngine {
             
             // Store embeddings
             for (index, email) in batchEmails.enumerated() {
+                let content = email.bodyPlain ?? email.bodyHtml?.stripHTML() ?? ""
                 let metadata: [String: String] = [
                     "subject": email.subject ?? "",
                     "sender": email.senderEmail,
-                    "date": ISO8601DateFormatter().string(from: email.sentDate ?? Date())
+                    "date": ISO8601DateFormatter().string(from: email.sentDate ?? Date()),
+                    "content": content
                 ]
                 try await vectorStore.store(
                     emailId: email.id,
@@ -403,21 +407,61 @@ public actor RAGEngine {
     }
     
     private func loadEmail(emailId: String) async throws -> Email? {
-        // Would be implemented to load from database
-        // Placeholder for actual database integration
-        return nil
+        // Query database through plugin context or shared database manager
+        // This implementation uses a shared DatabaseManager if available
+        guard let databaseManager = await getDatabaseManager() else {
+            logger.warning("DatabaseManager not available for loading email")
+            return nil
+        }
+        return try await databaseManager.fetchEmail(id: emailId)
     }
     
     private func loadContact(email: String) async throws -> Contact? {
-        // Would be implemented to load from database
-        // Placeholder for actual database integration
-        return nil
+        // Query database through plugin context or shared database manager
+        guard let databaseManager = await getDatabaseManager() else {
+            logger.warning("DatabaseManager not available for loading contact")
+            return nil
+        }
+        return try await databaseManager.fetchContact(email: email)
     }
     
     private func findUserResponse(to email: Email) async -> String? {
-        // Would search for user's sent response to this email
-        // This would query the thread and find the reply
-        return nil
+        // Search for user's sent response to this email
+        // Look for emails in the thread where the user is the sender
+        guard let databaseManager = await getDatabaseManager() else {
+            logger.warning("DatabaseManager not available for finding user response")
+            return nil
+        }
+        
+        do {
+            // Search for replies in the same thread/conversation
+            let threadId = email.threadId ?? email.id
+            let responses = try await databaseManager.fetchResponsesInThread(threadId: threadId, after: email.sentDate)
+            
+            // Return the first (earliest) user response found
+            return responses.first?.bodyPlain
+        } catch {
+            logger.error("Failed to find user response: \(error.localizedDescription)")
+            return nil
+        }
+    }
+    
+    // MARK: - Database Manager Helper
+    
+    private func getDatabaseManager() async -> DatabaseManager? {
+        // Try to get the shared database manager instance
+        // This is a singleton pattern used throughout the app
+        return await DatabaseManager.shared
+    }
+    
+    // MARK: - Database Manager Protocol
+    
+    /// Protocol for database operations required by RAGEngine
+    public protocol DatabaseManager: Sendable {
+        static var shared: DatabaseManager { get }
+        func fetchEmail(id: String) async throws -> Email?
+        func fetchContact(email: String) async throws -> Contact?
+        func fetchResponsesInThread(threadId: String, after date: Date?) async throws -> [Email]
     }
     
     private func detectPurpose(from email: Email) -> ResponsePurpose {

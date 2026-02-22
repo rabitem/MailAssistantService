@@ -247,12 +247,18 @@ public actor SuggestionEngine {
     }
     
     private func generateWithAI(request: GenerationRequest) async throws -> String {
-        // This would integrate with AIProviderManager
-        // Placeholder implementation - actual implementation would call:
-        // try await AIProviderManager.shared.generate(request: request).text
+        // Access the plugin's AI provider through the context
+        guard let plugin = plugin else {
+            throw SuggestionEngineError.pluginNotAvailable
+        }
         
-        // Simulated response for structure
-        return "[AI-generated response would appear here]"
+        // Get the AI provider from the plugin context
+        let provider = await plugin.context.aiProvider
+        
+        // Generate the response
+        let response = try await provider.generate(request: request)
+        
+        return response.text
     }
     
     private func generateVariations(
@@ -399,6 +405,25 @@ private struct SuggestionConfiguration {
 
 private struct EmailContext {
     let thread: [Email]?
+}
+
+// MARK: - Errors
+
+private enum SuggestionEngineError: Error, LocalizedError {
+    case pluginNotAvailable
+    case aiProviderNotAvailable
+    case generationFailed(underlying: Error)
+    
+    var errorDescription: String? {
+        switch self {
+        case .pluginNotAvailable:
+            return "SuggestionEngine plugin is no longer available"
+        case .aiProviderNotAvailable:
+            return "AI provider is not configured or unavailable"
+        case .generationFailed(let error):
+            return "Failed to generate suggestion: \(error.localizedDescription)"
+        }
+    }
 }
 
 // MARK: - Placeholder Logger

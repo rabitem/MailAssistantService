@@ -92,7 +92,7 @@ public struct PermissionChangedEvent: PluginEvent {
     public let timestamp = Date()
     public let source: PluginID? = nil
     public let pluginId: PluginID
-    public let permission: Permission
+    public let permission: PluginPermission
     public let granted: Bool
 }
 

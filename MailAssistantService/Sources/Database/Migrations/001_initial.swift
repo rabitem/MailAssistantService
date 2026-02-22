@@ -187,27 +187,27 @@ struct InitialSchemaMigration: DatabaseMigration {
             )
             """)
         
-        // Triggers to keep FTS index in sync
+        // Triggers to keep FTS index in sync (using COALESCE to handle NULL values)
         try db.execute(sql: """
             CREATE TRIGGER IF NOT EXISTS emails_ai AFTER INSERT ON emails BEGIN
                 INSERT INTO emails_fts(rowid, subject, body_text, from_address)
-                VALUES (new.rowid, new.subject, new.body_text, new.from_address);
+                VALUES (new.rowid, COALESCE(new.subject, ''), COALESCE(new.body_text, ''), COALESCE(new.from_address, ''));
             END
             """)
         
         try db.execute(sql: """
             CREATE TRIGGER IF NOT EXISTS emails_ad AFTER DELETE ON emails BEGIN
                 INSERT INTO emails_fts(emails_fts, rowid, subject, body_text, from_address)
-                VALUES ('delete', old.rowid, old.subject, old.body_text, old.from_address);
+                VALUES ('delete', old.rowid, COALESCE(old.subject, ''), COALESCE(old.body_text, ''), COALESCE(old.from_address, ''));
             END
             """)
         
         try db.execute(sql: """
             CREATE TRIGGER IF NOT EXISTS emails_au AFTER UPDATE ON emails BEGIN
                 INSERT INTO emails_fts(emails_fts, rowid, subject, body_text, from_address)
-                VALUES ('delete', old.rowid, old.subject, old.body_text, old.from_address);
+                VALUES ('delete', old.rowid, COALESCE(old.subject, ''), COALESCE(old.body_text, ''), COALESCE(old.from_address, ''));
                 INSERT INTO emails_fts(rowid, subject, body_text, from_address)
-                VALUES (new.rowid, new.subject, new.body_text, new.from_address);
+                VALUES (new.rowid, COALESCE(new.subject, ''), COALESCE(new.body_text, ''), COALESCE(new.from_address, ''));
             END
             """)
         

@@ -127,15 +127,15 @@ public protocol PermissionProvider: Sendable {
     /// Check if plugin has a permission
     /// - Parameter permission: The permission to check
     /// - Returns: True if granted
-    func hasPermission(_ permission: Permission) async -> Bool
+    func hasPermission(_ permission: PluginPermission) async -> Bool
     
     /// Request a permission
     /// - Parameter permission: The permission to request
     /// - Returns: True if granted
-    func requestPermission(_ permission: Permission) async -> Bool
+    func requestPermission(_ permission: PluginPermission) async -> Bool
     
     /// Get all granted permissions
-    var grantedPermissions: [Permission] { get async }
+    var grantedPermissions: [PluginPermission] { get async }
 }
 
 /// AI service provider

@@ -158,6 +158,9 @@ public actor KimiAPI {
                                             continuation.yield(chunk)
                                         } catch {
                                             self.logger.error("Failed to decode chunk: \(error)")
+                                            // Propagate error to allow caller to handle streaming failures
+                                            continuation.finish(throwing: KimiAPIError.streamError("Failed to decode chunk: \(error.localizedDescription)"))
+                                            return
                                         }
                                     }
                                 }

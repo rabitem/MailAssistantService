@@ -83,6 +83,9 @@ struct GeneralSettingsView: View {
 
 struct AIProviderSettingsView: View {
     @Binding var preferredAIProvider: String
+    @State private var apiKey: String = ""
+    @State private var modelName: String = "kimi-latest"
+    @State private var maxTokens: String = "4096"
     
     let providers = ["kimi", "openai", "anthropic", "local"]
     
@@ -101,17 +104,17 @@ struct AIProviderSettingsView: View {
             Section("API Configuration") {
                 VStack(alignment: .leading, spacing: 12) {
                     LabeledContent("API Key:") {
-                        SecureField("Enter API Key", text: .constant(""))
+                        SecureField("Enter API Key", text: $apiKey)
                             .frame(width: 250)
                     }
                     
                     LabeledContent("Model:") {
-                        TextField("Model name", text: .constant("kimi-latest"))
+                        TextField("Model name", text: $modelName)
                             .frame(width: 250)
                     }
                     
                     LabeledContent("Max Tokens:") {
-                        TextField("4096", text: .constant(""))
+                        TextField("4096", text: $maxTokens)
                             .frame(width: 100)
                     }
                 }
@@ -129,6 +132,7 @@ struct AIProviderSettingsView: View {
 
 struct AdvancedSettingsView: View {
     @Binding var enableDebugLogging: Bool
+    @State private var logLevel: String = "info"
     
     var body: some View {
         Form {
@@ -138,7 +142,7 @@ struct AdvancedSettingsView: View {
                 if enableDebugLogging {
                     HStack {
                         Text("Log Level:")
-                        Picker("", selection: .constant("info")) {
+                        Picker("", selection: $logLevel) {
                             Text("Error").tag("error")
                             Text("Warning").tag("warning")
                             Text("Info").tag("info")

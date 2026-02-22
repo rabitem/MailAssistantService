@@ -166,17 +166,8 @@ public struct EmailRecord: Codable, FetchableRecord, PersistableRecord, TableRec
     
     // MARK: - PersistableRecord
     
-    public func willInsert(_ db: Database) throws {
-        // Update timestamps
-        var mutableSelf = self
-        mutableSelf.createdAt = Date()
-        mutableSelf.updatedAt = Date()
-    }
-    
-    public func willUpdate(_ db: Database, columns: Set<String>) throws {
-        // Update timestamp
-        var mutableSelf = self
-        mutableSelf.updatedAt = Date()
+    public mutating func didInsert(with rowID: Int64, for column: String?) {
+        // Row inserted successfully, timestamps already set in init
     }
     
     // MARK: - JSON Helpers

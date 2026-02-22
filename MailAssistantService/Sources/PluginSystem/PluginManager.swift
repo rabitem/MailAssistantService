@@ -470,10 +470,38 @@ public final class PluginManager: ObservableObject {
         let data = try Data(contentsOf: registryURL)
         let registry = try JSONDecoder().decode(PluginRegistry.self, from: data)
         
-        // Store enabled state for later
+        // Load and activate enabled plugins from registry
         for entry in registry.entries {
             if entry.enabled {
-                // Will be loaded and activated in loadAndActivateEnabledPlugins
+                do {
+                    // Load plugin if not already loaded
+                    if plugins[entry.id] == nil {
+                        let container = try await loader.loadPlugin(id: entry.id)
+                        let record = PluginRecord(
+                            container: container,
+                            state: .unloaded,
+                            context: nil,
+                            sandbox: nil,
+                            enabled: true,
+                            loadTime: nil,
+                            lastError: nil
+                        )
+                        plugins[entry.id] = record
+                    }
+                    
+                    // Activate the plugin
+                    try await activatePlugin(id: entry.id)
+                    
+                    // Update enabled state
+                    if var record = plugins[entry.id] {
+                        record.enabled = true
+                        plugins[entry.id] = record
+                    }
+                    
+                    logger("[PluginManager] Restored plugin from registry: \(entry.id)")
+                } catch {
+                    logger("[PluginManager] Failed to restore plugin \(entry.id): \(error)")
+                }
             }
         }
     }
@@ -623,7 +651,7 @@ public struct PluginManagerConfiguration: Sendable {
         self.permissionConsentHandler = permissionConsentHandler
         self.appVersion = appVersion
         self.maxEventQueueSize = maxEventQueueSize
-        self.maxEventHistory = maxHistoryCount
+        self.maxEventHistory = maxEventHistory
     }
 }
 

@@ -417,48 +417,4 @@ struct SearchField: NSViewRepresentable {
     }
 }
 
-// MARK: - Models
-
-struct EmailSummary: Identifiable {
-    let id: UUID
-    let sender: String
-    let subject: String
-    let preview: String
-    let receivedDate: Date
-    let isAnalyzed: Bool
-    let tags: [String]
-}
-
-struct Plugin: Identifiable {
-    let id: UUID
-    let name: String
-    let description: String
-    let icon: String
-    let version: String
-    let isInstalled: Bool
-}
-
-struct ActivityItem: Identifiable {
-    let id: UUID
-    let title: String
-    let icon: String
-    let color: Color
-    let timestamp: Date
-    let result: String?
-}
-
-enum ConnectionStatus: CustomStringConvertible {
-    case connected
-    case connecting
-    case disconnected
-    case error(String)
-    
-    var description: String {
-        switch self {
-        case .connected: return "Connected"
-        case .connecting: return "Connecting..."
-        case .disconnected: return "Disconnected"
-        case .error: return "Error"
-        }
-    }
-}
+// Types are defined in AppStateManager.swift to avoid duplication

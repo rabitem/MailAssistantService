@@ -2,6 +2,7 @@ import Foundation
 import PluginAPI
 
 /// Implementation of PluginContext passed to plugins
+@preconcurrency
 public actor PluginContextImpl: PluginContext {
     public let manifest: PluginManifest
     public let eventBus: EventBus
@@ -62,7 +63,7 @@ public struct PluginLoggerImpl: PluginLogger {
             level: .debug,
             pluginId: pluginId,
             message: message,
-            error: nil,
+            errorMessage: nil,
             file: file,
             line: line,
             function: function,
@@ -75,7 +76,7 @@ public struct PluginLoggerImpl: PluginLogger {
             level: .info,
             pluginId: pluginId,
             message: message,
-            error: nil,
+            errorMessage: nil,
             file: file,
             line: line,
             function: function,
@@ -88,7 +89,7 @@ public struct PluginLoggerImpl: PluginLogger {
             level: .warning,
             pluginId: pluginId,
             message: message,
-            error: nil,
+            errorMessage: nil,
             file: file,
             line: line,
             function: function,
@@ -101,7 +102,7 @@ public struct PluginLoggerImpl: PluginLogger {
             level: .error,
             pluginId: pluginId,
             message: message,
-            error: error,
+            errorMessage: error?.localizedDescription,
             file: file,
             line: line,
             function: function,
@@ -115,7 +116,7 @@ public struct LogEntry: Sendable {
     public let level: LogLevel
     public let pluginId: PluginID
     public let message: String
-    public let error: Error?
+    public let errorMessage: String?
     public let file: String
     public let line: Int
     public let function: String

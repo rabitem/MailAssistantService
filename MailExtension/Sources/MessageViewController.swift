@@ -69,37 +69,14 @@ class MessageViewController: MEExtensionViewController {
     
     // MARK: - Suggestion Display
     
-    private func showSuggestions(_ suggestions: [Suggestion]) {
+    private func showSuggestions(_ suggestions: [GeneratedResponse]) {
         // Display AI-generated suggestions in the Mail compose window
-        DispatchQueue.main.async { [weak self] in
-            // Update UI with suggestions
-        }
+        // Already on MainActor, no need for DispatchQueue.main.async
+        // Update UI with suggestions
     }
 }
 
-// MARK: - MEComposeSessionHandler
 
-extension MessageViewController: MEComposeSessionHandler {
-    
-    func composeSessionDidBegin(_ session: MEComposeSession) {
-        // Called when a compose session begins
-        // Can provide suggestions for reply/forward content
-    }
-    
-    func composeSessionDidEnd(_ session: MEComposeSession) {
-        // Called when a compose session ends
-    }
-    
-    func session(_ session: MEComposeSession, didChange message: MEMessage) {
-        // Called when the message being composed changes
-        // Can provide real-time suggestions as user types
-    }
-    
-    func session(_ session: MEComposeSession, provideSuggestionsFor address: MEAddress) -> [MEAddressSuggestion]? {
-        // Provide address suggestions
-        return nil
-    }
-}
 
 // MARK: - Supporting Types
 

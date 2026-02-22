@@ -17,13 +17,13 @@
     <!-- XPC Service -->
     <key>com.apple.security.temporary-exception.mach-lookup.global-name</key>
     <array>
-        <string>com.rabitem.KimiMailAssistant.MailAssistantService</string>
+        <string>com.rabitem.MailAssistant.MailAssistantService</string>
     </array>
     
     <!-- Keychain Access -->
     <key>keychain-access-groups</key>
     <array>
-        <string>$(AppIdentifierPrefix)com.rabitem.KimiMailAssistant</string>
+        <string>$(AppIdentifierPrefix)com.rabitem.MailAssistant</string>
     </array>
 </dict>
 </plist>

@@ -15,9 +15,9 @@ public final class KimiProviderPlugin: NSObject, AIProviderPlugin {
     
     public var permissions: [PluginPermission] {
         [
-            .network,
-            .keychain,
-            .backgroundProcessing
+            .networkAccess,
+            .keychainAccess,
+            .backgroundExecution
         ]
     }
     
@@ -175,7 +175,7 @@ public final class KimiProviderPlugin: NSObject, AIProviderPlugin {
                         
                         // Check for finish reason
                         if let finishReason = chunk.choices.first?.finishReason,
-                           finishReason != "null" && !finishReason.isEmpty {
+                           !finishReason.isEmpty {
                             break
                         }
                     }
@@ -215,12 +215,13 @@ public final class KimiProviderPlugin: NSObject, AIProviderPlugin {
     // MARK: - Configuration
     
     public func setAPIKey(_ apiKey: String) async throws {
-        // Store in Keychain
+        // Store in Keychain with secure accessibility
         let query: [String: Any] = [
             kSecClass as String: kSecClassGenericPassword,
             kSecAttrAccount as String: "kimi_api_key",
             kSecAttrService as String: "ai.kimi.provider",
-            kSecValueData as String: apiKey.data(using: .utf8)!
+            kSecValueData as String: apiKey.data(using: .utf8)!,
+            kSecAttrAccessible as String: kSecAttrAccessibleWhenUnlockedThisDeviceOnly
         ]
         
         // Delete any existing key first

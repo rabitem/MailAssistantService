@@ -8,7 +8,7 @@ public struct PluginManifest: Codable, Sendable {
     public let description: String
     public let author: String
     public let category: PluginCategory
-    public let permissions: [Permission]
+    public let permissions: [PluginPermission]
     public let dependencies: [PluginDependency]
     public let entryPoint: String
     public let minAppVersion: String?
@@ -21,7 +21,7 @@ public struct PluginManifest: Codable, Sendable {
         description: String,
         author: String,
         category: PluginCategory,
-        permissions: [Permission] = [],
+        permissions: [PluginPermission] = [],
         dependencies: [PluginDependency] = [],
         entryPoint: String,
         minAppVersion: String? = nil,

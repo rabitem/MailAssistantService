@@ -16,8 +16,11 @@ class MailExtension: MEExtension {
     private let messageHandler = MessageActionHandler()
     private let extensionHandler = ExtensionSessionHandler()
     
+    // MARK: - Singleton
+    
     /// Shared instance for accessing from other classes
-    static var shared: MailExtension?
+    /// Note: Will be nil until the extension is initialized by Mail
+    private(set) static var shared: MailExtension?
     
     // MARK: - Initialization
     

@@ -226,7 +226,7 @@ struct PrivacySettings: View {
     private func clearAllData() {
         // Clear UserDefaults (except onboarding status)
         let onboardingCompleted = UserDefaults.standard.bool(forKey: "hasCompletedOnboarding")
-        let domain = Bundle.main.bundleIdentifier!
+        guard let domain = Bundle.main.bundleIdentifier else { return }
         UserDefaults.standard.removePersistentDomain(forName: domain)
         UserDefaults.standard.set(onboardingCompleted, forKey: "hasCompletedOnboarding")
         

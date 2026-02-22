@@ -32,6 +32,9 @@ class AppStateManager: ObservableObject {
     /// Favorite plugins for quick access in sidebar
     @Published var favoritePlugins: [Plugin] = []
     
+    /// Unread email count for dashboard
+    @Published var unreadCount: Int = 0
+    
     // MARK: - AppStorage Properties
     
     /// Whether the user has completed onboarding
@@ -416,4 +419,5 @@ struct ActivityItem: Identifiable {
 extension Notification.Name {
     static let newDraftRequested = Notification.Name("newDraftRequested")
     static let onboardingCompleted = Notification.Name("onboardingCompleted")
+    static let analyzeEmail = Notification.Name("analyzeEmail")
 }

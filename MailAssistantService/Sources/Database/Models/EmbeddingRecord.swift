@@ -127,15 +127,8 @@ public struct EmbeddingRecord: Codable, FetchableRecord, PersistableRecord, Tabl
     
     // MARK: - PersistableRecord
     
-    public func willInsert(_ db: Database) throws {
-        var mutableSelf = self
-        mutableSelf.createdAt = Date()
-        mutableSelf.updatedAt = Date()
-    }
-    
-    public func willUpdate(_ db: Database, columns: Set<String>) throws {
-        var mutableSelf = self
-        mutableSelf.updatedAt = Date()
+    public mutating func didInsert(with rowID: Int64, for column: String?) {
+        // Row inserted successfully, timestamps already set in init
     }
     
     // MARK: - Vector Access

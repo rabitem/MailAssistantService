@@ -53,7 +53,12 @@ public final class MigrationRunner {
             
             logger.info("Applying migration \(migration.version): \(migration.name)")
             
-            try db.execute(sql: "BEGIN TRANSACTION")
+            // Check if we're already inside a transaction to avoid nested transaction issues
+            let alreadyInTransaction = db.isInsideTransaction
+            
+            if !alreadyInTransaction {
+                try db.execute(sql: "BEGIN TRANSACTION")
+            }
             
             do {
                 try migration.migrate(db)
@@ -65,10 +70,14 @@ public final class MigrationRunner {
                         migration.name,
                         Date()
                     ])
-                try db.execute(sql: "COMMIT")
+                if !alreadyInTransaction {
+                    try db.execute(sql: "COMMIT")
+                }
                 logger.info("Successfully applied migration \(migration.version)")
             } catch {
-                try db.execute(sql: "ROLLBACK")
+                if !alreadyInTransaction {
+                    try? db.execute(sql: "ROLLBACK")
+                }
                 logger.error("Failed to apply migration \(migration.version): \(error.localizedDescription)")
                 throw MigrationError.migrationFailed(version: migration.version, name: migration.name, underlying: error)
             }

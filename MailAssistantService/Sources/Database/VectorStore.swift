@@ -65,16 +65,9 @@ public final class VectorStore {
                 self.logger.warning("sqlite-vec extension not available. Vector search will be limited.")
             }
             
-            // Create the virtual table for vector search
-            // Note: This requires sqlite-vec extension to be loaded
-            try db.execute(sql: """
-                CREATE VIRTUAL TABLE IF NOT EXISTS vec_emails USING vec0(
-                    email_id TEXT PRIMARY KEY,
-                    embedding FLOAT[\(self.dimensions)] distance_metric=\(self.config.metric.rawValue)
-                )
-                """)
-            
-            // Create index for faster lookups
+            // Note: The vec_emails virtual table is created in the initial migration (001_initial.swift)
+            // to avoid duplicate creation and ensure proper schema versioning.
+            // We only create the index here for faster lookups.
             try db.execute(sql: """
                 CREATE INDEX IF NOT EXISTS idx_vec_emails_id ON vec_emails(email_id)
                 """)

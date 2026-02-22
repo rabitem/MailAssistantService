@@ -78,9 +78,18 @@ public actor ContextBuilder {
             return cached
         }
         
-        // In actual implementation, this would query the database
-        // For now, we throw an error as placeholder
-        throw ContextBuilderError.emailNotFound(id: id)
+        // Fetch from plugin context's email storage
+        guard let plugin = plugin else {
+            throw ContextBuilderError.pluginNotAvailable
+        }
+        
+        do {
+            let email: Email = try await plugin.context.emailStorage.fetchEmail(id: id)
+            emailCache[id] = email
+            return email
+        } catch {
+            throw ContextBuilderError.emailNotFound(id: id)
+        }
     }
     
     // MARK: - Private Methods - Thread History
@@ -94,9 +103,19 @@ public actor ContextBuilder {
             return cached
         }
         
-        // In actual implementation, query database for thread emails
-        // For now, return empty array
-        return []
+        // Fetch from plugin context's email storage
+        guard let plugin = plugin else {
+            return []
+        }
+        
+        do {
+            let emails: [Email] = try await plugin.context.emailStorage.fetchThreadEmails(threadID: threadID)
+            threadCache[threadID] = emails
+            return emails
+        } catch {
+            logger.warning("Failed to fetch thread history: \(error.localizedDescription)")
+            return []
+        }
     }
     
     // MARK: - Private Methods - Sender Info
@@ -129,10 +148,17 @@ public actor ContextBuilder {
     // MARK: - Private Methods - RAG Examples
     
     private func fetchRAGExamples(for email: Email) async -> [RAGExample] {
-        // In actual implementation, call RAGEngine
-        // For now, return empty array
-        // Example: try? await RAGEngine.shared.getRAGExamples(for: email)
-        return []
+        // Fetch from RAG engine through plugin context
+        guard let plugin = plugin else {
+            return []
+        }
+        
+        do {
+            return try await plugin.context.ragEngine.findSimilarEmails(for: email, limit: 3)
+        } catch {
+            logger.warning("Failed to fetch RAG examples: \(error.localizedDescription)")
+            return []
+        }
     }
     
     // MARK: - Private Methods - Calendar
@@ -270,6 +296,7 @@ enum ContextBuilderError: Error, LocalizedError {
     case emailNotFound(id: UUID)
     case databaseError(underlying: Error)
     case invalidThread(id: UUID)
+    case pluginNotAvailable
     
     var errorDescription: String? {
         switch self {
@@ -279,6 +306,8 @@ enum ContextBuilderError: Error, LocalizedError {
             return "Database error: \(error.localizedDescription)"
         case .invalidThread(let id):
             return "Invalid thread: \(id)"
+        case .pluginNotAvailable:
+            return "ContextBuilder plugin is no longer available"
         }
     }
 }
