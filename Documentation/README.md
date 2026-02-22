@@ -87,7 +87,7 @@ xcodebuild -project MailAssistant.xcodeproj -scheme MailAssistant build
 Store API keys in macOS Keychain:
 - Open Keychain Access
 - Add a new password item
-- Service name: `com.rabitem.MailAssistant.apikeys`
+- Service name: `de.rabitem.MailAssistant.apikeys`
 
 ### Enabling the Extension
 1. Build and run the main app

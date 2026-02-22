@@ -24,9 +24,9 @@
 
 | Target | Old | New |
 |--------|-----|-----|
-| Main App | `com.rabitem.KimiMailAssistant` | `com.rabitem.MailAssistant` |
-| Mail Extension | `com.rabitem.KimiMailAssistant.MailExtension` | `com.rabitem.MailAssistant.MailExtension` |
-| XPC Service | `com.rabitem.KimiMailAssistant.MailAssistantService` | `com.rabitem.MailAssistant.MailAssistantService` |
+| Main App | `de.rabitem.KimiMailAssistant` | `de.rabitem.MailAssistant` |
+| Mail Extension | `de.rabitem.KimiMailAssistant.MailExtension` | `de.rabitem.MailAssistant.MailExtension` |
+| XPC Service | `de.rabitem.KimiMailAssistant.MailAssistantService` | `de.rabitem.MailAssistant.MailAssistantService` |
 
 ## Project Structure
 

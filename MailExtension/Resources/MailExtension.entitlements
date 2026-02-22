@@ -13,7 +13,7 @@
     <!-- XPC Service Access -->
     <key>com.apple.security.temporary-exception.mach-lookup.global-name</key>
     <array>
-        <string>com.rabitem.MailAssistant.MailAssistantService</string>
+        <string>de.rabitem.MailAssistant.MailAssistantService</string>
     </array>
     
     <!-- Mail Extension Specific -->
@@ -23,7 +23,7 @@
     <!-- Shared Container -->
     <key>com.apple.security.application-groups</key>
     <array>
-        <string>group.com.rabitem.MailAssistant</string>
+        <string>group.de.rabitem.MailAssistant</string>
     </array>
 </dict>
 </plist>

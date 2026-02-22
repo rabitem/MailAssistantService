@@ -200,8 +200,8 @@ n    private var activeConnections: Set<NSXPCConnection> = []  // ❌ Stray "n"
 - Client: `generateSuggestions(for email: EmailContent, ...)`
 
 **Bundle ID Mismatch:**
-- Entitlements: `com.rabitem.KimiMailAssistant.MailAssistantService`
-- Service: `com.rabitem.MailAssistant.MailAssistantService`
+- Entitlements: `de.rabitem.KimiMailAssistant.MailAssistantService`
+- Service: `de.rabitem.MailAssistant.MailAssistantService`
 
 **Missing NSSecureCoding:** Types passed over XPC must be NSSecureCoding compliant.
 

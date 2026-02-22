@@ -287,11 +287,11 @@ class QuickActionsViewModel: ObservableObject {
 // MARK: - Notifications
 
 extension Notification.Name {
-    static let showSuggestionPanel = Notification.Name("com.rabitem.MailAssistant.showSuggestionPanel")
-    static let showToneAnalysis = Notification.Name("com.rabitem.MailAssistant.showToneAnalysis")
-    static let showSummary = Notification.Name("com.rabitem.MailAssistant.showSummary")
-    static let showImprovements = Notification.Name("com.rabitem.MailAssistant.showImprovements")
-    static let showKeyboardShortcuts = Notification.Name("com.rabitem.MailAssistant.showKeyboardShortcuts")
+    static let showSuggestionPanel = Notification.Name("de.rabitem.MailAssistant.showSuggestionPanel")
+    static let showToneAnalysis = Notification.Name("de.rabitem.MailAssistant.showToneAnalysis")
+    static let showSummary = Notification.Name("de.rabitem.MailAssistant.showSummary")
+    static let showImprovements = Notification.Name("de.rabitem.MailAssistant.showImprovements")
+    static let showKeyboardShortcuts = Notification.Name("de.rabitem.MailAssistant.showKeyboardShortcuts")
 }
 
 // MARK: - Toolbar Extension for AppKit Integration

@@ -331,8 +331,8 @@ class SuggestionViewModel: ObservableObject {
 // MARK: - Notifications
 
 extension Notification.Name {
-    static let insertSuggestion = Notification.Name("com.rabitem.MailAssistant.insertSuggestion")
-    static let editSuggestion = Notification.Name("com.rabitem.MailAssistant.editSuggestion")
-    static let showSettings = Notification.Name("com.rabitem.MailAssistant.showSettings")
-    static let showHelp = Notification.Name("com.rabitem.MailAssistant.showHelp")
+    static let insertSuggestion = Notification.Name("de.rabitem.MailAssistant.insertSuggestion")
+    static let editSuggestion = Notification.Name("de.rabitem.MailAssistant.editSuggestion")
+    static let showSettings = Notification.Name("de.rabitem.MailAssistant.showSettings")
+    static let showHelp = Notification.Name("de.rabitem.MailAssistant.showHelp")
 }

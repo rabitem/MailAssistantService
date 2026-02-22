@@ -104,13 +104,13 @@ public struct UsageStatistics: Codable, Sendable {
 
 public enum AppConstants {
     public static let appName = "Kimi Mail Assistant"
-    public static let bundleIdentifier = "com.rabitem.MailAssistant"
+    public static let bundleIdentifier = "de.rabitem.MailAssistant"
     
     public enum Notifications {
-        public static let serviceConnected = Notification.Name("com.rabitem.MailAssistant.serviceConnected")
-        public static let serviceDisconnected = Notification.Name("com.rabitem.MailAssistant.serviceDisconnected")
-        public static let suggestionsAvailable = Notification.Name("com.rabitem.MailAssistant.suggestionsAvailable")
-        public static let pluginLoaded = Notification.Name("com.rabitem.MailAssistant.pluginLoaded")
+        public static let serviceConnected = Notification.Name("de.rabitem.MailAssistant.serviceConnected")
+        public static let serviceDisconnected = Notification.Name("de.rabitem.MailAssistant.serviceDisconnected")
+        public static let suggestionsAvailable = Notification.Name("de.rabitem.MailAssistant.suggestionsAvailable")
+        public static let pluginLoaded = Notification.Name("de.rabitem.MailAssistant.pluginLoaded")
     }
     
     public enum UserDefaultsKeys {
@@ -123,7 +123,7 @@ public enum AppConstants {
     }
     
     public enum XPC {
-        public static let serviceName = "com.rabitem.MailAssistant.MailAssistantService"
+        public static let serviceName = "de.rabitem.MailAssistant.MailAssistantService"
         public static let connectionTimeout: TimeInterval = 30
     }
 }
