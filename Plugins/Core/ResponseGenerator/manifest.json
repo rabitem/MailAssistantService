@@ -1,0 +1,239 @@
+{
+  "$schema": "https://kimimail.app/plugin-schema/v1.json",
+  "id": "core.response.generator",
+  "name": "Response Generator",
+  "version": "1.0.0",
+  "minAppVersion": "1.0.0",
+  "author": {
+    "name": "KimiMail Assistant",
+    "email": "support@kimimail.app",
+    "url": "https://kimimail.app"
+  },
+  "description": "Generates intelligent, contextual email response suggestions using AI providers and learned writing styles. Provides multiple tone variants and template-based quick replies.",
+  "category": "core",
+  "permissions": [
+    "read_emails",
+    "read_threads",
+    "use_ai",
+    "network_access",
+    "background_execution",
+    "plugin_storage",
+    "access_writing_profiles",
+    "read_contacts",
+    "access_calendar"
+  ],
+  "hooks": [
+    {
+      "event": "compose.started",
+      "handler": "handleComposeStarted"
+    }
+  ],
+  "dependencies": [
+    "ai.kimi.provider"
+  ],
+  "entryPoint": "ResponseGeneratorPlugin",
+  "resources": {
+    "icon": "response-generator-icon.png",
+    "localizations": ["en", "de", "zh"]
+  },
+  "configuration": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "enableAutoSuggest": {
+          "type": "boolean",
+          "default": true,
+          "description": "Automatically generate suggestions when composing replies"
+        },
+        "suggestionCount": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5,
+          "default": 3,
+          "description": "Number of suggestions to generate"
+        },
+        "includeTemplates": {
+          "type": "boolean",
+          "default": true,
+          "description": "Include template-based suggestions"
+        },
+        "includeQuickReplies": {
+          "type": "boolean",
+          "default": true,
+          "description": "Include quick reply templates"
+        },
+        "minConfidence": {
+          "type": "number",
+          "minimum": 0.0,
+          "maximum": 1.0,
+          "default": 0.6,
+          "description": "Minimum confidence threshold for suggestions"
+        },
+        "enableRAG": {
+          "type": "boolean",
+          "default": true,
+          "description": "Use RAG to retrieve similar past responses"
+        },
+        "ragExampleCount": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10,
+          "default": 3,
+          "description": "Number of RAG examples to include in context"
+        },
+        "preferredTones": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["professional", "casual", "friendly", "formal", "assertive", "diplomatic"]
+          },
+          "default": ["professional", "casual", "friendly"],
+          "description": "Preferred tone variants to generate"
+        },
+        "maxTokens": {
+          "type": "integer",
+          "minimum": 256,
+          "maximum": 4096,
+          "default": 2048,
+          "description": "Maximum tokens per generated response"
+        },
+        "temperature": {
+          "type": "number",
+          "minimum": 0.0,
+          "maximum": 2.0,
+          "default": 0.7,
+          "description": "Creativity level for AI generation"
+        },
+        "learnFromEdits": {
+          "type": "boolean",
+          "default": true,
+          "description": "Learn from user edits to improve future suggestions"
+        },
+        "cacheTimeout": {
+          "type": "integer",
+          "minimum": 60,
+          "maximum": 3600,
+          "default": 300,
+          "description": "Cache timeout in seconds for generated suggestions"
+        }
+      }
+    },
+    "defaults": {
+      "enableAutoSuggest": true,
+      "suggestionCount": 3,
+      "includeTemplates": true,
+      "includeQuickReplies": true,
+      "minConfidence": 0.6,
+      "enableRAG": true,
+      "ragExampleCount": 3,
+      "preferredTones": ["professional", "casual", "friendly"],
+      "maxTokens": 2048,
+      "temperature": 0.7,
+      "learnFromEdits": true,
+      "cacheTimeout": 300
+    },
+    "ui": {
+      "sections": [
+        {
+          "title": "General",
+          "fields": [
+            {
+              "key": "enableAutoSuggest",
+              "type": "toggle",
+              "label": "Auto-generate suggestions",
+              "description": "Automatically show suggestions when you start composing a reply"
+            },
+            {
+              "key": "suggestionCount",
+              "type": "slider",
+              "label": "Suggestions to show",
+              "min": 1,
+              "max": 5,
+              "step": 1
+            }
+          ]
+        },
+        {
+          "title": "Suggestion Types",
+          "fields": [
+            {
+              "key": "includeTemplates",
+              "type": "toggle",
+              "label": "Include templates",
+              "description": "Show template-based suggestions for common scenarios"
+            },
+            {
+              "key": "includeQuickReplies",
+              "type": "toggle",
+              "label": "Include quick replies",
+              "description": "Show one-click quick reply options"
+            }
+          ]
+        },
+        {
+          "title": "AI Settings",
+          "collapsible": true,
+          "fields": [
+            {
+              "key": "enableRAG",
+              "type": "toggle",
+              "label": "Use past responses",
+              "description": "Include similar past emails as examples for better personalization"
+            },
+            {
+              "key": "ragExampleCount",
+              "type": "slider",
+              "label": "Past examples to include",
+              "min": 0,
+              "max": 10,
+              "step": 1
+            },
+            {
+              "key": "temperature",
+              "type": "slider",
+              "label": "Creativity",
+              "min": 0.0,
+              "max": 1.5,
+              "step": 0.1,
+              "description": "Higher values produce more creative but less predictable responses"
+            },
+            {
+              "key": "maxTokens",
+              "type": "integer",
+              "label": "Max response length",
+              "min": 256,
+              "max": 4096
+            }
+          ]
+        },
+        {
+          "title": "Learning",
+          "collapsible": true,
+          "fields": [
+            {
+              "key": "learnFromEdits",
+              "type": "toggle",
+              "label": "Learn from edits",
+              "description": "Improve suggestions based on how you edit AI-generated responses"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "features": {
+    "suggestionVariants": ["professional", "casual", "brief", "formal", "friendly"],
+    "supportsRAG": true,
+    "supportsStyleAdaptation": true,
+    "supportsTemplates": true,
+    "supportsQuickReplies": true,
+    "supportsCalendarIntegration": true
+  },
+  "metadata": {
+    "homepage": "https://kimimail.app/plugins/response-generator",
+    "documentation": "https://kimimail.app/docs/response-generator",
+    "changelog": "https://kimimail.app/plugins/response-generator/changelog",
+    "support": "https://kimimail.app/support",
+    "license": "MIT"
+  }
+}

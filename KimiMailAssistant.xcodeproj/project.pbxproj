@@ -1,0 +1,822 @@
+// !$*UTF8*$!
+{
+    archiveVersion = 1;
+    classes = {
+    };
+    objectVersion = 77;
+    objects = {
+
+/* Begin PBXAggregateTarget section */
+        A000000000000000000000FF /* KimiMailAssistant-All */ = {
+            isa = PBXAggregateTarget;
+            buildConfigurationList = A00000000000000000000100 /* Build configuration list for PBXAggregateTarget "KimiMailAssistant-All" */;
+            buildPhases = (
+            );
+            dependencies = (
+                A00000000000000000000101 /* PBXTargetDependency */,
+                A00000000000000000000102 /* PBXTargetDependency */,
+                A00000000000000000000103 /* PBXTargetDependency */,
+            );
+            name = "KimiMailAssistant-All";
+            productName = "KimiMailAssistant-All";
+        };
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+        A00000000000000000000004 /* KimiMailAssistantApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000005 /* KimiMailAssistantApp.swift */; };
+        A00000000000000000000006 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000007 /* ContentView.swift */; };
+        A00000000000000000000008 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000009 /* DashboardView.swift */; };
+        A0000000000000000000000A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000000000000000000000B /* SettingsView.swift */; };
+        A0000000000000000000000C /* XPCServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000000000000000000000D /* XPCServiceManager.swift */; };
+        A0000000000000000000000E /* SharedTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000000000000000000000F /* SharedTypes.swift */; };
+        A00000000000000000000010 /* MailExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000011 /* MailExtension.swift */; };
+        A00000000000000000000012 /* ComposeSessionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000013 /* ComposeSessionHandler.swift */; };
+        A00000000000000000000014 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000015 /* MessageViewController.swift */; };
+        A00000000000000000000016 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000017 /* main.swift */; };
+        A00000000000000000000018 /* MailAssistantService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000019 /* MailAssistantService.swift */; };
+        A0000000000000000000001A /* AIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000000000000000000001B /* AIProvider.swift */; };
+        A0000000000000000000001C /* PluginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000000000000000000001D /* PluginAPI.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+        A0000000000000000000001E /* PBXContainerItemProxy */ = {
+            isa = PBXContainerItemProxy;
+            containerPortal = A0000000000000000000001F /* Project object */;
+            proxyType = 1;
+            remoteGlobalIDString = A00000000000000000000020;
+            remoteInfo = MailExtension;
+        };
+        A00000000000000000000021 /* PBXContainerItemProxy */ = {
+            isa = PBXContainerItemProxy;
+            containerPortal = A0000000000000000000001F /* Project object */;
+            proxyType = 1;
+            remoteGlobalIDString = A00000000000000000000022;
+            remoteInfo = MailAssistantService;
+        };
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+        A00000000000000000000023 /* Embed Foundation Extensions */ = {
+            isa = PBXCopyFilesBuildPhase;
+            buildActionMask = 2147483647;
+            dstPath = "";
+            dstSubfolderSpec = 13;
+            files = (
+            );
+            name = "Embed Foundation Extensions";
+            runOnlyForDeploymentPostprocessing = 0;
+        };
+        A00000000000000000000024 /* Embed XPC Services */ = {
+            isa = PBXCopyFilesBuildPhase;
+            buildActionMask = 2147483647;
+            dstPath = "";
+            dstSubfolderSpec = 16;
+            files = (
+            );
+            name = "Embed XPC Services";
+            runOnlyForDeploymentPostprocessing = 0;
+        };
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+        /* Products */
+        A00000000000000000000001 /* KimiMailAssistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KimiMailAssistant.app; sourceTree = BUILT_PRODUCTS_DIR; };
+        A00000000000000000000002 /* MailExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MailExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+        A00000000000000000000003 /* MailAssistantService.xpc */ = {isa = PBXFileReference; explicitFileType = "wrapper.xpc-service"; includeInIndex = 0; path = MailAssistantService.xpc; sourceTree = BUILT_PRODUCTS_DIR; };
+        
+        /* Main App Sources */
+        A00000000000000000000005 /* KimiMailAssistantApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KimiMailAssistantApp.swift; sourceTree = "<group>"; };
+        A00000000000000000000007 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+        A00000000000000000000009 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+        A0000000000000000000000B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+        A0000000000000000000000D /* XPCServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XPCServiceManager.swift; sourceTree = "<group>"; };
+        
+        /* Shared Sources */
+        A0000000000000000000000F /* SharedTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedTypes.swift; sourceTree = "<group>"; };
+        
+        /* Mail Extension Sources */
+        A00000000000000000000011 /* MailExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailExtension.swift; sourceTree = "<group>"; };
+        A00000000000000000000013 /* ComposeSessionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeSessionHandler.swift; sourceTree = "<group>"; };
+        A00000000000000000000015 /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
+        
+        /* Service Sources */
+        A00000000000000000000017 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+        A00000000000000000000019 /* MailAssistantService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailAssistantService.swift; sourceTree = "<group>"; };
+        A0000000000000000000001B /* AIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIProvider.swift; sourceTree = "<group>"; };
+        
+        /* PluginAPI Sources */
+        A0000000000000000000001D /* PluginAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PluginAPI.swift; sourceTree = "<group>"; };
+        
+        /* Resources */
+        A00000000000000000000025 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+        A00000000000000000000026 /* KimiMailAssistant.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KimiMailAssistant.entitlements; sourceTree = "<group>"; };
+        A00000000000000000000027 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+        A00000000000000000000028 /* MailExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MailExtension.entitlements; sourceTree = "<group>"; };
+        A00000000000000000000029 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+        A0000000000000000000002A /* MailAssistantService.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MailAssistantService.entitlements; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+        A0000000000000000000002B /* Frameworks */ = {
+            isa = PBXFrameworksBuildPhase;
+            buildActionMask = 2147483647;
+            files = (
+            );
+            runOnlyForDeploymentPostprocessing = 0;
+        };
+        A0000000000000000000002C /* Frameworks */ = {
+            isa = PBXFrameworksBuildPhase;
+            buildActionMask = 2147483647;
+            files = (
+            );
+            runOnlyForDeploymentPostprocessing = 0;
+        };
+        A0000000000000000000002D /* Frameworks */ = {
+            isa = PBXFrameworksBuildPhase;
+            buildActionMask = 2147483647;
+            files = (
+            );
+            runOnlyForDeploymentPostprocessing = 0;
+        };
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+        A0000000000000000000002E = {
+            isa = PBXGroup;
+            children = (
+                A0000000000000000000002F /* KimiMailAssistant */,
+                A00000000000000000000030 /* MailExtension */,
+                A00000000000000000000031 /* MailAssistantService */,
+                A00000000000000000000032 /* PluginAPI */,
+                A00000000000000000000033 /* Shared */,
+                A00000000000000000000034 /* Products */,
+            );
+            sourceTree = "<group>";
+        };
+        A00000000000000000000034 /* Products */ = {
+            isa = PBXGroup;
+            children = (
+                A00000000000000000000001 /* KimiMailAssistant.app */,
+                A00000000000000000000002 /* MailExtension.appex */,
+                A00000000000000000000003 /* MailAssistantService.xpc */,
+            );
+            name = Products;
+            sourceTree = "<group>";
+        };
+        A0000000000000000000002F /* KimiMailAssistant */ = {
+            isa = PBXGroup;
+            children = (
+                A00000000000000000000035 /* Sources */,
+                A00000000000000000000036 /* Resources */,
+            );
+            path = KimiMailAssistant;
+            sourceTree = "<group>";
+        };
+        A00000000000000000000035 /* Sources */ = {
+            isa = PBXGroup;
+            children = (
+                A00000000000000000000005 /* KimiMailAssistantApp.swift */,
+                A0000000000000000000000D /* XPCServiceManager.swift */,
+                A00000000000000000000037 /* Views */,
+                A00000000000000000000038 /* Windows */,
+            );
+            path = Sources;
+            sourceTree = "<group>";
+        };
+        A00000000000000000000037 /* Views */ = {
+            isa = PBXGroup;
+            children = (
+                A00000000000000000000009 /* DashboardView.swift */,
+                A0000000000000000000000B /* SettingsView.swift */,
+            );
+            path = Views;
+            sourceTree = "<group>";
+        };
+        A00000000000000000000038 /* Windows */ = {
+            isa = PBXGroup;
+            children = (
+                A00000000000000000000007 /* ContentView.swift */,
+            );
+            path = Windows;
+            sourceTree = "<group>";
+        };
+        A00000000000000000000036 /* Resources */ = {
+            isa = PBXGroup;
+            children = (
+                A00000000000000000000025 /* Info.plist */,
+                A00000000000000000000026 /* KimiMailAssistant.entitlements */,
+            );
+            path = Resources;
+            sourceTree = "<group>";
+        };
+        A00000000000000000000030 /* MailExtension */ = {
+            isa = PBXGroup;
+            children = (
+                A00000000000000000000039 /* Sources */,
+                A0000000000000000000003A /* Resources */,
+            );
+            path = MailExtension;
+            sourceTree = "<group>";
+        };
+        A00000000000000000000039 /* Sources */ = {
+            isa = PBXGroup;
+            children = (
+                A00000000000000000000011 /* MailExtension.swift */,
+                A00000000000000000000013 /* ComposeSessionHandler.swift */,
+                A00000000000000000000015 /* MessageViewController.swift */,
+            );
+            path = Sources;
+            sourceTree = "<group>";
+        };
+        A0000000000000000000003A /* Resources */ = {
+            isa = PBXGroup;
+            children = (
+                A00000000000000000000027 /* Info.plist */,
+                A00000000000000000000028 /* MailExtension.entitlements */,
+            );
+            path = Resources;
+            sourceTree = "<group>";
+        };
+        A00000000000000000000031 /* MailAssistantService */ = {
+            isa = PBXGroup;
+            children = (
+                A0000000000000000000003B /* Sources */,
+                A0000000000000000000003C /* Resources */,
+            );
+            path = MailAssistantService;
+            sourceTree = "<group>";
+        };
+        A0000000000000000000003B /* Sources */ = {
+            isa = PBXGroup;
+            children = (
+                A00000000000000000000017 /* main.swift */,
+                A00000000000000000000019 /* MailAssistantService.swift */,
+                A0000000000000000000001B /* AIProvider.swift */,
+            );
+            path = Sources;
+            sourceTree = "<group>";
+        };
+        A0000000000000000000003C /* Resources */ = {
+            isa = PBXGroup;
+            children = (
+                A00000000000000000000029 /* Info.plist */,
+                A0000000000000000000002A /* MailAssistantService.entitlements */,
+            );
+            path = Resources;
+            sourceTree = "<group>";
+        };
+        A00000000000000000000032 /* PluginAPI */ = {
+            isa = PBXGroup;
+            children = (
+                A0000000000000000000003D /* Sources */,
+            );
+            path = PluginAPI;
+            sourceTree = "<group>";
+        };
+        A0000000000000000000003D /* Sources */ = {
+            isa = PBXGroup;
+            children = (
+                A0000000000000000000001D /* PluginAPI.swift */,
+            );
+            path = Sources;
+            sourceTree = "<group>";
+        };
+        A00000000000000000000033 /* Shared */ = {
+            isa = PBXGroup;
+            children = (
+                A0000000000000000000003E /* Sources */,
+            );
+            path = Shared;
+            sourceTree = "<group>";
+        };
+        A0000000000000000000003E /* Sources */ = {
+            isa = PBXGroup;
+            children = (
+                A0000000000000000000000F /* SharedTypes.swift */,
+            );
+            path = Sources;
+            sourceTree = "<group>";
+        };
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+        A0000000000000000000003F /* KimiMailAssistant */ = {
+            isa = PBXNativeTarget;
+            buildConfigurationList = A00000000000000000000040 /* Build configuration list for PBXNativeTarget "KimiMailAssistant" */;
+            buildPhases = (
+                A00000000000000000000041 /* Sources */,
+                A0000000000000000000002B /* Frameworks */,
+                A00000000000000000000023 /* Embed Foundation Extensions */,
+                A00000000000000000000024 /* Embed XPC Services */,
+                A00000000000000000000042 /* Resources */,
+            );
+            buildRules = (
+            );
+            dependencies = (
+                A00000000000000000000043 /* PBXTargetDependency */,
+                A00000000000000000000044 /* PBXTargetDependency */,
+            );
+            name = KimiMailAssistant;
+            packageProductDependencies = (
+            );
+            productName = KimiMailAssistant;
+            productReference = A00000000000000000000001 /* KimiMailAssistant.app */;
+            productType = "com.apple.product-type.application";
+        };
+        A00000000000000000000020 /* MailExtension */ = {
+            isa = PBXNativeTarget;
+            buildConfigurationList = A00000000000000000000045 /* Build configuration list for PBXNativeTarget "MailExtension" */;
+            buildPhases = (
+                A00000000000000000000046 /* Sources */,
+                A0000000000000000000002C /* Frameworks */,
+                A00000000000000000000047 /* Resources */,
+            );
+            buildRules = (
+            );
+            dependencies = (
+            );
+            name = MailExtension;
+            packageProductDependencies = (
+            );
+            productName = MailExtension;
+            productReference = A00000000000000000000002 /* MailExtension.appex */;
+            productType = "com.apple.product-type.app-extension";
+        };
+        A00000000000000000000022 /* MailAssistantService */ = {
+            isa = PBXNativeTarget;
+            buildConfigurationList = A00000000000000000000048 /* Build configuration list for PBXNativeTarget "MailAssistantService" */;
+            buildPhases = (
+                A00000000000000000000049 /* Sources */,
+                A0000000000000000000002D /* Frameworks */,
+                A0000000000000000000004A /* Resources */,
+            );
+            buildRules = (
+            );
+            dependencies = (
+            );
+            name = MailAssistantService;
+            packageProductDependencies = (
+            );
+            productName = MailAssistantService;
+            productReference = A00000000000000000000003 /* MailAssistantService.xpc */;
+            productType = "com.apple.product-type.xpc-service";
+        };
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+        A0000000000000000000001F /* Project object */ = {
+            isa = PBXProject;
+            attributes = {
+                BuildIndependentTargetsInParallel = 1;
+                LastSwiftUpdateCheck = 1600;
+                LastUpgradeCheck = 1600;
+                TargetAttributes = {
+                    A00000000000000000000020 = {
+                        CreatedOnToolsVersion = 16.0;
+                    };
+                    A00000000000000000000022 = {
+                        CreatedOnToolsVersion = 16.0;
+                    };
+                    A0000000000000000000003F = {
+                        CreatedOnToolsVersion = 16.0;
+                    };
+                };
+            };
+            buildConfigurationList = A0000000000000000000004B /* Build configuration list for PBXProject "KimiMailAssistant" */;
+            compatibilityVersion = "Xcode 15.0";
+            developmentRegion = en;
+            hasScannedForEncodings = 0;
+            knownRegions = (
+                en,
+                Base,
+            );
+            mainGroup = A0000000000000000000002E;
+            productRefGroup = A00000000000000000000034 /* Products */;
+            projectDirPath = "";
+            projectRoot = "";
+            targets = (
+                A0000000000000000000003F /* KimiMailAssistant */,
+                A00000000000000000000020 /* MailExtension */,
+                A00000000000000000000022 /* MailAssistantService */,
+                A000000000000000000000FF /* KimiMailAssistant-All */,
+            );
+        };
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+        A00000000000000000000042 /* Resources */ = {
+            isa = PBXResourcesBuildPhase;
+            buildActionMask = 2147483647;
+            files = (
+            );
+            runOnlyForDeploymentPostprocessing = 0;
+        };
+        A00000000000000000000047 /* Resources */ = {
+            isa = PBXResourcesBuildPhase;
+            buildActionMask = 2147483647;
+            files = (
+            );
+            runOnlyForDeploymentPostprocessing = 0;
+        };
+        A0000000000000000000004A /* Resources */ = {
+            isa = PBXResourcesBuildPhase;
+            buildActionMask = 2147483647;
+            files = (
+            );
+            runOnlyForDeploymentPostprocessing = 0;
+        };
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+        A00000000000000000000041 /* Sources */ = {
+            isa = PBXSourcesBuildPhase;
+            buildActionMask = 2147483647;
+            files = (
+                A00000000000000000000004 /* KimiMailAssistantApp.swift in Sources */,
+                A00000000000000000000006 /* ContentView.swift in Sources */,
+                A00000000000000000000008 /* DashboardView.swift in Sources */,
+                A0000000000000000000000A /* SettingsView.swift in Sources */,
+                A0000000000000000000000C /* XPCServiceManager.swift in Sources */,
+                A0000000000000000000000E /* SharedTypes.swift in Sources */,
+            );
+            runOnlyForDeploymentPostprocessing = 0;
+        };
+        A00000000000000000000046 /* Sources */ = {
+            isa = PBXSourcesBuildPhase;
+            buildActionMask = 2147483647;
+            files = (
+                A00000000000000000000010 /* MailExtension.swift in Sources */,
+                A00000000000000000000012 /* ComposeSessionHandler.swift in Sources */,
+                A00000000000000000000014 /* MessageViewController.swift in Sources */,
+            );
+            runOnlyForDeploymentPostprocessing = 0;
+        };
+        A00000000000000000000049 /* Sources */ = {
+            isa = PBXSourcesBuildPhase;
+            buildActionMask = 2147483647;
+            files = (
+                A00000000000000000000016 /* main.swift in Sources */,
+                A00000000000000000000018 /* MailAssistantService.swift in Sources */,
+                A0000000000000000000001A /* AIProvider.swift in Sources */,
+            );
+            runOnlyForDeploymentPostprocessing = 0;
+        };
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+        A00000000000000000000043 /* PBXTargetDependency */ = {
+            isa = PBXTargetDependency;
+            target = A00000000000000000000020 /* MailExtension */;
+            targetProxy = A0000000000000000000001E /* PBXContainerItemProxy */;
+        };
+        A00000000000000000000044 /* PBXTargetDependency */ = {
+            isa = PBXTargetDependency;
+            target = A00000000000000000000022 /* MailAssistantService */;
+            targetProxy = A00000000000000000000021 /* PBXContainerItemProxy */;
+        };
+        A00000000000000000000101 /* PBXTargetDependency */ = {
+            isa = PBXTargetDependency;
+            target = A0000000000000000000003F /* KimiMailAssistant */;
+        };
+        A00000000000000000000102 /* PBXTargetDependency */ = {
+            isa = PBXTargetDependency;
+            target = A00000000000000000000020 /* MailExtension */;
+        };
+        A00000000000000000000103 /* PBXTargetDependency */ = {
+            isa = PBXTargetDependency;
+            target = A00000000000000000000022 /* MailAssistantService */;
+        };
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+        A0000000000000000000004C /* Debug */ = {
+            isa = XCBuildConfiguration;
+            buildSettings = {
+                ALWAYS_SEARCH_USER_PATHS = NO;
+                ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+                CLANG_ANALYZER_NONNULL = YES;
+                CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+                CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+                CLANG_ENABLE_MODULES = YES;
+                CLANG_ENABLE_OBJC_ARC = YES;
+                CLANG_ENABLE_OBJC_WEAK = YES;
+                CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+                CLANG_WARN_BOOL_CONVERSION = YES;
+                CLANG_WARN_COMMA = YES;
+                CLANG_WARN_CONSTANT_CONVERSION = YES;
+                CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+                CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+                CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+                CLANG_WARN_EMPTY_BODY = YES;
+                CLANG_WARN_ENUM_CONVERSION = YES;
+                CLANG_WARN_INFINITE_RECURSION = YES;
+                CLANG_WARN_INT_CONVERSION = YES;
+                CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+                CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+                CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+                CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+                CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+                CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+                CLANG_WARN_STRICT_PROTOTYPES = YES;
+                CLANG_WARN_SUSPICIOUS_MOVE = YES;
+                CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+                CLANG_WARN_UNREACHABLE_CODE = YES;
+                CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+                COPY_PHASE_STRIP = NO;
+                DEBUG_INFORMATION_FORMAT = dwarf;
+                ENABLE_STRICT_OBJC_MSGSEND = YES;
+                ENABLE_TESTABILITY = YES;
+                ENABLE_USER_SCRIPT_SANDBOXING = YES;
+                GCC_C_LANGUAGE_STANDARD = gnu17;
+                GCC_DYNAMIC_NO_PIC = NO;
+                GCC_NO_COMMON_BLOCKS = YES;
+                GCC_OPTIMIZATION_LEVEL = 0;
+                GCC_PREPROCESSOR_DEFINITIONS = (
+                    "DEBUG=1",
+                    "$(inherited)",
+                );
+                GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+                GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+                GCC_WARN_UNDECLARED_SELECTOR = YES;
+                GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+                GCC_WARN_UNUSED_FUNCTION = YES;
+                GCC_WARN_UNUSED_VARIABLE = YES;
+                LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+                MACOSX_DEPLOYMENT_TARGET = 14.0;
+                MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+                MTL_FAST_MATH = YES;
+                ONLY_ACTIVE_ARCH = YES;
+                SDKROOT = macosx;
+                SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+                SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+            };
+            name = Debug;
+        };
+        A0000000000000000000004D /* Release */ = {
+            isa = XCBuildConfiguration;
+            buildSettings = {
+                ALWAYS_SEARCH_USER_PATHS = NO;
+                ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+                CLANG_ANALYZER_NONNULL = YES;
+                CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+                CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+                CLANG_ENABLE_MODULES = YES;
+                CLANG_ENABLE_OBJC_ARC = YES;
+                CLANG_ENABLE_OBJC_WEAK = YES;
+                CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+                CLANG_WARN_BOOL_CONVERSION = YES;
+                CLANG_WARN_COMMA = YES;
+                CLANG_WARN_CONSTANT_CONVERSION = YES;
+                CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+                CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+                CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+                CLANG_WARN_EMPTY_BODY = YES;
+                CLANG_WARN_ENUM_CONVERSION = YES;
+                CLANG_WARN_INFINITE_RECURSION = YES;
+                CLANG_WARN_INT_CONVERSION = YES;
+                CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+                CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+                CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+                CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+                CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+                CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+                CLANG_WARN_STRICT_PROTOTYPES = YES;
+                CLANG_WARN_SUSPICIOUS_MOVE = YES;
+                CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+                CLANG_WARN_UNREACHABLE_CODE = YES;
+                CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+                COPY_PHASE_STRIP = NO;
+                DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+                ENABLE_NS_ASSERTIONS = NO;
+                ENABLE_STRICT_OBJC_MSGSEND = YES;
+                ENABLE_USER_SCRIPT_SANDBOXING = YES;
+                GCC_C_LANGUAGE_STANDARD = gnu17;
+                GCC_NO_COMMON_BLOCKS = YES;
+                GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+                GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+                GCC_WARN_UNDECLARED_SELECTOR = YES;
+                GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+                GCC_WARN_UNUSED_FUNCTION = YES;
+                GCC_WARN_UNUSED_VARIABLE = YES;
+                LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+                MACOSX_DEPLOYMENT_TARGET = 14.0;
+                MTL_ENABLE_DEBUG_INFO = NO;
+                MTL_FAST_MATH = YES;
+                SDKROOT = macosx;
+                SWIFT_COMPILATION_MODE = wholemodule;
+            };
+            name = Release;
+        };
+        A0000000000000000000004E /* Debug */ = {
+            isa = XCBuildConfiguration;
+            buildSettings = {
+                ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+                ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+                CODE_SIGN_ENTITLEMENTS = KimiMailAssistant/Resources/KimiMailAssistant.entitlements;
+                CODE_SIGN_STYLE = Automatic;
+                COMBINE_HIDPI_IMAGES = YES;
+                CURRENT_PROJECT_VERSION = 1;
+                DEVELOPMENT_TEAM = "";
+                ENABLE_HARDENED_RUNTIME = YES;
+                GENERATE_INFOPLIST_FILE = NO;
+                INFOPLIST_FILE = KimiMailAssistant/Resources/Info.plist;
+                INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+                INFOPLIST_KEY_NSHumanReadableCopyright = "";
+                LD_RUNPATH_SEARCH_PATHS = (
+                    "$(inherited)",
+                    "@executable_path/../Frameworks",
+                );
+                MARKETING_VERSION = 1.0;
+                PRODUCT_BUNDLE_IDENTIFIER = com.rabitem.KimiMailAssistant;
+                PRODUCT_NAME = "$(TARGET_NAME)";
+                SWIFT_EMIT_LOC_STRINGS = YES;
+                SWIFT_VERSION = 6.0;
+            };
+            name = Debug;
+        };
+        A0000000000000000000004F /* Release */ = {
+            isa = XCBuildConfiguration;
+            buildSettings = {
+                ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+                ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+                CODE_SIGN_ENTITLEMENTS = KimiMailAssistant/Resources/KimiMailAssistant.entitlements;
+                CODE_SIGN_STYLE = Automatic;
+                COMBINE_HIDPI_IMAGES = YES;
+                CURRENT_PROJECT_VERSION = 1;
+                DEVELOPMENT_TEAM = "";
+                ENABLE_HARDENED_RUNTIME = YES;
+                GENERATE_INFOPLIST_FILE = NO;
+                INFOPLIST_FILE = KimiMailAssistant/Resources/Info.plist;
+                INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+                INFOPLIST_KEY_NSHumanReadableCopyright = "";
+                LD_RUNPATH_SEARCH_PATHS = (
+                    "$(inherited)",
+                    "@executable_path/../Frameworks",
+                );
+                MARKETING_VERSION = 1.0;
+                PRODUCT_BUNDLE_IDENTIFIER = com.rabitem.KimiMailAssistant;
+                PRODUCT_NAME = "$(TARGET_NAME)";
+                SWIFT_EMIT_LOC_STRINGS = YES;
+                SWIFT_VERSION = 6.0;
+            };
+            name = Release;
+        };
+        A00000000000000000000050 /* Debug */ = {
+            isa = XCBuildConfiguration;
+            buildSettings = {
+                CODE_SIGN_ENTITLEMENTS = MailExtension/Resources/MailExtension.entitlements;
+                CODE_SIGN_STYLE = Automatic;
+                COMBINE_HIDPI_IMAGES = YES;
+                CURRENT_PROJECT_VERSION = 1;
+                DEVELOPMENT_TEAM = "";
+                ENABLE_HARDENED_RUNTIME = YES;
+                GENERATE_INFOPLIST_FILE = NO;
+                INFOPLIST_FILE = MailExtension/Resources/Info.plist;
+                INFOPLIST_KEY_CFBundleDisplayName = "Kimi Mail Assistant";
+                INFOPLIST_KEY_NSHumanReadableCopyright = "";
+                LD_RUNPATH_SEARCH_PATHS = (
+                    "$(inherited)",
+                    "@executable_path/../Frameworks",
+                    "@executable_path/../../../../Frameworks",
+                );
+                MARKETING_VERSION = 1.0;
+                PRODUCT_BUNDLE_IDENTIFIER = com.rabitem.KimiMailAssistant.MailExtension;
+                PRODUCT_NAME = "$(TARGET_NAME)";
+                SKIP_INSTALL = YES;
+                SWIFT_EMIT_LOC_STRINGS = YES;
+                SWIFT_VERSION = 6.0;
+                WRAPPER_EXTENSION = appex;
+            };
+            name = Debug;
+        };
+        A00000000000000000000051 /* Release */ = {
+            isa = XCBuildConfiguration;
+            buildSettings = {
+                CODE_SIGN_ENTITLEMENTS = MailExtension/Resources/MailExtension.entitlements;
+                CODE_SIGN_STYLE = Automatic;
+                COMBINE_HIDPI_IMAGES = YES;
+                CURRENT_PROJECT_VERSION = 1;
+                DEVELOPMENT_TEAM = "";
+                ENABLE_HARDENED_RUNTIME = YES;
+                GENERATE_INFOPLIST_FILE = NO;
+                INFOPLIST_FILE = MailExtension/Resources/Info.plist;
+                INFOPLIST_KEY_CFBundleDisplayName = "Kimi Mail Assistant";
+                INFOPLIST_KEY_NSHumanReadableCopyright = "";
+                LD_RUNPATH_SEARCH_PATHS = (
+                    "$(inherited)",
+                    "@executable_path/../Frameworks",
+                    "@executable_path/../../../../Frameworks",
+                );
+                MARKETING_VERSION = 1.0;
+                PRODUCT_BUNDLE_IDENTIFIER = com.rabitem.KimiMailAssistant.MailExtension;
+                PRODUCT_NAME = "$(TARGET_NAME)";
+                SKIP_INSTALL = YES;
+                SWIFT_EMIT_LOC_STRINGS = YES;
+                SWIFT_VERSION = 6.0;
+                WRAPPER_EXTENSION = appex;
+            };
+            name = Release;
+        };
+        A00000000000000000000052 /* Debug */ = {
+            isa = XCBuildConfiguration;
+            buildSettings = {
+                CODE_SIGN_ENTITLEMENTS = MailAssistantService/Resources/MailAssistantService.entitlements;
+                CODE_SIGN_STYLE = Automatic;
+                COMBINE_HIDPI_IMAGES = YES;
+                CURRENT_PROJECT_VERSION = 1;
+                DEVELOPMENT_TEAM = "";
+                ENABLE_HARDENED_RUNTIME = YES;
+                GENERATE_INFOPLIST_FILE = NO;
+                INFOPLIST_FILE = MailAssistantService/Resources/Info.plist;
+                INFOPLIST_KEY_NSHumanReadableCopyright = "";
+                LD_RUNPATH_SEARCH_PATHS = (
+                    "$(inherited)",
+                    "@executable_path/../Frameworks",
+                    "@executable_path/../../../../Frameworks",
+                );
+                MARKETING_VERSION = 1.0;
+                PRODUCT_BUNDLE_IDENTIFIER = com.rabitem.KimiMailAssistant.MailAssistantService;
+                PRODUCT_NAME = "$(TARGET_NAME)";
+                SKIP_INSTALL = YES;
+                SWIFT_EMIT_LOC_STRINGS = YES;
+                SWIFT_VERSION = 6.0;
+                WRAPPER_EXTENSION = xpc;
+            };
+            name = Debug;
+        };
+        A00000000000000000000053 /* Release */ = {
+            isa = XCBuildConfiguration;
+            buildSettings = {
+                CODE_SIGN_ENTITLEMENTS = MailAssistantService/Resources/MailAssistantService.entitlements;
+                CODE_SIGN_STYLE = Automatic;
+                COMBINE_HIDPI_IMAGES = YES;
+                CURRENT_PROJECT_VERSION = 1;
+                DEVELOPMENT_TEAM = "";
+                ENABLE_HARDENED_RUNTIME = YES;
+                GENERATE_INFOPLIST_FILE = NO;
+                INFOPLIST_FILE = MailAssistantService/Resources/Info.plist;
+                INFOPLIST_KEY_NSHumanReadableCopyright = "";
+                LD_RUNPATH_SEARCH_PATHS = (
+                    "$(inherited)",
+                    "@executable_path/../Frameworks",
+                    "@executable_path/../../../../Frameworks",
+                );
+                MARKETING_VERSION = 1.0;
+                PRODUCT_BUNDLE_IDENTIFIER = com.rabitem.KimiMailAssistant.MailAssistantService;
+                PRODUCT_NAME = "$(TARGET_NAME)";
+                SKIP_INSTALL = YES;
+                SWIFT_EMIT_LOC_STRINGS = YES;
+                SWIFT_VERSION = 6.0;
+                WRAPPER_EXTENSION = xpc;
+            };
+            name = Release;
+        };
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+        A00000000000000000000040 /* Build configuration list for PBXNativeTarget "KimiMailAssistant" */ = {
+            isa = XCConfigurationList;
+            buildConfigurations = (
+                A0000000000000000000004E /* Debug */,
+                A0000000000000000000004F /* Release */,
+            );
+            defaultConfigurationIsVisible = 0;
+            defaultConfigurationName = Release;
+        };
+        A00000000000000000000045 /* Build configuration list for PBXNativeTarget "MailExtension" */ = {
+            isa = XCConfigurationList;
+            buildConfigurations = (
+                A00000000000000000000050 /* Debug */,
+                A00000000000000000000051 /* Release */,
+            );
+            defaultConfigurationIsVisible = 0;
+            defaultConfigurationName = Release;
+        };
+        A00000000000000000000048 /* Build configuration list for PBXNativeTarget "MailAssistantService" */ = {
+            isa = XCConfigurationList;
+            buildConfigurations = (
+                A00000000000000000000052 /* Debug */,
+                A00000000000000000000053 /* Release */,
+            );
+            defaultConfigurationIsVisible = 0;
+            defaultConfigurationName = Release;
+        };
+        A0000000000000000000004B /* Build configuration list for PBXProject "KimiMailAssistant" */ = {
+            isa = XCConfigurationList;
+            buildConfigurations = (
+                A0000000000000000000004C /* Debug */,
+                A0000000000000000000004D /* Release */,
+            );
+            defaultConfigurationIsVisible = 0;
+            defaultConfigurationName = Release;
+        };
+        A00000000000000000000100 /* Build configuration list for PBXAggregateTarget "KimiMailAssistant-All" */ = {
+            isa = XCConfigurationList;
+            buildConfigurations = (
+            );
+            defaultConfigurationIsVisible = 0;
+        };
+/* End XCConfigurationList section */
+    };
+    rootObject = A0000000000000000000001F /* Project object */;
+}

@@ -1,0 +1,233 @@
+{
+  "$schema": "https://kimimail.app/plugin-schema/v1.json",
+  "id": "ai.kimi.provider",
+  "name": "Kimi AI Provider",
+  "version": "1.0.0",
+  "minAppVersion": "1.0.0",
+  "author": {
+    "name": "KimiMail Assistant",
+    "email": "support@kimimail.app",
+    "url": "https://kimimail.app"
+  },
+  "description": "Kimi (Moonshot AI) provider for intelligent email response generation with streaming support and conversation context.",
+  "category": "ai_provider",
+  "permissions": [
+    "network",
+    "keychain",
+    "background_processing"
+  ],
+  "hooks": [],
+  "dependencies": [],
+  "entryPoint": "KimiProviderPlugin",
+  "resources": {
+    "icon": "kimi-icon.png",
+    "localizations": ["en", "zh", "de"]
+  },
+  "configuration": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "baseURL": {
+          "type": "string",
+          "default": "https://api.moonshot.cn/v1",
+          "description": "Kimi API base URL"
+        },
+        "defaultModel": {
+          "type": "string",
+          "enum": ["kimi-k2", "kimi-k2-latest"],
+          "default": "kimi-k2",
+          "description": "Default model to use for completions"
+        },
+        "defaultTemperature": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 2,
+          "default": 0.7,
+          "description": "Sampling temperature"
+        },
+        "defaultMaxTokens": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 8192,
+          "default": 2048,
+          "description": "Maximum tokens per response"
+        },
+        "topP": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "default": 1.0,
+          "description": "Nucleus sampling parameter"
+        },
+        "frequencyPenalty": {
+          "type": "number",
+          "minimum": -2,
+          "maximum": 2,
+          "default": 0.0,
+          "description": "Frequency penalty for token selection"
+        },
+        "presencePenalty": {
+          "type": "number",
+          "minimum": -2,
+          "maximum": 2,
+          "default": 0.0,
+          "description": "Presence penalty for token selection"
+        },
+        "timeoutSeconds": {
+          "type": "number",
+          "minimum": 10,
+          "maximum": 300,
+          "default": 60.0,
+          "description": "Request timeout in seconds"
+        }
+      }
+    },
+    "defaults": {
+      "baseURL": "https://api.moonshot.cn/v1",
+      "defaultModel": "kimi-k2",
+      "defaultTemperature": 0.7,
+      "defaultMaxTokens": 2048,
+      "topP": 1.0,
+      "frequencyPenalty": 0.0,
+      "presencePenalty": 0.0,
+      "timeoutSeconds": 60.0
+    },
+    "ui": {
+      "sections": [
+        {
+          "title": "API Configuration",
+          "fields": [
+            {
+              "key": "apiKey",
+              "type": "secure_string",
+              "label": "API Key",
+              "description": "Your Kimi API key from https://platform.moonshot.cn",
+              "required": true,
+              "storage": "keychain"
+            },
+            {
+              "key": "baseURL",
+              "type": "string",
+              "label": "API Base URL",
+              "description": "Override the default API endpoint",
+              "required": false
+            }
+          ]
+        },
+        {
+          "title": "Model Settings",
+          "fields": [
+            {
+              "key": "defaultModel",
+              "type": "select",
+              "label": "Default Model",
+              "options": [
+                { "value": "kimi-k2", "label": "Kimi K2" },
+                { "value": "kimi-k2-latest", "label": "Kimi K2 Latest" }
+              ]
+            },
+            {
+              "key": "defaultTemperature",
+              "type": "slider",
+              "label": "Temperature",
+              "min": 0,
+              "max": 2,
+              "step": 0.1,
+              "description": "Higher values produce more creative outputs"
+            },
+            {
+              "key": "defaultMaxTokens",
+              "type": "integer",
+              "label": "Max Tokens",
+              "min": 256,
+              "max": 8192,
+              "description": "Maximum length of generated responses"
+            }
+          ]
+        },
+        {
+          "title": "Advanced",
+          "collapsible": true,
+          "fields": [
+            {
+              "key": "topP",
+              "type": "slider",
+              "label": "Top P",
+              "min": 0,
+              "max": 1,
+              "step": 0.05
+            },
+            {
+              "key": "frequencyPenalty",
+              "type": "slider",
+              "label": "Frequency Penalty",
+              "min": -2,
+              "max": 2,
+              "step": 0.1
+            },
+            {
+              "key": "presencePenalty",
+              "type": "slider",
+              "label": "Presence Penalty",
+              "min": -2,
+              "max": 2,
+              "step": 0.1
+            },
+            {
+              "key": "timeoutSeconds",
+              "type": "integer",
+              "label": "Timeout (seconds)",
+              "min": 10,
+              "max": 300
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "provider": {
+    "type": "ai_provider",
+    "models": [
+      {
+        "id": "kimi-k2",
+        "name": "Kimi K2",
+        "description": "Balanced performance with excellent context understanding",
+        "maxTokens": 8192,
+        "contextWindow": 128000,
+        "supportsStreaming": true,
+        "features": ["streaming", "function_calling", "json_mode"],
+        "pricing": {
+          "inputPer1K": 0.003,
+          "outputPer1K": 0.003
+        }
+      },
+      {
+        "id": "kimi-k2-latest",
+        "name": "Kimi K2 Latest",
+        "description": "Latest version with improved reasoning capabilities",
+        "maxTokens": 8192,
+        "contextWindow": 128000,
+        "supportsStreaming": true,
+        "features": ["streaming", "function_calling", "json_mode"],
+        "pricing": {
+          "inputPer1K": 0.003,
+          "outputPer1K": 0.003
+        }
+      }
+    ],
+    "capabilities": {
+      "streaming": true,
+      "systemPrompts": true,
+      "conversationContext": true,
+      "jsonMode": true,
+      "functionCalling": true
+    }
+  },
+  "metadata": {
+    "homepage": "https://platform.moonshot.cn",
+    "documentation": "https://platform.moonshot.cn/docs",
+    "changelog": "https://kimimail.app/plugins/kimi/changelog",
+    "support": "https://kimimail.app/support",
+    "license": "MIT"
+  }
+}

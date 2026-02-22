@@ -1,0 +1,149 @@
+{
+  "$schema": "https://kimimail.app/plugin-schema/v1.json",
+  "id": "core.style.learner",
+  "name": "Style Learner",
+  "version": "1.0.0",
+  "minAppVersion": "1.0.0",
+  "author": {
+    "name": "KimiMail Assistant",
+    "email": "support@kimimail.app",
+    "url": "https://kimimail.app"
+  },
+  "description": "Analyzes sent emails to build a personalized writing style profile. Learns your tone, vocabulary preferences, greeting patterns, and structural habits to help other plugins generate responses that match your unique style.",
+  "category": "analysis",
+  "permissions": [
+    "read_emails",
+    "modify_writing_profiles",
+    "background_execution",
+    "plugin_storage"
+  ],
+  "hooks": [
+    {
+      "event": "email.sent",
+      "handler": "handleEmailSent"
+    }
+  ],
+  "dependencies": [],
+  "entryPoint": "StyleLearnerPlugin",
+  "resources": {
+    "icon": "style-learner-icon.png",
+    "localizations": ["en", "de", "zh"]
+  },
+  "configuration": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "minEmailsForProfile": {
+          "type": "integer",
+          "minimum": 5,
+          "maximum": 100,
+          "default": 10,
+          "description": "Minimum number of emails needed before building a profile"
+        },
+        "batchSize": {
+          "type": "integer",
+          "minimum": 10,
+          "maximum": 200,
+          "default": 50,
+          "description": "Number of emails to process in each batch"
+        },
+        "retrainingIntervalDays": {
+          "type": "number",
+          "minimum": 1,
+          "maximum": 30,
+          "default": 7,
+          "description": "Days between automatic profile retraining"
+        },
+        "profileType": {
+          "type": "string",
+          "enum": ["personal", "work", "mixed"],
+          "default": "mixed",
+          "description": "Default profile type to build"
+        }
+      }
+    },
+    "defaults": {
+      "minEmailsForProfile": 10,
+      "batchSize": 50,
+      "retrainingIntervalDays": 7,
+      "profileType": "mixed"
+    },
+    "ui": {
+      "sections": [
+        {
+          "title": "Analysis Settings",
+          "fields": [
+            {
+              "key": "minEmailsForProfile",
+              "type": "integer",
+              "label": "Minimum Emails for Profile",
+              "description": "How many sent emails are needed before creating your profile",
+              "min": 5,
+              "max": 100
+            },
+            {
+              "key": "batchSize",
+              "type": "integer",
+              "label": "Batch Processing Size",
+              "description": "Number of emails to analyze together",
+              "min": 10,
+              "max": 200
+            }
+          ]
+        },
+        {
+          "title": "Retraining",
+          "fields": [
+            {
+              "key": "retrainingIntervalDays",
+              "type": "integer",
+              "label": "Retraining Interval (days)",
+              "description": "How often to re-analyze your emails to update your profile",
+              "min": 1,
+              "max": 30
+            }
+          ]
+        },
+        {
+          "title": "Profile Type",
+          "fields": [
+            {
+              "key": "profileType",
+              "type": "select",
+              "label": "Default Profile Type",
+              "description": "The type of writing style to learn",
+              "options": [
+                { "value": "personal", "label": "Personal" },
+                { "value": "work", "label": "Work" },
+                { "value": "mixed", "label": "Mixed (Auto-detect)" }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "analysis": {
+    "types": ["tone"],
+    "capabilities": {
+      "realTime": false,
+      "batchProcessing": true,
+      "supportsCancellation": true
+    }
+  },
+  "events": {
+    "publishes": [
+      "writing_style_analyzed"
+    ],
+    "subscribes": [
+      "email.sent"
+    ]
+  },
+  "metadata": {
+    "homepage": "https://kimimail.app/plugins/style-learner",
+    "documentation": "https://kimimail.app/docs/style-learner",
+    "changelog": "https://kimimail.app/plugins/style-learner/changelog",
+    "support": "https://kimimail.app/support",
+    "license": "MIT"
+  }
+}
