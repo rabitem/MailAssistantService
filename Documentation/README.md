@@ -6,7 +6,7 @@ An AI-powered macOS Mail extension that provides intelligent email assistance us
 
 ### Targets
 
-1. **KimiMailAssistant** (Main App) - macOS application
+1. **MailAssistant** (Main App) - macOS application
    - SwiftUI-based interface
    - Plugin management
    - AI provider configuration
@@ -75,10 +75,10 @@ An AI-powered macOS Mail extension that provides intelligent email assistance us
 
 ```bash
 # Open the project
-open KimiMailAssistant.xcodeproj
+open MailAssistant.xcodeproj
 
 # Or build from command line
-xcodebuild -project KimiMailAssistant.xcodeproj -scheme KimiMailAssistant build
+xcodebuild -project MailAssistant.xcodeproj -scheme MailAssistant build
 ```
 
 ## Configuration
@@ -87,7 +87,7 @@ xcodebuild -project KimiMailAssistant.xcodeproj -scheme KimiMailAssistant build
 Store API keys in macOS Keychain:
 - Open Keychain Access
 - Add a new password item
-- Service name: `com.rabitem.KimiMailAssistant.apikeys`
+- Service name: `com.rabitem.MailAssistant.apikeys`
 
 ### Enabling the Extension
 1. Build and run the main app

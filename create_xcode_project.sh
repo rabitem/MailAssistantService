@@ -1,13 +1,13 @@
 #!/bin/bash
 
 # Create Xcode project structure manually
-mkdir -p "KimiMailAssistant.xcodeproj/project.xcworkspace"
-mkdir -p "KimiMailAssistant.xcodeproj/xcshareddata/xcschemes"
+mkdir -p "MailAssistant.xcodeproj/project.xcworkspace"
+mkdir -p "MailAssistant.xcodeproj/xcshareddata/xcschemes"
 
 # Generate project.pbxproj
 # Note: This is a simplified version - full Xcode projects are very complex
 
-cat > "KimiMailAssistant.xcodeproj/project.pbxproj" << 'PBXEOF'
+cat > "MailAssistant.xcodeproj/project.pbxproj" << 'PBXEOF'
 // !$*UTF8*$!
 {
     archiveVersion = 1;
@@ -21,7 +21,7 @@ cat > "KimiMailAssistant.xcodeproj/project.pbxproj" << 'PBXEOF'
 
 /* Begin PBXFileReference section */
         /* Main App */
-        A00000000000000000000001 /* KimiMailAssistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KimiMailAssistant.app; sourceTree = BUILT_PRODUCTS_DIR; };
+        A00000000000000000000001 /* MailAssistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MailAssistant.app; sourceTree = BUILT_PRODUCTS_DIR; };
         
         /* Mail Extension */
         A00000000000000000000002 /* MailExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MailExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };

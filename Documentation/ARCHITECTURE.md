@@ -6,7 +6,7 @@ Kimi Mail Assistant uses a multi-process architecture to ensure security, stabil
 
 ## Process Model
 
-### Main App (KimiMailAssistant)
+### Main App (MailAssistant)
 - User interface (SwiftUI)
 - Settings management
 - Plugin discovery and lifecycle

@@ -277,7 +277,7 @@ class SuggestionPanelController {
 // MARK: - Notifications
 
 extension Notification.Name {
-    static let didInsertSuggestion = Notification.Name("com.rabitem.KimiMailAssistant.didInsertSuggestion")
+    static let didInsertSuggestion = Notification.Name("com.rabitem.MailAssistant.didInsertSuggestion")
 }
 
 // MARK: - Compose Window Finder

@@ -20,10 +20,10 @@ class ToolbarInjector: NSObject {
     // MARK: - Toolbar Item Identifiers
     
     private enum ToolbarItemIdentifier {
-        static let quickActions = "com.rabitem.KimiMailAssistant.quickActions"
-        static let generate = "com.rabitem.KimiMailAssistant.generate"
-        static let toneSelector = "com.rabitem.KimiMailAssistant.toneSelector"
-        static let separator = "com.rabitem.KimiMailAssistant.separator"
+        static let quickActions = "com.rabitem.MailAssistant.quickActions"
+        static let generate = "com.rabitem.MailAssistant.generate"
+        static let toneSelector = "com.rabitem.MailAssistant.toneSelector"
+        static let separator = "com.rabitem.MailAssistant.separator"
     }
     
     // MARK: - Initialization
@@ -292,10 +292,10 @@ class KeyboardShortcutManager {
 // MARK: - Notifications
 
 extension Notification.Name {
-    static let toolbarActionTriggered = Notification.Name("com.rabitem.KimiMailAssistant.toolbarActionTriggered")
-    static let keyboardShortcutGenerate = Notification.Name("com.rabitem.KimiMailAssistant.keyboardShortcutGenerate")
-    static let keyboardShortcutSummarize = Notification.Name("com.rabitem.KimiMailAssistant.keyboardShortcutSummarize")
-    static let keyboardShortcutRegenerate = Notification.Name("com.rabitem.KimiMailAssistant.keyboardShortcutRegenerate")
+    static let toolbarActionTriggered = Notification.Name("com.rabitem.MailAssistant.toolbarActionTriggered")
+    static let keyboardShortcutGenerate = Notification.Name("com.rabitem.MailAssistant.keyboardShortcutGenerate")
+    static let keyboardShortcutSummarize = Notification.Name("com.rabitem.MailAssistant.keyboardShortcutSummarize")
+    static let keyboardShortcutRegenerate = Notification.Name("com.rabitem.MailAssistant.keyboardShortcutRegenerate")
 }
 
 // MARK: - Touch Bar Support
@@ -334,10 +334,10 @@ class ComposeTouchBar: NSTouchBar {
 extension ComposeTouchBar: NSTouchBarDelegate {
     
     enum TouchBarIdentifier {
-        static let generate = NSTouchBarItem.Identifier("com.rabitem.KimiMailAssistant.touchbar.generate")
-        static let tone = NSTouchBarItem.Identifier("com.rabitem.KimiMailAssistant.touchbar.tone")
-        static let length = NSTouchBarItem.Identifier("com.rabitem.KimiMailAssistant.touchbar.length")
-        static let settings = NSTouchBarItem.Identifier("com.rabitem.KimiMailAssistant.touchbar.settings")
+        static let generate = NSTouchBarItem.Identifier("com.rabitem.MailAssistant.touchbar.generate")
+        static let tone = NSTouchBarItem.Identifier("com.rabitem.MailAssistant.touchbar.tone")
+        static let length = NSTouchBarItem.Identifier("com.rabitem.MailAssistant.touchbar.length")
+        static let settings = NSTouchBarItem.Identifier("com.rabitem.MailAssistant.touchbar.settings")
     }
     
     func touchBar(_ touchBar: NSTouchBar, makeItemForIdentifier identifier: NSTouchBarItem.Identifier) -> NSTouchBarItem? {

@@ -1,4 +1,4 @@
-# KimiMailAssistant — Full-Scoped Architecture Plan
+# MailAssistant — Full-Scoped Architecture Plan
 
 > A plugin-powered macOS Mail extension with AI-driven response suggestions, built for extensibility, privacy, and scale.
 
@@ -798,12 +798,12 @@ enum SensitiveDataType {
 ## 📁 Project Structure
 
 ```
-KimiMailAssistant/
-├── 📁 KimiMailAssistant.xcodeproj
+MailAssistant/
+├── 📁 MailAssistant.xcodeproj
 │
 ├── 📁 App/                                    # Main app target
 │   ├── 📁 Sources/
-│   │   ├── 📄 KimiMailAssistantApp.swift      # App entry point
+│   │   ├── 📄 MailAssistantApp.swift      # App entry point
 │   │   ├── 📁 Windows/
 │   │   │   ├── 📄 MainWindow.swift
 │   │   │   ├── 📄 OnboardingWindow.swift

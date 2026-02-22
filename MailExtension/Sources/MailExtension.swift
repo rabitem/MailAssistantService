@@ -133,22 +133,22 @@ class MessageActionHandler: NSObject, MEMessageActionHandler {
         // AI-powered actions
         actions.append(.custom(
             title: "Summarize",
-            identifier: "com.rabitem.KimiMailAssistant.summarize"
+            identifier: "com.rabitem.MailAssistant.summarize"
         ))
         
         actions.append(.custom(
             title: "Suggest Reply",
-            identifier: "com.rabitem.KimiMailAssistant.suggestReply"
+            identifier: "com.rabitem.MailAssistant.suggestReply"
         ))
         
         actions.append(.custom(
             title: "Analyze Tone",
-            identifier: "com.rabitem.KimiMailAssistant.analyzeTone"
+            identifier: "com.rabitem.MailAssistant.analyzeTone"
         ))
         
         actions.append(.custom(
             title: "Quick Reply",
-            identifier: "com.rabitem.KimiMailAssistant.quickReply"
+            identifier: "com.rabitem.MailAssistant.quickReply"
         ))
         
         return actions
@@ -158,13 +158,13 @@ class MessageActionHandler: NSObject, MEMessageActionHandler {
         print("[MessageActionHandler] Performing action: \(action.identifier)")
         
         switch action.identifier {
-        case "com.rabitem.KimiMailAssistant.summarize":
+        case "com.rabitem.MailAssistant.summarize":
             performSummarize(message: message, completion: completion)
-        case "com.rabitem.KimiMailAssistant.suggestReply":
+        case "com.rabitem.MailAssistant.suggestReply":
             performSuggestReply(message: message, completion: completion)
-        case "com.rabitem.KimiMailAssistant.analyzeTone":
+        case "com.rabitem.MailAssistant.analyzeTone":
             performAnalyzeTone(message: message, completion: completion)
-        case "com.rabitem.KimiMailAssistant.quickReply":
+        case "com.rabitem.MailAssistant.quickReply":
             performQuickReply(message: message, completion: completion)
         default:
             completion(.success)
@@ -274,7 +274,7 @@ class MessageActionHandler: NSObject, MEMessageActionHandler {
 // MARK: - Notifications
 
 extension Notification.Name {
-    static let suggestReplyForMessage = Notification.Name("com.rabitem.KimiMailAssistant.suggestReplyForMessage")
-    static let showToneAnalysisResult = Notification.Name("com.rabitem.KimiMailAssistant.showToneAnalysisResult")
-    static let quickReplyGenerated = Notification.Name("com.rabitem.KimiMailAssistant.quickReplyGenerated")
+    static let suggestReplyForMessage = Notification.Name("com.rabitem.MailAssistant.suggestReplyForMessage")
+    static let showToneAnalysisResult = Notification.Name("com.rabitem.MailAssistant.showToneAnalysisResult")
+    static let quickReplyGenerated = Notification.Name("com.rabitem.MailAssistant.quickReplyGenerated")
 }

@@ -77,7 +77,7 @@ class XPCServiceConnection: ObservableObject {
     }
     
     func connect() {
-        connection = NSXPCConnection(serviceName: "com.rabitem.KimiMailAssistant.MailAssistantService")
+        connection = NSXPCConnection(serviceName: "com.rabitem.MailAssistant.MailAssistantService")
         connection?.remoteObjectInterface = NSXPCInterface(with: XPCServiceProtocol.self)
         
         connection?.invalidationHandler = { [weak self] in
